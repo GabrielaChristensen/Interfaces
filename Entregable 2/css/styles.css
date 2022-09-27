@@ -1,0 +1,486 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: linear-gradient(180deg, #003133 0%, #67989A 100%);
+}
+
+header {
+    background-color: #003133;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+div.menu img,
+.userProfile img {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+}
+
+div.logo img {
+    width: 90px;
+    height: 70px;
+}
+
+.menu-navbar {
+    background-color: #67989A;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 12px;
+    text-align: center;
+    padding: 8px;
+    line-height: 1.5;
+    overflow-y: auto;
+    transition: right 0.5s;
+    position: fixed;
+    top: 40px;
+    right: 100%;
+}
+
+.menu-navbar ul:first-child img {
+    width: 40px;
+    height: 40px;
+}
+
+.menu-navbar-visible {
+    background-color: #67989A;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 12px;
+    text-align: center;
+    padding: 8px;
+    line-height: 1.5;
+    overflow-y: auto;
+    transition: right 0.5s;
+    position: fixed;
+    top: 40px;
+
+}
+
+h1 {
+    font-size: 12px;
+    font-weight: 500;
+    color: #ffffff;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding-bottom: 2px;
+}
+
+p {
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 11px;
+}
+
+footer {
+    background-color: #003133;
+    color: #ffffff;
+    display: grid;
+    grid-template-areas: "empresa idiomas"
+        "asistencia seguinos";
+    position: relative;
+    bottom: 0%;
+    width: 100%;
+    padding: 3px;
+}
+
+footer div {
+    padding-top: 3px;
+}
+
+.footer-col-1 {
+    grid-area: empresa;
+}
+
+.footer-col-2 {
+    grid-area: idiomas;
+}
+
+.footer-col-3 {
+    grid-area: asistencia;
+}
+
+.footer-col-4 {
+    grid-area: seguinos;
+}
+
+footer p:first-child {
+    font-weight: 700;
+}
+
+footer p {
+    padding: 3px;
+}
+
+div.footer-col-4 img {
+    width: 25px;
+    height: 25px;
+    padding-right: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #F8C471;
+}
+
+::-webkit-scrollbar {
+    height: 5px;
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+.btn-comprar {
+    background-color: #F5B041;
+    color: #000000;
+    font-size: 10px;
+    padding: 3px;
+    margin: 3px;
+    border-radius: 5px;
+}
+
+.btn-comprar:hover {
+    background-color: #FAD7A0;
+}
+
+.btn-comprar:active {
+    background-color: #D68910;
+}
+
+.btn-jugar-verde {
+    background: #236467;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-size: 10px;
+    padding: 3px 5px 3px 5px;
+    margin: 3px;
+}
+
+.btn-jugar-verde:hover {
+    background-color: #67989A;
+}
+
+.btn-jugar-verde:active {
+    background-color: #0D4A4D;
+}
+
+.btn-info {
+    background-color: #236467;
+    color: #FFFFFF;
+    border-radius: 5px;
+    font-size: 10px;
+    padding: 3px 5px 3px 5px;
+    margin: 3px;
+}
+
+.btn-info:hover {
+    background-color: #67989A;
+}
+
+.btn-info:active {
+    background-color: #003133;
+}
+
+.btn-reservar {
+    background-color: #F5B041;
+    color: #000000;
+    font-size: 10px;
+    padding: 3px;
+    margin: 3px;
+    border-radius: 5px;
+}
+
+.btn-reservar:hover {
+    background-color: #FAD7A0;
+}
+
+.btn-reservar:active {
+    background-color: #D68910;
+}
+
+.juego-sugerido {
+    background-image: url("../images/godofwar.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 150px;
+    padding: 20px;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.texto-juego-sugerido {
+    width: 30%;
+    background-color: #003133;
+    opacity: 0.95;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.precioSugerido {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.precioSugerido p {
+    padding-top: 5px;
+}
+
+.contenedor-carrousel {
+    background: #67989A;
+    border-radius: 4px;
+    margin: 8px 4px 8px 8px;
+    overflow-x: scroll;
+    width: 100%;
+}
+
+.titulo-categoria {
+    padding-top: 4px;
+    padding-left: 4px;
+}
+
+.carrousel {
+    width: 230%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.card-juego {
+    width: calc(100% / 4);
+    display: flex;
+    flex-flow: column;
+    height: 140px;
+    margin: 4px 16px 15px 8px;
+}
+
+.card-juego img {
+    height: 100px;
+    width: 100%;
+}
+
+.info-juego {
+    background-color: #003133;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    padding: 3px;
+}
+
+.precio-juego {
+    width: 60%;
+}
+
+.precio-juego p {
+    padding-left: 4px;
+}
+
+.precio-juego h1 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 120px;
+}
+
+.juego-coming-soon {
+    background-image: url("../images/2560x1440-px-Lara-Croft-Rise-of-the-Tomb-Raider-Tomb-Raider-video-games-685610-wallhere.com\ 1.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 90px;
+    padding: 20px;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.texto-juego-coming-soon {
+    background-color: #003133;
+    opacity: 0.95;
+    width: 50%;
+    margin-top: 20px;
+    padding: 5px;
+}
+
+.texto-juego-coming-soon p {
+    color: #D3D3D3;
+}
+
+.texto-juego-coming-soon div {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-end;
+}
+
+@media only screen and (min-width:1024px) {
+
+    h1 {
+        font-size: 25px;
+    }
+
+
+    p {
+        font-size: 18px;
+    }
+
+    header {
+        height: 80px;
+    }
+
+    div.menu img,
+    .userProfile img {
+        width: 70px;
+        height: 70px;
+    }
+
+    div.logo img {
+        width: 110px;
+        height: 70px;
+    }
+
+    footer {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-around;
+        position: relative;
+        bottom: 0%;
+        width: 100%;
+        padding: 5px;
+        height: 170px;
+    }
+
+    footer p {
+        font-size: 15px;
+    }
+
+    div.footer-col-4 img {
+        width: 35px;
+        height: 35px;
+        padding-right: 20px;
+        padding-top: 30px;
+    }
+
+    footer p:first-child {
+        padding-top: 20px;
+    }
+
+    .btn-comprar {
+        font-size: 17px;
+        padding: 8px;
+        margin: 3px;
+    }
+
+    .btn-jugar-verde {
+        font-size: 17px;
+        padding: 10px;
+        margin: 3px;
+    }
+
+    .btn-info {
+        font-size: 17px;
+        padding: 10px 20px 10px 20px;
+        margin-right: 15px;
+        margin-bottom: 15px;
+    }
+
+    .btn-reservar {
+        font-size: 17px;
+        padding: 10px 20px 10px 20px;
+        margin-bottom: 15px;
+        margin-right: 15px;
+
+    }
+
+    .juego-sugerido {
+        height: 720px;
+    }
+
+    .texto-juego-sugerido {
+        opacity: 0.90;
+        padding: 10px;
+        margin-top: 20%;
+    }
+
+    .precioSugerido p {
+        padding-top: 10px;
+        font-size: 20px;
+    }
+
+    .contenedor-carrousel {
+        margin: 30px 10px 30px 20px;
+        height: 450px;
+    }
+
+    .titulo-categoria {
+        padding: 15px 0px 15px 20px;
+    }
+
+
+    .carrousel {
+        width: 130%;
+    }
+
+    .card-juego {
+        width: calc(100% / 3);
+        height: 280px;
+        margin: 4px 16px 15px 25px;
+    }
+
+    .card-juego img {
+        height: 260px;
+    }
+
+    .info-juego {
+        padding: 10px;
+        margin-top: 4px;
+    }
+
+    .precio-juego {
+        width: 60%;
+    }
+
+    .precio-juego p {
+        padding-left: 2px;
+    }
+
+    .precio-juego h1 {
+        width: 240px;
+    }
+
+    .juego-coming-soon {
+        height: 500px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .texto-juego-coming-soon {
+        opacity: 0.85;
+        margin-top: 250px;
+    }
+
+    .texto-juego-coming-soon h1 {
+        font-size: 50px;
+        padding-left: 8px;
+    }
+
+    .texto-juego-coming-soon p {
+        padding-left: 10px;
+    }
+}
