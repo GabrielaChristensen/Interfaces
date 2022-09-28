@@ -21,6 +21,10 @@ header {
     height: 60px;
 }
 
+button {
+    cursor: pointer;
+}
+
 div.menu img,
 .userProfile img {
     width: 40px;
@@ -45,11 +49,14 @@ div.logo img {
     text-align: center;
     padding: 8px;
     line-height: 1.5;
-    overflow-y: auto;
     transition: right 0.5s;
-    position: fixed;
+    position: absolute;
     top: 40px;
-    right: 100%;
+    visibility: hidden;
+}
+
+.menu-hamburguesa {
+    background-color: transparent;
 }
 
 .menu-navbar ul:first-child img {
@@ -58,22 +65,21 @@ div.logo img {
 }
 
 .menu-navbar-visible {
-    background-color: #67989A;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #FFFFFF;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-size: 12px;
-    text-align: center;
-    padding: 8px;
-    line-height: 1.5;
-    overflow-y: auto;
-    transition: right 0.5s;
-    position: fixed;
-    top: 40px;
+    width: 100px;
+    visibility: visible;
+    z-index: 2;
+}
 
+.menu-navbar ul li:first-child {
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+.menu-navbar ul li {
+    height: 20px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    width: 100%;
 }
 
 h1 {
@@ -84,7 +90,8 @@ h1 {
     padding-bottom: 2px;
 }
 
-p {
+p,
+a {
     color: #FFFFFF;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-size: 11px;
@@ -155,8 +162,8 @@ div.footer-col-4 img {
     color: #000000;
     font-size: 10px;
     padding: 3px;
-    margin: 3px;
     border-radius: 5px;
+    margin: 3px;
 }
 
 .btn-comprar:hover {
@@ -182,6 +189,12 @@ div.footer-col-4 img {
 
 .btn-jugar-verde:active {
     background-color: #0D4A4D;
+}
+
+.contenedor-boton-juego .btn-jugar-verde img {
+    width: 10px;
+    height: 10px;
+    vertical-align: middle;
 }
 
 .btn-info {
@@ -302,20 +315,23 @@ div.footer-col-4 img {
     width: 120px;
 }
 
+
 .juego-coming-soon {
     background-image: url("../images/2560x1440-px-Lara-Croft-Rise-of-the-Tomb-Raider-Tomb-Raider-video-games-685610-wallhere.com\ 1.png");
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
-    height: 90px;
     padding: 20px;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.juego-coming-soon img {
+    width: 300px;
 }
 
 .texto-juego-coming-soon {
     background-color: #003133;
     opacity: 0.95;
     width: 50%;
-    margin-top: 20px;
     padding: 5px;
 }
 
@@ -331,12 +347,33 @@ div.footer-col-4 img {
 
 @media only screen and (min-width:1024px) {
 
+    .menu-navbar {
+        top: 70px
+    }
+
+    .menu-navbar-visible {
+        width: 200px
+    }
+
+    .menu-navbar ul li {
+        height: 40px;
+        padding-top: 40px;
+        padding-bottom: 20px;
+    }
+
+    .menu-navbar ul:first-child img {
+        width: 60px;
+        height: 60px;
+    }
+
+
     h1 {
         font-size: 25px;
     }
 
 
-    p {
+    p,
+    a {
         font-size: 18px;
     }
 
@@ -362,7 +399,7 @@ div.footer-col-4 img {
         position: relative;
         bottom: 0%;
         width: 100%;
-        padding: 5px;
+        padding: 0;
         height: 170px;
     }
 
@@ -383,14 +420,21 @@ div.footer-col-4 img {
 
     .btn-comprar {
         font-size: 17px;
-        padding: 8px;
+        padding: 12px 5px 12px 5px;
         margin: 3px;
     }
 
     .btn-jugar-verde {
         font-size: 17px;
-        padding: 10px;
-        margin: 3px;
+    }
+
+    .contenedor-boton-juego .btn-jugar-verde img {
+        width: 30px;
+        height: 39px;
+    }
+
+    .contenedor-boton-juego {
+        width: 30%;
     }
 
     .btn-info {
@@ -405,7 +449,6 @@ div.footer-col-4 img {
         padding: 10px 20px 10px 20px;
         margin-bottom: 15px;
         margin-right: 15px;
-
     }
 
     .juego-sugerido {
@@ -425,13 +468,13 @@ div.footer-col-4 img {
 
     .contenedor-carrousel {
         margin: 30px 10px 30px 20px;
+        width: auto;
         height: 450px;
     }
 
     .titulo-categoria {
         padding: 15px 0px 15px 20px;
     }
-
 
     .carrousel {
         width: 130%;
@@ -453,7 +496,11 @@ div.footer-col-4 img {
     }
 
     .precio-juego {
-        width: 60%;
+        width: 70%;
+    }
+
+    .contenedor-boton-juego button {
+        width: 80%;
     }
 
     .precio-juego p {
@@ -464,15 +511,13 @@ div.footer-col-4 img {
         width: 240px;
     }
 
-    .juego-coming-soon {
-        height: 500px;
-        margin-top: 40px;
-        margin-bottom: 40px;
+    .juego-coming-soon img {
+        width: 1200px;
     }
 
     .texto-juego-coming-soon {
         opacity: 0.85;
-        margin-top: 250px;
+        margin-bottom: 50px;
     }
 
     .texto-juego-coming-soon h1 {
