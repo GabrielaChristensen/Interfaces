@@ -467,7 +467,7 @@ div.footer-col-4 img {
     }
 
     .contenedor-carrousel {
-        margin: 30px 10px 30px 20px;
+        margin: 30px 20px 30px 20px;
         width: auto;
         height: 450px;
     }
@@ -527,5 +527,71 @@ div.footer-col-4 img {
 
     .texto-juego-coming-soon p {
         padding-left: 10px;
+    }
+
+    .breadcrumb ul {
+        display: flex;
+        flex-flow: row;
+        justify-content: flex-start;
+    }
+
+    .breadcrumb ul li {
+        padding: 30px 15px 50px 15px;
+        color: #F39C12;
+    }
+
+    .breadcrumb ul li a {
+        text-decoration: none;
+        color: #F39C12;
+
+    }
+
+    .encabezado-4linea {
+        background-color: #417D80;
+    }
+
+    .btn-compartir {
+        background-color: #D9D9D9;
+        border-radius: 15px;
+        font-size: 17px;
+        padding: 10px;
+    }
+
+    .encabezado-4linea {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding: 8px 60px 8px 70px;
+    }
+
+
+    .encabezado-4linea .btn-compartir img {
+        vertical-align: middle;
+        padding-right: 5px
+    }
+
+    .btn-compartir:hover {
+        background-color: #ffffff;
+    }
+
+    .contenedor-juego {
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+        padding: 50px;
+        position: relative;
+        height: 700px;
+    }
+
+    .contenedor-juego div {
+        position: absolute;
+    }
+
+    .contenedor-juego img {
+        width: 1200px;
+        height: 650px;
     }
 }
