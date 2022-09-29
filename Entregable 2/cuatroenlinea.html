@@ -20,15 +20,15 @@
             <div class="menu-navbar">
                 <ul>
                     <li><img src="./images/UserProfile.svg" alt="miperfil"></li>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Redes</a></li>
-                    <li><a href="">Novedades</a></li>
-                    <li><a href="">Categorías</a></li>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="#redes">Redes</a></li>
+                    <li><a href="./index.html#novedades">Novedades</a></li>
+                    <li><a href="./index.html#categorias">Categorías</a></li>
                     <li><a href="">Mi Perfil</a></li>
                 </ul>
             </div>
         </nav>
-        <div class="logo"><img src="./images/Logo.svg" alt="logo"></div>
+        <div class="logo"><a href="./index.html"><img src="./images/Logo.svg" alt="logo"></a></div>
         <div class="userProfile"><img src="./images/UserProfile.svg" alt="UserProfile"></div>
     </header>
     <div class="breadcrumb">
@@ -55,11 +55,91 @@
     </section>
     <section class="contenedor-juego">
         <div>
+            <button class="btn-jugar-amarillo"><img src="./images/Polygon 2.svg" alt="">Jugar</button>
             <img src="./images/batman vs joker.png" alt="4enlinea">
         </div>
     </section>
-
-    <footer>
+    <div class="parrafo-enlinea">
+        <p>Reviví la eterna rivalidad de estos dos personajes en este clásico juego de 4 en Línea y ayudá a Batman a
+            vencer al Joker en la versión virtual de este juego reversionado! Desafía a la computadora o a tu amigo con
+            los personajes de Batman y el Joker, mientras hacés que tus piezas se conecten en líneas de cuatro!!
+            Querés saber más? Visitá <a href="https://es.wikipedia.org/wiki/Conecta_4" target="_blank">este link</a>
+            para obtener más
+            información sobre el juego 4 en Línea!</p>
+    </div>
+    <section>
+        <div class="detalle-juegobatman">
+            <img src="./images/icons8-batman-viejo-48.png" alt="iconobatman">
+            <h2>Detalles del juego</h2>
+        </div>
+    </section>
+    <section class="contenedor-juegoenlinea">
+        <div class="instrucciones-juego">
+            <img src="./images/icons8-ayuda-50.png" alt="instrucciones">
+            <h2>Cómo jugar? Chequeá las instrucciones:</h2>
+        </div>
+        <div>
+            <p>El objetivo del 4 en línea es alinear cuatro fichas sobre un tablero formado por seis filas y siete
+                columnas.
+                Cada jugador dispone de 21 fichas de un color.
+                Por turnos, los jugadores deben introducir una ficha en la columna que prefieran (siempre que no esté
+                completa) y ésta caerá a la posición más baja.
+                Gana la partida el primero que consiga alinear cuatro fichas consecutivas de un mismo color en
+                horizontal,
+                vertical o diagonal.
+                Si todas las columnas están llenas pero nadie ha hecho una fila válida, hay empate.
+            </p>
+        </div>
+        <div class="controles">
+            <img src="./images/icons8-control-50.png" alt="controles">
+            <h2>Controles:</h2>
+        </div>
+        <div>
+            <p>Click izquierdo - Seleccionar ficha.</p>
+            <p>Arrastrar mouse - Mover ficha.</p>
+            <p>Soltar click izquierdo - Colocar ficha.</p>
+        </div>
+    </section>
+    <section class="seccion-comentarios">
+        <h1>COMENTARIOS</h1>
+        <div class="contenedor-comentarios">
+            <div class="comentarios">
+                <div>
+                    <img src="./images/icons8-hombres,-grupo-3-años-de-edad-96.png" alt="">
+                    <p>Hernan0898</p>
+                </div>
+                <div>
+                    <p>me gustó por la rápidez con la que se juega!! :)</p>
+                    <p>1 de septiembre de 2022</p>
+                </div>
+            </div>
+            <div class="comentarios">
+                <div>
+                    <img src="./images/icons8-usuario-femenino-48.png" alt="">
+                    <p>lara_raider</p>
+                </div>
+                <div>
+                    <p>me encanto la facilidad del juego, lo super recomiendo para cuando estas aburrido! XD</p>
+                    <p>5 de septiembre de 2022</p>
+                </div>
+            </div>
+            <div class="comentarios">
+                <div>
+                    <img src="./images/icons8-usuario-femenino-100.png" alt="">
+                    <p>Rami_19</p>
+                </div>
+                <div>
+                    <p>tremendo el juego de batman vs joker, lo vivo jugandoooo!!</p>
+                    <p>1 de octubre de 2022</p>
+                </div>
+            </div>
+            <form>
+                <textarea rows="8" placeholder="Dejá tu comentario acá..."></textarea>
+                <button type="submit" class="btn-enviar">Enviar</button>
+            </form>
+        </div>
+    </section>
+    <footer id="redes">
         <div class="footer-col-1">
             <p>Empresa</p>
             <p>Condiciones de uso</p>

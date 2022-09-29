@@ -371,6 +371,12 @@ div.footer-col-4 img {
         font-size: 25px;
     }
 
+    h2 {
+        font-size: 20px;
+        color: #D3D3D3;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
 
     p,
     a {
@@ -431,6 +437,7 @@ div.footer-col-4 img {
     .contenedor-boton-juego .btn-jugar-verde img {
         width: 30px;
         height: 39px;
+        align-items: baseline;
     }
 
     .contenedor-boton-juego {
@@ -552,9 +559,9 @@ div.footer-col-4 img {
 
     .btn-compartir {
         background-color: #D9D9D9;
-        border-radius: 15px;
+        border-radius: 10px;
         font-size: 17px;
-        padding: 10px;
+        padding: 8px;
     }
 
     .encabezado-4linea {
@@ -581,7 +588,7 @@ div.footer-col-4 img {
         display: flex;
         flex-flow: row;
         justify-content: center;
-        padding: 50px;
+        padding: 50px 50px 0px 50px;
         position: relative;
         height: 700px;
     }
@@ -590,8 +597,168 @@ div.footer-col-4 img {
         position: absolute;
     }
 
+    .contenedor-juego div button {
+        top: 45%;
+        position: absolute;
+        left: 43%;
+    }
+
     .contenedor-juego img {
         width: 1200px;
         height: 650px;
+    }
+
+    .btn-jugar-amarillo {
+        font-size: 20px;
+        border-radius: 10px;
+        color: #000000;
+        background-color: #F39C12;
+        padding: 18px 28px 18px 28px;
+    }
+
+    .btn-jugar-amarillo img {
+        width: 25px;
+        height: 25px;
+        vertical-align: text-bottom;
+        padding-right: 8px;
+    }
+
+    .parrafo-enlinea {
+        text-align: justify;
+        padding: 0px 60px 60px 120px;
+    }
+
+    .parrafo-enlinea a {
+        text-decoration: underline;
+    }
+
+    .detalle-juegobatman,
+    .instrucciones-juego,
+    .controles {
+        display: flex;
+        flex-flow: row;
+        align-items: flex-start;
+
+        padding-top: 20px;
+    }
+
+    .detalle-juegobatman img {
+        width: 56px;
+        height: 56px;
+        padding-right: 6px;
+        padding-left: 55px;
+    }
+
+    .detalle-juegobatman h2 {
+        padding-top: 14px;
+    }
+
+    .instrucciones-juego img {
+        width: 39px;
+        height: 37px;
+        padding-right: 20px;
+        padding-left: 60px;
+    }
+
+    .instrucciones-juego h2 {
+        padding-top: 5px;
+    }
+
+    .contenedor-juegoenlinea p {
+        text-align: justify;
+        padding: 0px 60px 20px 120px;
+    }
+
+    .controles img {
+        width: 39px;
+        height: 39px;
+        padding-right: 20px;
+        padding-left: 60px;
+    }
+
+    .controles h2 {
+        padding-top: 9px;
+    }
+
+    .seccion-comentarios h1 {
+        padding-left: 120px;
+        padding-top: 20px;
+    }
+
+    .contenedor-comentarios {
+        padding: 20px;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+    }
+
+    .comentarios {
+        background-color: #FFFFFF;
+        margin-top: 25px;
+        width: 70%;
+    }
+
+    .comentarios div {
+        display: flex;
+        flex-flow: row;
+    }
+
+    .comentarios p {
+        color: #000000;
+        font-size: 16px;
+        text-shadow: none;
+    }
+
+    .comentarios img {
+        width: 35px;
+        height: 37px;
+    }
+
+    .comentarios div:first-child {
+        border-bottom: 1px solid #D3D3D3;
+        padding: 10px;
+    }
+
+    .comentarios div:first-child p {
+        padding: 10px;
+        font-weight: bold;
+    }
+
+    .comentarios div:last-child {
+        padding: 10px;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+
+    .comentarios div:last-child p {
+        padding-left: 45px;
+    }
+
+    .comentarios div:last-child p:last-child {
+        font-style: italic;
+        font-size: 12px;
+        color: #c7c3c3;
+    }
+
+    .contenedor-comentarios form textarea {
+        border-radius: 5px;
+        width: 100%;
+    }
+
+    .contenedor-comentarios form {
+        margin-top: 25px;
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .btn-enviar {
+        background-color: #236467;
+        color: #FFFFFF;
+        border-radius: 5px;
+        padding: 10px 20px 10px 20px;
+        font-size: 17px;
+        margin-top: 10px;
     }
 }
