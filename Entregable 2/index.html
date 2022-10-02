@@ -13,6 +13,13 @@
 </head>
 
 <body>
+    <!-- <div id="contenedor-carga" class="contenedor-carga">
+        <div id="carga" class="carga">
+        </div>
+        <div class="porcentaje">
+            <p id="porcentaje-carga">0%</p>
+        </div>
+    </div> -->
     <header>
         <nav>
             <div class="menu"><button class="menu-hamburguesa"><img src="./images/icons8-menú-64.png"
@@ -30,6 +37,34 @@
         <div class="logo"><img src="./images/Logo.svg" alt="logo"></div>
         <div class="userProfile"><img src="./images/UserProfile.svg" alt="UserProfile"></div>
     </header>
+    <div class="modal-compra" id="modal-compra">
+        <div class="contenido-modal">
+            <div>
+                <p class="titulo-juego-mobile" id="titulo-juego-mobile">Test</p>
+            </div>
+            <form action="" id="form-compra">
+                <label for="numTarjeta">Número de tarjeta</label>
+                <input type="text">
+                <label for="nombreTitular">Nombre del titular</label>
+                <input type="text">
+                <div>
+                    <label for="fechaExpiracion">Fecha de expiración</label>
+                    <label for="codigoSeguridad">Código de seguridad</label>
+                </div>
+                <div>
+                    <input type="text">
+                    <input type="text">
+                </div>
+
+                <button class="btn-comprar">Comprar</button>
+                <button class="btn-cancelar" id="cerrar-modal">Cancelar</button>
+
+            </form>
+            <div class="imagen-compra-juego"><img src="" alt="" id="imagen-compra-juego">
+                <p id="titulo-juego-desktop"></p>
+            </div>
+        </div>
+    </div>
     <section>
         <div class="juego-sugerido">
             <div class="texto-juego-sugerido">
@@ -38,7 +73,7 @@
                 <div class="precioSugerido">
                     <p>$1.599</p>
                     <div class="contenedor-boton-juego">
-                        <button class="btn-comprar">Comprar</button>
+                        <button class="btn-comprar" id="btn-comprar1">Comprar</button>
                     </div>
                 </div>
             </div>
@@ -55,7 +90,7 @@
                         <p>$1.600</p>
                     </div>
                     <div class="contenedor-boton-juego">
-                        <button class="btn-comprar">Comprar</button>
+                        <button class="btn-comprar" id="btn-comprar2">Comprar</button>
                     </div>
                 </div>
             </div>
@@ -67,7 +102,7 @@
                         <p>$1.789</p>
                     </div>
                     <div class="contenedor-boton-juego">
-                        <button class="btn-comprar">Comprar</button>
+                        <button class="btn-comprar" id="btn-comprar3">Comprar</button>
                     </div>
                 </div>
             </div>
@@ -223,7 +258,7 @@
         <h1 class="titulo-categoria">CLÁSICOS</h1>
         <div class="carrousel">
             <div class="card-juego">
-                <img src="./images/clasicos/2399_1.jpg" alt="imgCarrousel">
+                <img src="./images/clasicos/Pacman.jpg" alt="imgCarrousel">
                 <div class="info-juego">
                     <div class="precio-juego">
                         <h1>PAC-MAN</h1>
@@ -259,7 +294,7 @@
                 </div>
             </div>
             <div class="card-juego">
-                <img src="./images/clasicos/61M3rDwh4qL.png" alt="imgCarrousel">
+                <img src="./images/clasicos/Tetris.png" alt="imgCarrousel">
                 <div class="info-juego">
                     <div class="precio-juego">
                         <h1>TETRIS</h1>
@@ -272,6 +307,7 @@
             </div>
         </div>
     </section>
+
     <footer id="redes">
         <div class="footer-col-1">
             <p>Empresa</p>
