@@ -30,7 +30,6 @@ div.menu img,
     width: 40px;
     height: 40px;
     padding: 5px;
-    border-radius: ;
 }
 
 div.logo img {
@@ -55,6 +54,11 @@ div.logo img {
     top: 40px;
     visibility: hidden;
 }
+.menu-navbar a:hover{
+    background-color: rgba(13, 74, 77, 0.8);
+    border-radius: 10px;
+    padding: 10px;
+}
 
 .menu-hamburguesa {
     background-color: transparent;
@@ -78,6 +82,7 @@ div.logo img {
 
 .menu-navbar ul li {
     height: 20px;
+
     padding-top: 20px;
     padding-bottom: 10px;
     width: 100%;
@@ -169,6 +174,10 @@ div.footer-col-4 img {
 
 .btn-comprar:hover {
     background-color: #FAD7A0;
+    animation-name: scaleup;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
 }
 
 .btn-comprar:active {
@@ -182,10 +191,17 @@ div.footer-col-4 img {
     font-size: 10px;
     padding: 3px 5px 3px 5px;
     margin: 3px;
+    animation-name: rotate;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
 }
 
 .btn-jugar-verde:hover {
     background-color: #67989A;
+    animation-name: scaleup;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
 }
 
 .btn-jugar-verde:active {
@@ -205,10 +221,14 @@ div.footer-col-4 img {
     font-size: 10px;
     padding: 3px 5px 3px 5px;
     margin: 3px;
+    animation-name: rotate;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
 }
 
 .btn-info:hover {
     background-color: #67989A;
+
 }
 
 .btn-info:active {
@@ -222,10 +242,17 @@ div.footer-col-4 img {
     padding: 3px;
     margin: 3px;
     border-radius: 5px;
+    
+
 }
 
 .btn-reservar:hover {
     background-color: #FAD7A0;
+    animation-name: scaleup;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+
 }
 
 .btn-reservar:active {
@@ -583,6 +610,10 @@ div.footer-col-4 img {
 
     .btn-compartir:hover {
         background-color: #ffffff;
+        animation-name: rotate;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in;
     }
 
     .contenedor-juego {
@@ -615,6 +646,13 @@ div.footer-col-4 img {
         color: #000000;
         background-color: #F39C12;
         padding: 18px 28px 18px 28px;
+
+    }
+    .btn-jugar-amarillo:hover {
+        animation-name: scaleup;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in;
     }
 
     .btn-jugar-amarillo img {
@@ -766,11 +804,13 @@ div.footer-col-4 img {
 .ball {
     position:absolute;
     z-index: 1;
-    background-color : rgba(214, 137, 16, 1);
+    background-color : rgba(214, 137, 16, 0.3);
     height: 35px;
     width:35px;
     overflow: hidden;
     border-radius:50% ;
+    transform: scale(0.5);
+    transition: transform 2s, background-color 1s ;
 }
 .celd-ball{
     background-color : rgba(103, 152, 154, 1);
@@ -808,16 +848,32 @@ div.footer-col-4 img {
     width: 300px;
     height: 300px;
     background-color:rgba(103, 152, 154, 1);
-    ;
+    border-radius:10px 10px 0px 0px;
 }
 .CS-PCard-img>img {
     width: 300px;
+    
 }
+
 .CS-PCard{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0px 20px;
+    margin: 0px 10px;
+    transform: skewY(10deg) scale(0.9, 0.9);
+    transition-timing-function: ease-out;
+    transition: transform 1s;
+
+    
+}
+.CS-PCard:hover{
+    
+    transform: skewY(0deg) scale(1.0, 1.0);
+}
+.CS-PCard:hover .ball{
+    background-color:rgba(214, 137, 16, 1);
+    transform: scale(1);
+
 }
 .hide{
     visibility: hidden;
@@ -828,7 +884,7 @@ div.footer-col-4 img {
     background-color: #0D4A4D;
     display: flex;
     flex-wrap: nowrap;
-    padding: 10px;
+    padding: 30px;
     margin: 10px 0px 10px 30px;
 }
 .fx-overflow{
@@ -836,16 +892,24 @@ div.footer-col-4 img {
 }
 
 /*--------------------------*/
-.CS-img{
+.CS-img-wrapper{
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
+
+}
+.CS-img{
+    position: relative;
+    z-index: 0;
+    width: 1440px ;
+    height: 500px;
     margin: 20px 0px;
+
 }
 .BG {
     height: 500px;
     left: auto;
-    position: relative;
+    position: absolute;
     z-index: 0;
 }
 .lara{
@@ -869,13 +933,14 @@ div.footer-col-4 img {
     bottom: 90px;
     left: 10px;
 }
-.CS-img> .texto-juego-coming-soon {
+.CS-img .texto-juego-coming-soon {
+    width: 500px;
     background-color: rgba(13, 74, 77, 1);
     position: absolute;
     z-index: 2;
-    bottom: 170px;
-    right: 200px;
-    width: 30%;
+    bottom: 90px;
+    right: 80px;
+    
 }
 /*---------------------------*/
 .CS-historia-wrap> p{
@@ -934,6 +999,29 @@ div.footer-col-4 img {
     width: 120px;
     background-color: #D68910;
     margin: 10px;
-    
+}
+/*-------------------------------------------------------*/
+@keyframes scaleup {
+    0% {
+    transform: scale(1.4)
+    }
+    50% {
+    transform: skewX(-5deg);
+    }
+    100% {
+        transform: skewX(5deg);
+        }
+}
+@keyframes rotate {
+    0% {
+    transform: rotate(5deg);
+    }
+    50% {
+    transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(5deg);
+        }
+}
 
 }
