@@ -3,6 +3,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    //juegos disponibles para comprar
     const juegos = [
         {
             id: 1,
@@ -235,6 +236,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const contenedorModal = document.querySelector("#modal-compra");
 
+    //iniciar compra de juego con pop up
     function mostrarModal(idJuego) {
         const tituloJuegoMobile = document.querySelector("#titulo-juego-mobile");
         const tituloJuegoDesktop = document.querySelector("#titulo-juego-desktop");
@@ -260,6 +262,7 @@ document.addEventListener("DOMContentLoaded", () => {
         finalizarCompra(juego);
     }
 
+    //cancelar compra de juego en pop up
     function cerrarModal() {
         const formularioCompra = document.querySelector("#form-compra");
         if (formularioCompra)
@@ -268,6 +271,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     }
 
+    //finalizar compra de juego en pop up
     function finalizarCompra(juego) {
         const formularioCompra = document.querySelector("#form-compra");
         const textoPrecioJuego = document.querySelector(`#texto-precio-juego-${juego.id}`);
@@ -290,6 +294,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+    //conexion home con pagina 4 en linea
     function jugarCuatroLinea() {
         const btnComprarBatman = document.querySelector("#btn-comprar-batman");
         if (btnComprarBatman)
@@ -298,6 +303,7 @@ document.addEventListener("DOMContentLoaded", () => {
             })
     }
 
+    //conexion home con juego coming soon
     function verJuegoComingSoon() {
         const btnComingSoon = document.querySelector("#btn-masinfo");
         if (btnComingSoon)
@@ -306,9 +312,27 @@ document.addEventListener("DOMContentLoaded", () => {
             })
     }
 
+    //cambia estado de boton de reservar a reservado
+    function actualizarBtnReservar() {
+        const btnReservado = document.querySelector("#btn-reservar");
+        const btnReservado2 = document.querySelector("#btn-reservar2");
+        if (btnReservado) {
+            btnReservado.addEventListener('click', () => {
+                btnReservado.innerHTML = `Reservado`;
+            })
+        }
+        if (btnReservado2) {
+            btnReservado2.addEventListener('click', () => {
+                btnReservado2.innerHTML = `Reservado`;
+
+            })
+        }
+    }
+
     calcularPorcentajeCarga();
     comprarJuego();
     jugarCuatroLinea();
     verJuegoComingSoon();
     cerrarModal();
+    actualizarBtnReservar();
 })
