@@ -424,6 +424,7 @@ div.footer-col-4 img {
     -webkit-transition: all 500ms ease-in;
     -moz-transition: all 500ms ease-in;
     transition: all 500ms ease-in;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .modal-compra-visible {
@@ -435,9 +436,13 @@ div.footer-col-4 img {
     margin: auto;
     padding: 2em;
     border: 1px solid #888;
-    display: flex;
     flex-direction: row;
     width: 80%;
+}
+
+.contenido-modal p {
+    padding-bottom: 10px;
+    font-size: 16px;
 }
 
 
@@ -469,7 +474,7 @@ div.footer-col-4 img {
     width: 100%;
 }
 
-.imagen-compra-juego {
+.contenido-modal div:last-child {
     display: none;
 }
 
@@ -494,6 +499,18 @@ div.footer-col-4 img {
 
 
 @media only screen and (min-width:1024px) {
+
+    input {
+        height: 40px;
+        border-radius: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    label {
+        font-size: 18px;
+        margin: auto;
+    }
 
     .carga {
         border: 15px solid #ccc;
@@ -813,14 +830,13 @@ div.footer-col-4 img {
     .imagenes-detalle-juego {
         display: flex;
         flex-flow: row;
-        padding-left: 3.5em;
-        padding-right: 1.5em;
+        justify-content: space-evenly;
+        padding-left: 1em;
         transition: transform .2s;
     }
 
     .imagenes-detalle-juego img,
     iframe {
-        width: 290px;
         height: 210px;
         padding-right: 1em;
     }
@@ -945,26 +961,237 @@ div.footer-col-4 img {
     }
 
     .contenido-modal {
+        display: flex;
         justify-content: space-between;
         padding-left: 0%;
     }
 
-    .imagen-compra-juego {
+    .contenido-modal div:last-child {
         display: block;
         padding-left: 35px;
     }
 
-    .imagen-compra-juego img {
-        width: 300px;
-        height: 150px;
+    .contenido-modal div:last-child div {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        padding-left: 0;
+        border-bottom: 2px solid #fff;
+        padding-top: 10px
+    }
+
+    .modal-compra button {
+        font-size: 17px;
+        padding: 2%;
+        margin: 25px 25px 0 0;
+    }
+
+    .contenido-modal div {
+        padding-top: 0;
+    }
+
+    .contenido-modal div:last-child img {
+        width: 350px;
+        height: 250px;
         padding-bottom: 5px;
     }
+
 
     .titulo-juego-mobile {
         display: none;
     }
 
-    .contenido-modal div:last-child {
-        flex-flow: column;
+    .ball {
+        position: absolute;
+        z-index: 1;
+        background-color: rgba(214, 137, 16, 1);
+        height: 35px;
+        width: 35px;
+        overflow: hidden;
+        border-radius: 50%;
     }
+
+    .celd-ball {
+        background-color: rgba(103, 152, 154, 1);
+        position: relative;
+        height: 40px;
+        width: 40px;
+        z-index: 0;
+        margin: 5px;
+
+    }
+
+    .Wrapeer-celdball {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .line-point {
+        display: flex;
+        align-items: center;
+        margin: 0px 10px;
+
+    }
+
+    .line-point>p {
+        width: 80px;
+        margin-right: 20px;
+    }
+
+    .CS-PCard-ponints {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(65, 125, 128, 1);
+    }
+
+    .CS-PCard-img {
+        width: 300px;
+        height: 300px;
+        background-color: rgba(103, 152, 154, 1);
+        ;
+    }
+
+    .CS-PCard-img>img {
+        width: 300px;
+    }
+
+    .CS-PCard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0px 20px;
+    }
+
+    .hide {
+        visibility: hidden;
+    }
+
+    .personajes {
+        overflow-x: scroll;
+        position: relative;
+        background-color: #0D4A4D;
+        display: flex;
+        flex-wrap: nowrap;
+        padding: 10px;
+        margin: 10px 0px 10px 30px;
+    }
+
+    .fx-overflow {
+        overflow-x: scroll;
+    }
+
+    .CS-img {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 20px 0px;
+    }
+
+    .BG {
+        height: 500px;
+        left: auto;
+        position: relative;
+        z-index: 0;
+    }
+
+    .lara {
+        position: absolute;
+        z-index: 1;
+        height: 500px;
+        left: 100px;
+
+    }
+
+    .CS-title {
+        z-index: 2;
+        height: 200px;
+        left: 600px;
+        position: absolute;
+    }
+
+    .CS-humo {
+        position: absolute;
+        z-index: 2;
+        height: 300px;
+        bottom: 90px;
+        left: 10px;
+    }
+
+    .CS-img>.texto-juego-coming-soon {
+        background-color: rgba(13, 74, 77, 1);
+        position: absolute;
+        z-index: 2;
+        bottom: 170px;
+        right: 200px;
+        width: 30%;
+    }
+
+
+    .CS-historia-wrap>p {
+        text-align: justify;
+        padding: 0px 60px 20px 120px;
+        margin-bottom: 30px;
+    }
+
+    .CS-historia {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        padding-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .CS-historia>img {
+        width: 40px;
+        height: 40px;
+        padding-right: 20px;
+        padding-left: 30px;
+    }
+
+    .feature-section {
+        display: flex;
+        justify-content: space-around;
+        margin: 40px 0px;
+    }
+
+    .feature-card {
+        background-color: #0D4A4D;
+        padding: 10px 20px;
+        border-radius: 10px;
+    }
+
+    .feature-wrapper {
+        display: flex;
+    }
+
+    .feature {
+        width: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(65, 125, 128, 1);
+        border-radius: 10px;
+        padding: 10px 20px;
+        margin: 10px;
+    }
+
+    .feature>p {
+        color: #D68910;
+    }
+
+    .feature>img {
+        width: 100px;
+    }
+
+    .FT-line {
+        height: 3px;
+        width: 120px;
+        background-color: #D68910;
+        margin: 10px;
+    }
+
 }
