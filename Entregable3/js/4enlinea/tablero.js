@@ -18,18 +18,18 @@ class Tablero {
         this.inicioTablero = inicioTablero;
         this.fichasNecesarias = tipoJuego;
         this.tipoJuego = tipoJuego;
-        this.altoCelda = altoCelda;//this.altoTablero / this.maxFilas;
-        this.anchoCelda = anchoCelda;//this.anchoTablero / this.maxColumnas;
+        this.altoCelda = altoCelda;
+        this.anchoCelda = anchoCelda;
         this.altoCanvas = altoCanvas;
+        this.imagenFondoCargada = false;
         this.eventosMouseUsado = false;
         this.anchoCanvas = anchoCanvas;
         this.turnoJugador = 1;
         this.fichaSeleccionada = null;
         this.tableroCargado = false;
         this.flechasTablero = [];
-        this.imagenTablero = new Image();
-        this.imagenTablero.src = 'images/4enlinea/celda.png';
-        this.inicializarPosiciones();
+        this.moverFichas();
+
     }
 
 
@@ -57,17 +57,34 @@ class Tablero {
         this.tablero = [];
         this.turnoJugador = 1;
         this.inicializarPosiciones();
-        this.dibujarTablero();
-        this.dibujarFlechas();
         this.inicializarFichas();
-        this.dibujarFichas();
-        this.moverFichas();
+        this.dibujarFondo();
+
+    }
+
+
+    dibujarFondo() {
+        const backgroundImage = new Image();
+        backgroundImage.src = "images/4enlinea/fondo-playa.png";
+        if (!this.imagenFondoCargada)
+            backgroundImage.onload = () => {
+                this.canvaCtx.drawImage(backgroundImage, 0, 0, this.anchoCanvas, this.altoCanvas);
+                this.imagenFondoCargada = true;
+                this.dibujarTablero();
+                this.dibujarFlechas();
+                this.dibujarFichas();
+            }
+        else {
+            this.canvaCtx.drawImage(backgroundImage, 0, 0, this.anchoCanvas, this.altoCanvas);
+            this.dibujarTablero();
+            this.dibujarFlechas();
+            this.dibujarFichas();
+        }
     }
 
     dibujarTablero() {
-        this.canvaCtx.fillStyle = "#417D80"; // Poner imagen de fondo
-        this.canvaCtx.fillRect(0, 0, this.anchoCanvas, this.altoCanvas);
-        this.canvaCtx.fill();
+        this.imagenTablero = new Image();
+        this.imagenTablero.src = 'images/4enlinea/celda.png';
         if (!this.tableroCargado)
             this.imagenTablero.onload = () => {
                 this.tableroCargado = true;
@@ -84,7 +101,6 @@ class Tablero {
                 }
             }
         }
-
     }
 
 
@@ -155,18 +171,16 @@ class Tablero {
     }
 
     moverFichas() {
-        if (!this.eventosMouseUsado) {
-            this.elementoCanva.addEventListener('mousedown', (e) => {
-                this.onMouseDown(e);
-            })
-            this.elementoCanva.addEventListener('mousemove', (e) => {
-                this.onMouseMove(e);
-            })
-            this.elementoCanva.addEventListener('mouseup', (e) => {
-                this.onMouseUp(e);
-            })
-        }
-        this.eventosMouseUsado = true;
+        this.elementoCanva.addEventListener('mousedown', (e) => {
+            this.onMouseDown(e);
+        })
+        this.elementoCanva.addEventListener('mousemove', (e) => {
+            this.onMouseMove(e);
+        })
+        this.elementoCanva.addEventListener('mouseup', (e) => {
+            this.onMouseUp(e);
+        })
+
     }
 
 
@@ -179,7 +193,6 @@ class Tablero {
 
     onMouseUp(e) {
         this.mouseDown = false;
-        debugger;
         const columnaAInsertar = this.obtenerColumna({ posX: e.offsetX, posY: e.offsetY });
         if (columnaAInsertar === undefined || columnaAInsertar < 0 || this.columnaLlena(columnaAInsertar)) {
             if (this.fichaSeleccionada) {
@@ -188,10 +201,7 @@ class Tablero {
                 fichaSeleccionada.setPosicion({ x: posiciones.posX, y: posiciones.posY });
                 this.fichas[fichaSeleccionada] = fichaSeleccionada;
             }
-
-            this.dibujarTablero();
-            this.dibujarFlechas();
-            this.dibujarFichas();
+            this.dibujarFondo();
         } else {
             if (columnaAInsertar !== undefined) {
                 const posAInsertar = this.getPosAInsertar(columnaAInsertar);
@@ -201,11 +211,10 @@ class Tablero {
                     this.turnoJugador = this.turnoJugador === 1 ? 2 : 1;
                     if (juegoTerminado) {
                         this.fichas = [];
+                        this.tablero = [];
                         this.inicializarTablero();
                     } else {
-                        this.dibujarTablero();
-                        this.dibujarFlechas();
-                        this.dibujarFichas();
+                        this.dibujarFondo();
                     }
                 }
             }
@@ -225,9 +234,11 @@ class Tablero {
                 }
             }
         }
-        this.dibujarTablero();
-        this.dibujarFlechas();
-        this.dibujarFichas();
+
+        if (this.fichaSeleccionada) {
+            this.dibujarFondo();
+        }
+
     }
 
 
@@ -236,9 +247,7 @@ class Tablero {
             const ficha = this.fichas[this.fichaSeleccionada];
             ficha.setPosicion({ x: event.offsetX, y: event.offsetY })
             this.fichas[this.fichaSeleccionada] = ficha;
-            this.dibujarTablero();
-            this.dibujarFlechas();
-            this.dibujarFichas();
+            this.dibujarFondo();
         }
     }
 

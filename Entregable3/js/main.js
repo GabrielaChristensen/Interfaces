@@ -238,26 +238,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //iniciar compra de juego con pop up
     function mostrarModal(idJuego) {
-        const tituloJuegoMobile = document.querySelector("#titulo-juego-mobile");
-        const tituloJuegoDesktop = document.querySelector("#titulo-juego-desktop");
-        const precioJuego = document.querySelector("#precio-juego");
-        const imagenCompraJuego = document.querySelector("#imagen-compra-juego");
-        if (contenedorModal)
-            contenedorModal.classList.toggle("modal-compra-visible");
+        // const tituloJuegoMobile = document.querySelector("#titulo-juego-mobile");
+        // const tituloJuegoDesktop = document.querySelector("#titulo-juego-desktop");
+        // const precioJuego = document.querySelector("#precio-juego");
+        // const imagenCompraJuego = document.querySelector("#imagen-compra-juego");
+        // if (contenedorModal)
+        //     contenedorModal.classList.toggle("modal-compra-visible");
         const juego = juegos.find((valorJuego) => {
             return valorJuego.id == idJuego;
         });
-        if (tituloJuegoMobile)
-            tituloJuegoMobile.innerHTML = `${juego.nombre} - $${juego.precio}`;
-        if (tituloJuegoDesktop)
-            tituloJuegoDesktop.innerHTML = `${juego.nombre}`;
-        if (precioJuego)
-            precioJuego.innerHTML = `$${juego.precio}`;
+        // if (tituloJuegoMobile)
+        //     tituloJuegoMobile.innerHTML = `${juego.nombre} - $${juego.precio}`;
+        // if (tituloJuegoDesktop)
+        //     tituloJuegoDesktop.innerHTML = `${juego.nombre}`;
+        // if (precioJuego)
+        //     precioJuego.innerHTML = `$${juego.precio}`;
 
 
-        if (imagenCompraJuego) {
-            imagenCompraJuego.setAttribute('src', juego.img);
-        }
+        // if (imagenCompraJuego) {
+        //     imagenCompraJuego.setAttribute('src', juego.img);
+        // }
 
         finalizarCompra(juego);
     }
@@ -273,24 +273,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //finalizar compra de juego en pop up
     function finalizarCompra(juego) {
-        const formularioCompra = document.querySelector("#form-compra");
+        // const formularioCompra = document.querySelector("#form-compra");
         const textoPrecioJuego = document.querySelector(`#texto-precio-juego-${juego.id}`);
         const imagenReadyJuego = document.querySelector(`#imagen-juego-${juego.id}`);
 
         const btnJugar = document.querySelector(`#btn-comprar${juego.id}`);
-        if (formularioCompra) {
-            cerrarModal();
-            formularioCompra.addEventListener('submit', (e) => {
-                e.preventDefault();
-                textoPrecioJuego.innerHTML = `Ready to play!!`;
-                btnJugar.classList.remove('btn-comprar');
-                btnJugar.classList.add('btn-jugar-verde');
-                btnJugar.innerHTML = `<img src="./images/Polygon 1.svg" alt="play">Jugar`;
-                if (imagenReadyJuego)
-                    imagenReadyJuego.setAttribute('src', juego.imgReady);
-                contenedorModal.classList.remove("modal-compra-visible");
-            })
-        }
+        // if (formularioCompra) {
+        //     cerrarModal();
+        //     formularioCompra.addEventListener('submit', (e) => {
+        //         e.preventDefault();
+        textoPrecioJuego.innerHTML = `Ready to play!!`;
+        btnJugar.classList.remove('btn-comprar');
+        btnJugar.classList.add('btn-jugar-verde');
+        btnJugar.innerHTML = `<img src="./images/Polygon 1.svg" alt="play">Jugar`;
+        if (imagenReadyJuego)
+            imagenReadyJuego.setAttribute('src', juego.imgReady);
+        // contenedorModal.classList.remove("modal-compra-visible");
+        //     })
+        // }
 
     }
 
