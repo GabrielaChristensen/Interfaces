@@ -1,6 +1,5 @@
 class Tablero {
 
-
     constructor({ canvaCtx, altoCanvas, anchoCanvas, elementoCanva, anchoTablero, altoTablero, inicioTablero, inicioYTablero }, maxFilas, maxColumnas, anchoFichas, tipoJuego = 4, anchoCelda, altoCelda) {
 
         this.canvaCtx = canvaCtx;
@@ -24,10 +23,10 @@ class Tablero {
         this.imagenFondoCargada = false;
         this.eventosMouseUsado = false;
         this.anchoCanvas = anchoCanvas;
-        this.turnoJugador = 1;
         this.fichaSeleccionada = null;
         this.tableroCargado = false;
         this.flechasTablero = [];
+        this.juego = new Juego(this.tablero, this.maxFilas, this.maxColumnas, this.fichasNecesarias, 1);
         this.moverFichas();
 
     }
@@ -51,11 +50,13 @@ class Tablero {
             }
             posInicialY = posY + (this.altoCelda / 2)
         }
+        this.juego.setTablero(this.tablero);
     }
 
     inicializarTablero() {
         this.tablero = [];
-        this.turnoJugador = 1;
+        this.juego.setTablero(this.tablero);
+        this.juego.setJugador(1);
         this.inicializarPosiciones();
         this.inicializarFichas();
         this.dibujarFondo();
@@ -184,20 +185,15 @@ class Tablero {
     }
 
 
-    columnaLlena(columnaAInsertar) {
-        for (let fila = 0; fila < this.maxFilas; fila++) {
-            if (!this.tablero[fila][columnaAInsertar].ficha) return false;
-        }
-        return true;
-    }
+
 
     onMouseUp(e) {
         this.mouseDown = false;
         const columnaAInsertar = this.obtenerColumna({ posX: e.offsetX, posY: e.offsetY });
-        if (columnaAInsertar === undefined || columnaAInsertar < 0 || this.columnaLlena(columnaAInsertar)) {
+        if (columnaAInsertar === undefined || columnaAInsertar < 0 || this.juego.columnaLlena(columnaAInsertar)) {
             if (this.fichaSeleccionada) {
                 const fichaSeleccionada = this.fichas[this.fichaSeleccionada];
-                const posiciones = this.turnoJugador === 1 ? this.getPosicionRandomJ1() : this.getPosicionRandomJ2();
+                const posiciones = this.juego.getTurnoJugador() === 1 ? this.getPosicionRandomJ1() : this.getPosicionRandomJ2();
                 fichaSeleccionada.setPosicion({ x: posiciones.posX, y: posiciones.posY });
                 this.fichas[fichaSeleccionada] = fichaSeleccionada;
             }
@@ -206,12 +202,12 @@ class Tablero {
             if (columnaAInsertar !== undefined) {
                 const posAInsertar = this.getPosAInsertar(columnaAInsertar);
                 if (posAInsertar) {
-                    const juegoTerminado = this.juegoTerminado({ fila: posAInsertar.fila, columna: posAInsertar.columna });
+                    const juegoTerminado = this.juego.juegoTerminado({ fila: posAInsertar.fila, columna: posAInsertar.columna });
                     this.tablero[posAInsertar.fila][posAInsertar.columna].ficha = posAInsertar.fichaAInsertar;
-                    this.turnoJugador = this.turnoJugador === 1 ? 2 : 1;
+                    const turnoJugador = this.juego.getTurnoJugador() === 1 ? 2 : 1;
+                    this.juego.setJugador(turnoJugador);
                     if (juegoTerminado) {
                         this.fichas = [];
-                        this.tablero = [];
                         this.inicializarTablero();
                     } else {
                         this.dibujarFondo();
@@ -228,7 +224,7 @@ class Tablero {
             const ficha = this.fichas[i];
 
             if (ficha.estaSeleccionada({ mouseX: event.offsetX, mouseY: event.offsetY })) {
-                if (ficha.getJugador() === this.turnoJugador) {
+                if (ficha.getJugador() === this.juego.getTurnoJugador()) {
                     this.fichaSeleccionada = i;
                     break;
                 }
@@ -263,38 +259,20 @@ class Tablero {
     getPosAInsertar(columna) {
         for (let i = this.maxFilas - 1; i >= 0; i--) {
             if (this.tablero[i][columna] && !this.tablero[i][columna].ficha) {
-                const fichaAInsertar = this.fichas[this.fichaSeleccionada];
-                const posicionX = this.tablero[i][columna].posX;
-                const posicionY = this.tablero[i][columna].posY;
-                fichaAInsertar.setPosicion({ x: posicionX, y: posicionY });
-                this.fichas[this.fichaSeleccionada] = fichaAInsertar;
-                return { fila: i, columna: columna, fichaAInsertar };
+                if (this.fichaSeleccionada) {
+                    const fichaAInsertar = this.fichas[this.fichaSeleccionada];
+                    const posicionX = this.tablero[i][columna].posX;
+                    const posicionY = this.tablero[i][columna].posY;
+                    fichaAInsertar.setPosicion({ x: posicionX, y: posicionY });
+                    this.fichas[this.fichaSeleccionada] = fichaAInsertar;
+                    return { fila: i, columna: columna, fichaAInsertar };
+                }
             }
         }
         return null;
     }
 
-    juegoTerminado({ fila, columna }) {
-        const chequearVertical = this.chequearVertical({ fila, columna });
-        const chequearHorizontal = this.chequearHorizontal({ fila, columna });
-        const chequearDiagonal = this.chequearDiagonal({ fila, columna });
-        const ganoVer = chequearVertical;
-        const ganoHor = chequearHorizontal;
-        const ganoDiag = chequearDiagonal;
 
-
-
-        if (chequearVertical || chequearHorizontal || chequearDiagonal) {
-            let msg = '';
-            if (ganoVer) msg += 'Vertical'
-            if (ganoHor) msg += 'Horizontal'
-            if (ganoDiag) msg += 'Diagonal'
-
-            window.alert(`Jugador ${this.turnoJugador} ganó por ${msg}!`);
-            this.turnoJugador = 1;
-            return true;
-        }
-    }
 
     obtenerColumna({ posX, posY }) {
         for (let i = 0; i < this.flechasTablero.length; i++) {
@@ -306,160 +284,4 @@ class Tablero {
         return -1;
     }
 
-    chequearVertical({ fila, columna }) {
-        if (fila === this.maxFilas - 1 || (this.maxFilas - this.fichasNecesarias) < fila)
-            return false;
-        let contador = 1;
-        let iteradorFila = fila + 1;
-        let mismoJugador = true;
-        while (mismoJugador && iteradorFila < this.maxFilas) {
-            const ficha = this.tablero[iteradorFila][columna].ficha;
-            if (ficha && ficha.getJugador() === this.turnoJugador) {
-                contador++;
-                if (contador >= this.fichasNecesarias) return true;
-            }
-            else {
-                contador--;
-                mismoJugador = false;
-            }
-            iteradorFila++;
-        }
-        return false;
-    }
-
-    chequearHorizontal({ fila, columna }) {
-        const contadorHorizontalIzq = this.contadorIzquierdaHorizontal({ fila, columna });
-        const contadorHorizontalDer = this.contadorDerechaHorizontal({ fila, columna });
-        return contadorHorizontalIzq + contadorHorizontalDer >= this.fichasNecesarias;
-    }
-
-    contadorDerechaHorizontal({ fila, columna }) {
-        let iteradorColumna = columna + 1;
-        let contador = 1;
-        let mismoJugador = true;
-        while (mismoJugador && iteradorColumna < this.maxColumnas) {
-            const ficha = this.tablero[fila][iteradorColumna].ficha;
-            if (ficha && ficha.getJugador() === this.turnoJugador) {
-                contador++;
-                if (contador === this.fichasNecesarias) return contador;
-            }
-            else {
-                contador--;
-                mismoJugador = false;
-            }
-            iteradorColumna++;
-        }
-        return contador;
-    }
-
-    contadorIzquierdaHorizontal({ fila, columna }) {
-        let iteradorColumna = columna - 1;
-        let contador = 1;
-        let mismoJugador = true;
-        while (mismoJugador && iteradorColumna >= 0) {
-            const ficha = this.tablero[fila][iteradorColumna].ficha;
-            if (ficha && ficha.getJugador() === this.turnoJugador) {
-                contador++;
-                if (contador === this.fichasNecesarias) return contador;
-            } else {
-                contador--;
-                mismoJugador = false;
-            }
-            iteradorColumna--;
-        }
-        return contador;
-    }
-
-    chequearDiagonal({ fila, columna }) {
-        const contadorDiagonalIzquierdaInferior = this.contadorDiagonalIzquierdaInferior({ fila, columna });
-        const contadorDiagonalDerechaSuperior = this.contadorDiagonalDerechaSuperior({ fila, columna });
-
-        const contadorDiagonalDerechaInferior = this.contadorDiagonalDerechaInferior({ fila, columna });
-        const contadorDiagonalIzquierdaSuperior = this.contadorDiagonalIzquierdaSuperior({ fila, columna });
-
-        return (contadorDiagonalDerechaInferior + contadorDiagonalIzquierdaSuperior >= this.fichasNecesarias) ||
-            (contadorDiagonalIzquierdaInferior + contadorDiagonalDerechaSuperior >= this.fichasNecesarias);
-    }
-
-
-    contadorDiagonalDerechaSuperior({ fila, columna }) {
-        let iteradorFila = fila - 1;
-        let iteradorColumna = columna + 1;
-        let mismoJugador = true;
-        let contador = 1;
-        while (mismoJugador && iteradorFila >= 0 && iteradorColumna < this.maxColumnas) {
-            const ficha = this.tablero[iteradorFila][iteradorColumna].ficha;
-            if (ficha && ficha.getJugador() === this.turnoJugador) {
-                contador++;
-                if (contador === this.fichasNecesarias) return contador;
-            }
-            else {
-                contador--;
-                mismoJugador = false;
-            }
-            iteradorFila--;
-            iteradorColumna++;
-        }
-        return contador;
-    }
-
-    contadorDiagonalIzquierdaSuperior({ fila, columna }) {
-        let iteradorFila = fila - 1;
-        let iteradorColumna = columna - 1;
-        let mismoJugador = true;
-        let contador = 1;
-        while (mismoJugador && iteradorFila >= 0 && iteradorColumna >= 0) {
-            const ficha = this.tablero[iteradorFila][iteradorColumna].ficha;
-            if (ficha && ficha.getJugador() === this.turnoJugador) {
-                contador++;
-                if (contador == this.fichasNecesarias) return contador;
-            } else {
-                contador--;
-                mismoJugador = false;
-            }
-            iteradorFila--;
-            iteradorColumna--;
-        }
-        return contador;
-    }
-
-    contadorDiagonalIzquierdaInferior({ fila, columna }) {
-        let iteradorFila = fila + 1;
-        let iteradorColumna = columna - 1;
-        let mismoJugador = true;
-        let contador = 1;
-        while (mismoJugador && iteradorFila < this.maxFilas && iteradorColumna >= 0) {
-            const ficha = this.tablero[iteradorFila][iteradorColumna].ficha;
-            if (ficha && ficha.getJugador() === this.turnoJugador) {
-                contador++;
-                if (contador == this.fichasNecesarias) return contador;
-            } else {
-                contador--;
-                mismoJugador = false;
-            }
-            iteradorFila++;
-            iteradorColumna--;
-        }
-        return contador;
-    }
-
-    contadorDiagonalDerechaInferior({ fila, columna }) {
-        let iteradorFila = fila + 1;
-        let iteradorColumna = columna + 1;
-        let mismoJugador = true;
-        let contador = 1;
-        while (mismoJugador && iteradorFila < this.maxFilas && iteradorColumna < this.maxColumnas) {
-            const ficha = this.tablero[iteradorFila][iteradorColumna].ficha;
-            if (ficha && ficha.getJugador() === this.turnoJugador) {
-                contador++;
-                if (contador == this.fichasNecesarias) return contador;
-            } else {
-                contador--;
-                mismoJugador = false;
-            }
-            iteradorFila++;
-            iteradorColumna++;
-        }
-        return contador;
-    }
 }

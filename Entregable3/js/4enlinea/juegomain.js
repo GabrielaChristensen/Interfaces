@@ -24,12 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
             elementoCanva: boardCanvas,
             inicioYTablero: altoCanvas - altoTablero - 25
         }, MAXFILAS, MAXCOLUMNAS, 40, 7, anchoCelda, altoCelda);
-        const backgroundImage = new Image();
-        backgroundImage.src = "images/4enlinea/fondo-playa.png";
-        // backgroundImage.onload = () => {
-        //     boardCtx.drawImage(backgroundImage, 0, 0, anchoCanvas, altoCanvas);
         tablero.inicializarTablero();
-        // }
     }
 
     inicializarJuego();

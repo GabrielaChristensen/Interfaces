@@ -14,9 +14,9 @@ class Ficha {
     dibujarFicha() {
         this.imagenFicha = new Image();
 
-        // this.canvaCtx.beginPath();
-        // this.canvaCtx.arc(this.posX + this.tamañoFicha / 2, this.tamañoFicha + this.tamañoFicha / 2, this.tamañoFicha / 2, 0, Math.PI * 2);
-        // this.canvaCtx.closePath();
+        this.canvaCtx.beginPath();
+        this.canvaCtx.arc(this.posX + this.tamañoFicha / 2, this.tamañoFicha + this.tamañoFicha / 2, this.tamañoFicha / 2, 0, Math.PI * 2);
+        this.canvaCtx.closePath();
         if (this.jugador === 1) {
             this.imagenFicha.src = "images/4enlinea/Ficha-brujula.png";
         } else {
