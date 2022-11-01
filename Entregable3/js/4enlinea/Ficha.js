@@ -1,12 +1,14 @@
 "use strict";
 
 class Ficha {
-    constructor({ posX, posY }, jugador, canvaCtx, tamañoFicha) {
+    
+    constructor({ posX, posY }, jugador, canvaCtx, tamañoFicha, fichaSelecionada) {
         this.posX = posX;
         this.posY = posY;
         this.jugador = jugador;
         this.imagenCargada = false;
         this.tamañoFicha = tamañoFicha;
+        this.fichaSelecionada =fichaSelecionada
         this.canvaCtx = canvaCtx;
 
     }
@@ -17,11 +19,7 @@ class Ficha {
         this.canvaCtx.beginPath();
         this.canvaCtx.arc(this.posX + this.tamañoFicha / 2, this.tamañoFicha + this.tamañoFicha / 2, this.tamañoFicha / 2, 0, Math.PI * 2);
         this.canvaCtx.closePath();
-        if (this.jugador === 1) {
-            this.imagenFicha.src = "images/4enlinea/Ficha-brujula.png";
-        } else {
-            this.imagenFicha.src = "images/4enlinea/Ficha-calavera.png";
-        }
+        this.imagenFicha.src = this.fichaSelecionada;
         if (!this.imagenCargada)
             this.imagenFicha.onload = () => {
                 this.imagenCargada = true;
@@ -32,6 +30,9 @@ class Ficha {
             this.canvaCtx.drawImage(this.imagenFicha, this.posX - (this.tamañoFicha / 2), this.posY - (this.tamañoFicha / 2), this.tamañoFicha, this.tamañoFicha);
             this.canvaCtx.closePath();
         }
+    }
+    fichaSelecionada(){
+
     }
 
 
@@ -58,5 +59,7 @@ class Ficha {
         return this.jugador;
     }
 
+ 
 
+    
 }

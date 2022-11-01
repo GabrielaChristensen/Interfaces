@@ -960,23 +960,18 @@ div.footer-col-4 img {
         justify-content: center;
         padding: 50px 50px 0px 50px;
         position: relative;
-        height: 700px;
+        height: 600px;
     }
 
-    .contenedor-juego div {
+    .contenedor-juego:first-child  {
         position: absolute;
     }
 
-    .contenedor-juego div button {
+    /* .contenedor-juego div button {
         top: 45%;
         position: absolute;
         left: 43%;
-    }
-
-    .contenedor-juego img {
-        width: 1200px;
-        height: 650px;
-    }
+    } */
 
     .btn-jugar-amarillo {
         font-size: 20px;
@@ -1476,6 +1471,73 @@ div.footer-col-4 img {
         background-color: #D68910;
         margin: 10px;
     }
+/*---------------------------------------------*/
+.modal-4enlinea-back {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    background-color: rgba(250, 240, 245, 0.555);
+    padding: 30px 0px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    transition: all 500ms ease-in;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    visibility: visible;
+}
 
+.game-selectionpage{
+    background: linear-gradient(180deg, #003133 0%, #67989A 100%);
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    height: 600px;
+    width: 1400px;
+    margin: 0px 50px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items:center;
+    
+}
+.player-one, .player-two {
+    background-color: #D68910;
+    width: 25%;
+    height: 90%;
+}
+.game-setings{
+    background-color: #D68910;
+    width: 45%;
+    height: 90%;
+}
+.coin-selector{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contenedor-ficha{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.ficha{
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    margin: 3px;
+}
+.selector-ficha{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    opacity: 5%;
+}
+.selector-ficha+.ficha{
+    cursor: pointer;
+}
+.selector-ficha:checked+.ficha{
+    scale: 1.3;
+    transform: rotateY(180deg);
+    
+}
 
 }

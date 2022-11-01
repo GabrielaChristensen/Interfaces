@@ -1,6 +1,6 @@
 class Tablero {
 
-    constructor({ canvaCtx, altoCanvas, anchoCanvas, elementoCanva, anchoTablero, altoTablero, inicioTablero, inicioYTablero }, maxFilas, maxColumnas, anchoFichas, tipoJuego = 4, anchoCelda, altoCelda) {
+    constructor({ canvaCtx, altoCanvas, anchoCanvas, elementoCanva, anchoTablero, altoTablero, inicioTablero, inicioYTablero }, maxFilas, maxColumnas, anchoFichas, tipoJuego = 4, anchoCelda, altoCelda,fichaJUno,fichaJDos) {
 
         this.canvaCtx = canvaCtx;
         this.tablero = [];
@@ -26,6 +26,8 @@ class Tablero {
         this.fichaSeleccionada = null;
         this.tableroCargado = false;
         this.flechasTablero = [];
+        this.fichaJUno = fichaJUno;
+        this.fichaJDos=fichaJDos;
         this.juego = new Juego(this.tablero, this.maxFilas, this.maxColumnas, this.fichasNecesarias, 1);
         this.moverFichas();
 
@@ -158,7 +160,7 @@ class Tablero {
     inicializarFichasJ1() {
         for (let fichaIndex = 0; fichaIndex < this.totalFichasPorJugador; fichaIndex++) {
             const posiciones = this.getPosicionRandomJ1();
-            const ficha = new Ficha(posiciones, 1, this.canvaCtx, this.anchoFichas);
+            const ficha = new Ficha(posiciones, 1, this.canvaCtx, this.anchoFichas,this.fichaJUno);
             this.fichas.push(ficha);
         }
     }
@@ -166,7 +168,7 @@ class Tablero {
     inicializarFichasJ2() {
         for (let fichaIndex = 0; fichaIndex < this.totalFichasPorJugador; fichaIndex++) {
             const posiciones = this.getPosicionRandomJ2();
-            const ficha = new Ficha(posiciones, 2, this.canvaCtx, this.anchoFichas);
+            const ficha = new Ficha(posiciones, 2, this.canvaCtx, this.anchoFichas,this.fichaJDos);
             this.fichas.push(ficha);
         }
     }
