@@ -1,6 +1,6 @@
 class Tablero {
 
-    constructor({ canvaCtx, altoCanvas, anchoCanvas, elementoCanva, anchoTablero, altoTablero, inicioTablero, inicioYTablero }, maxFilas, maxColumnas, anchoFichas, tipoJuego = 4, anchoCelda, altoCelda) {
+    constructor({ canvaCtx, altoCanvas, anchoCanvas, elementoCanva, anchoTablero, altoTablero, inicioTablero, inicioYTablero }, maxFilas, maxColumnas, anchoFichas, tipoJuego = 4, anchoCelda, altoCelda, fichaJUno, fichaJDos) {
 
         this.canvaCtx = canvaCtx;
         this.tablero = [];
@@ -30,6 +30,8 @@ class Tablero {
         this.flechasTablero = [];
         this.ultimaPosicionFicha = null;
         this.tamañoTotalFichas = this.maxColumnasFichas * this.anchoFichas;
+        this.fichaJUno = fichaJUno;
+        this.fichaJDos = fichaJDos;
         this.juego = new Juego(this.tablero, this.maxFilas, this.maxColumnas, this.fichasNecesarias, 1);
         this.timeoutJugador = null;
         this.tiempoPorJugador = this.juego.getTiempoPorJugador();
@@ -72,8 +74,7 @@ class Tablero {
         this.dibujarTablero();
         this.dibujarFlechas();
         this.dibujarFichas();
-        this.clearTimeoutJugador();
-        if (!this.mouseMove && !this.mouseDown) this.timerTurno();
+        //if (!this.mouseMove && !this.mouseDown) this.timerTurno();
         this.timerJuego();
     }
 
@@ -170,7 +171,7 @@ class Tablero {
         let maxColumnas = 6;
         for (let fichaIndex = 1; fichaIndex <= this.totalFichasPorJugador; fichaIndex++) {
             const posiciones = this.getPosicionJ1(fila, columna);
-            const ficha = new Ficha(posiciones, 1, this.canvaCtx, this.anchoFichas);
+            const ficha = new Ficha(posiciones, 1, this.canvaCtx, this.anchoFichas, this.fichaJUno);
             this.fichas.push(ficha);
             if (fichaIndex >= (fila * maxColumnas)) {
                 fila++;
@@ -184,7 +185,7 @@ class Tablero {
         let columna = 0;
         for (let fichaIndex = 1; fichaIndex <= this.totalFichasPorJugador; fichaIndex++) {
             const posiciones = this.getPosicionJ2(fila, columna);
-            const ficha = new Ficha(posiciones, 2, this.canvaCtx, this.anchoFichas);
+            const ficha = new Ficha(posiciones, 2, this.canvaCtx, this.anchoFichas, this.fichaJDos);
             this.fichas.push(ficha);
             if (fichaIndex >= (fila * this.maxColumnasFichas)) {
                 fila++;
@@ -228,8 +229,6 @@ class Tablero {
                     this.tablero[posAInsertar.fila][posAInsertar.columna].ficha = posAInsertar.fichaAInsertar;
                     const turnoJugador = this.juego.getTurnoJugador() === 1 ? 2 : 1;
                     this.juego.setJugador(turnoJugador);
-                    this.clearTimeoutJugador();
-                    this.timerTurno();
                     if (juegoTerminado) {
                         this.fichas = [];
                         this.inicializarTablero();
@@ -258,7 +257,6 @@ class Tablero {
         }
 
         if (this.fichaSeleccionada !== null && this.fichaSeleccionada !== undefined) {
-            this.clearTimeoutJugador();
             this.dibujarFondo();
         }
 
@@ -268,7 +266,6 @@ class Tablero {
     onMouseMove(event) {
         if (this.fichaSeleccionada !== null && this.mouseDown) {
             this.mouseMove = true;
-            this.clearTimeoutJugador();
             const ficha = this.fichas[this.fichaSeleccionada];
             ficha.setPosicion({ x: event.offsetX, y: event.offsetY })
             this.fichas[this.fichaSeleccionada] = ficha;
@@ -313,17 +310,6 @@ class Tablero {
         return -1;
     }
 
-
-    timerTurno() {
-        this.timeoutJugador = setInterval(() => {
-            this.finalizarTurno();
-        }, 3000);
-    }
-
-    clearTimeoutJugador() {
-        clearInterval(this.timeoutJugador);
-    }
-
     timerJuego() {
         setTimeout(() => {
 
@@ -335,8 +321,5 @@ class Tablero {
         this.juego.setJugador(this.turnoJugador);
         this.canvaCtx.font = "30px Arial";
         this.canvaCtx.fillText("Se te terminó el turno!", 0, this.inicioYTablero);
-        //window.alert('Se te termino el tiempo gitanillo!')
-        this.clearTimeoutJugador();
-        this.timerTurno();
     }
 }
