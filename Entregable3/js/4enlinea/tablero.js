@@ -20,23 +20,32 @@ class Tablero {
         this.altoCelda = altoCelda;
         this.anchoCelda = anchoCelda;
         this.altoCanvas = altoCanvas;
-        this.imagenFondoCargada = false;
         this.eventosMouseUsado = false;
         this.mouseMove = false;
         this.maxColumnasFichas = 6;
         this.anchoCanvas = anchoCanvas;
         this.fichaSeleccionada = null;
-        this.tableroCargado = false;
         this.flechasTablero = [];
         this.ultimaPosicionFicha = null;
         this.tamañoTotalFichas = this.maxColumnasFichas * this.anchoFichas;
         this.fichaJUno = fichaJUno;
         this.fichaJDos = fichaJDos;
         this.juego = new Juego(this.tablero, this.maxFilas, this.maxColumnas, this.fichasNecesarias, 1);
-        this.timeoutJugador = null;
-        this.tiempoPorJugador = this.juego.getTiempoPorJugador();
         this.tiempoPorJuego = this.juego.getTiempoPorJuego();
+        this.tiempoRestante = this.tiempoPorJuego;
+        this.timerJuego = null;
         this.moverFichas();
+        this.inicializarTimerJuego();
+        this.backgroundImage = new Image();
+        this.backgroundImage.src = "images/4enlinea/fondo-playa.png";
+        this.backgroundImage.onload = () => {
+            this.canvaCtx.drawImage(this.backgroundImage, 0, 0, this.anchoCanvas, this.altoCanvas);
+        }
+        this.imagenTablero = new Image();
+        this.imagenTablero.src = 'images/4enlinea/celda.png';
+        this.imagenTablero.onload = () => {
+            this.dibujarTablero();
+        }
     }
 
 
@@ -74,43 +83,20 @@ class Tablero {
         this.dibujarTablero();
         this.dibujarFlechas();
         this.dibujarFichas();
-        //if (!this.mouseMove && !this.mouseDown) this.timerTurno();
-        this.timerJuego();
+        this.mostrarTiempo();
     }
 
 
     dibujarFondo() {
-        const backgroundImage = new Image();
-        backgroundImage.src = "images/4enlinea/fondo-playa.png";
-        if (!this.imagenFondoCargada)
-            backgroundImage.onload = () => {
-                this.canvaCtx.drawImage(backgroundImage, 0, 0, this.anchoCanvas, this.altoCanvas);
-                this.imagenFondoCargada = true;
-                this.inicializarEstado();
-            }
-        else {
-            this.canvaCtx.drawImage(backgroundImage, 0, 0, this.anchoCanvas, this.altoCanvas);
-            this.inicializarEstado();
-        }
+        this.canvaCtx.clearRect(0, 0, this.anchoCanvas, this.altoCanvas);
+        this.canvaCtx.drawImage(this.backgroundImage, 0, 0, this.anchoCanvas, this.altoCanvas);
+        this.inicializarEstado();
     }
 
     dibujarTablero() {
-        this.imagenTablero = new Image();
-        this.imagenTablero.src = 'images/4enlinea/celda.png';
-        if (!this.tableroCargado)
-            this.imagenTablero.onload = () => {
-                this.tableroCargado = true;
-                for (let i = 0; i < this.maxFilas; i++) {
-                    for (let j = 0; j < this.maxColumnas; j++) {
-                        this.canvaCtx.drawImage(this.imagenTablero, this.inicioTablero + (this.anchoCelda * j), this.inicioYTablero + (this.altoCelda * i), this.anchoCelda, this.altoCelda);
-                    }
-                }
-            }
-        else {
-            for (let i = 0; i < this.maxFilas; i++) {
-                for (let j = 0; j < this.maxColumnas; j++) {
-                    this.canvaCtx.drawImage(this.imagenTablero, this.inicioTablero + (this.anchoCelda * j), this.inicioYTablero + (this.altoCelda * i), this.anchoCelda, this.altoCelda);
-                }
+        for (let i = 0; i < this.maxFilas; i++) {
+            for (let j = 0; j < this.maxColumnas; j++) {
+                this.canvaCtx.drawImage(this.imagenTablero, this.inicioTablero + (this.anchoCelda * j), this.inicioYTablero + (this.altoCelda * i), this.anchoCelda, this.altoCelda);
             }
         }
     }
@@ -154,9 +140,7 @@ class Tablero {
 
     getPosicionJ2(fila, columna) {
         const tamañoFichasJ2 = (this.inicioTablero + this.anchoTablero) + (this.inicioTablero / 2);
-        console.log("tamañoFichasJ", tamañoFichasJ2)
         const inicioX = (tamañoFichasJ2) - (this.tamañoTotalFichas / 2);
-        console.log("inicioX")
         const posX = inicioX + ((columna + 1) * this.anchoFichas);
         const posY = this.inicioYTablero + (fila * this.anchoFichas);
         return {
@@ -310,16 +294,41 @@ class Tablero {
         return -1;
     }
 
-    timerJuego() {
-        setTimeout(() => {
-
-        }, this.timeout);
+    inicializarTimerJuego() {
+        if (!this.timerJuego) {
+            this.tiempoRestante = this.tiempoPorJuego;
+            this.timerJuego = setInterval(() => {
+                this.tiempoRestante--;
+                console.log("tiempoRestante", this.tiempoRestante)
+                if (this.tiempoRestante <= 0) this.terminarJuego();
+                else this.dibujarFondo();
+            }, 1000);
+        }
     }
 
-    finalizarTurno() {
-        this.turnoJugador = this.juego.getTurnoJugador() === 1 ? 2 : 1;
-        this.juego.setJugador(this.turnoJugador);
+    obtenerTiempoRestanteFormateado() {
+        let minutosRestantes = Math.floor(this.tiempoRestante / 60);
+        let segundosRestantes = this.tiempoRestante - minutosRestantes * 60;
+        if (minutosRestantes < 10) minutosRestantes = "0" + minutosRestantes;
+        if (segundosRestantes < 10) segundosRestantes = "0" + (segundosRestantes);
+        return {
+            minutes: minutosRestantes, seconds: segundosRestantes
+        }
+    }
+
+    terminarJuego() {
         this.canvaCtx.font = "30px Arial";
-        this.canvaCtx.fillText("Se te terminó el turno!", 0, this.inicioYTablero);
+        this.canvaCtx.fillText("Se acabó el tiempo!", this.anchoTablero / 2, this.inicioYTablero);
+        clearInterval(this.timerJuego);
+        this.timerJuego = null;
+        this.inicializarTimerJuego();
+        this.dibujarFondo();
+    }
+
+    mostrarTiempo() {
+        const tiempoRestanteFormateado = this.obtenerTiempoRestanteFormateado();
+        this.canvaCtx.font = "30px Roboto";
+        this.canvaCtx.fillStyle = "black";
+        this.canvaCtx.fillText(`${tiempoRestanteFormateado.minutes}:${tiempoRestanteFormateado.seconds}`, this.anchoCanvas / 2 - 40, 45);
     }
 }

@@ -16,9 +16,9 @@ class Ficha {
     dibujarFicha() {
         this.imagenFicha = new Image();
 
-        this.canvaCtx.beginPath();
-        this.canvaCtx.arc(this.posX + this.tamañoFicha / 2, this.tamañoFicha + this.tamañoFicha / 2, this.tamañoFicha / 2, 0, Math.PI * 2);
-        this.canvaCtx.closePath();
+        // this.canvaCtx.beginPath();
+        // this.canvaCtx.arc(this.posX + this.tamañoFicha / 2, this.tamañoFicha + this.tamañoFicha / 2, this.tamañoFicha / 2, 0, Math.PI * 2);
+        // this.canvaCtx.closePath();
         this.imagenFicha.src = this.fichaSelecionada;
         if (!this.imagenCargada)
             this.imagenFicha.onload = () => {
@@ -31,9 +31,7 @@ class Ficha {
             this.canvaCtx.closePath();
         }
     }
-    fichaSelecionada() {
 
-    }
 
 
     setPosicion({ x, y }) {

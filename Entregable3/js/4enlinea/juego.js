@@ -6,9 +6,7 @@ class Juego {
         this.maxColumnas = maxColumnas;
         this.fichasNecesarias = fichasNecesarias;
         this.turnoJugador = turnoJugador;
-        this.timeoutGeneral = 600000;
-        this.timeoutPorJugador = 3000;
-
+        this.timeoutGeneral = 300;
     }
 
     setJugador(turnoJugador) {
@@ -209,12 +207,6 @@ class Juego {
             if (!this.tablero[fila][columnaAInsertar].ficha) return false;
         }
         return true;
-    }
-
-
-
-    getTiempoPorJugador() {
-        return this.timeoutPorJugador;
     }
 
     getTiempoPorJuego() {
