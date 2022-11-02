@@ -22,13 +22,19 @@ class Tablero {
         this.altoCanvas = altoCanvas;
         this.imagenFondoCargada = false;
         this.eventosMouseUsado = false;
+        this.mouseMove = false;
+        this.maxColumnasFichas = 6;
         this.anchoCanvas = anchoCanvas;
         this.fichaSeleccionada = null;
         this.tableroCargado = false;
         this.flechasTablero = [];
+        this.ultimaPosicionFicha = null;
+        this.tamañoTotalFichas = this.maxColumnasFichas * this.anchoFichas;
         this.juego = new Juego(this.tablero, this.maxFilas, this.maxColumnas, this.fichasNecesarias, 1);
+        this.timeoutJugador = null;
+        this.tiempoPorJugador = this.juego.getTiempoPorJugador();
+        this.tiempoPorJuego = this.juego.getTiempoPorJuego();
         this.moverFichas();
-
     }
 
 
@@ -60,7 +66,15 @@ class Tablero {
         this.inicializarPosiciones();
         this.inicializarFichas();
         this.dibujarFondo();
+    }
 
+    inicializarEstado() {
+        this.dibujarTablero();
+        this.dibujarFlechas();
+        this.dibujarFichas();
+        this.clearTimeoutJugador();
+        if (!this.mouseMove && !this.mouseDown) this.timerTurno();
+        this.timerJuego();
     }
 
 
@@ -71,15 +85,11 @@ class Tablero {
             backgroundImage.onload = () => {
                 this.canvaCtx.drawImage(backgroundImage, 0, 0, this.anchoCanvas, this.altoCanvas);
                 this.imagenFondoCargada = true;
-                this.dibujarTablero();
-                this.dibujarFlechas();
-                this.dibujarFichas();
+                this.inicializarEstado();
             }
         else {
             this.canvaCtx.drawImage(backgroundImage, 0, 0, this.anchoCanvas, this.altoCanvas);
-            this.dibujarTablero();
-            this.dibujarFlechas();
-            this.dibujarFichas();
+            this.inicializarEstado();
         }
     }
 
@@ -129,45 +139,57 @@ class Tablero {
         this.inicializarFichasJ2();
     }
 
-    getPosicionRandomJ1() {
-        const limite1FichaXJ1 = 0 + this.anchoFichas;
-        const limite2FichaXJ1 = this.inicioTablero - this.anchoFichas;
-
-        const limite1FichaYJ1 = this.inicioYTablero + this.anchoFichas;
-        const limite2FichaYJ1 = this.altoCanvas - this.inicioYTablero - this.anchoFichas;
-
+    getPosicionJ1(fila, columna) {
+        const inicioX = (this.inicioTablero / 2) - (this.tamañoTotalFichas / 2) > 10 ?
+            (this.inicioTablero / 2) - (this.tamañoTotalFichas / 2) :
+            10;
+        const posX = inicioX + ((columna) * this.anchoFichas);
+        const posY = this.inicioYTablero + (fila * this.anchoFichas);
         return {
-            posX: Math.round(Math.random() * (limite2FichaXJ1 - limite1FichaXJ1 + 1) + limite1FichaXJ1),
-            posY: Math.round(Math.random() * (limite2FichaYJ1 - limite1FichaYJ1 + 1) + limite1FichaYJ1),
+            posX,
+            posY
         }
     }
 
-    getPosicionRandomJ2() {
-        const limite2FichaXJ2 = this.inicioTablero + this.anchoTablero + this.anchoFichas;
-        const limite1FichaXJ2 = this.anchoCanvas - this.anchoFichas;
-
-        const limite1FichaYJ2 = this.inicioYTablero + this.anchoFichas;
-        const limite2FichaYJ2 = this.altoCanvas - this.inicioYTablero - this.anchoFichas;
-
+    getPosicionJ2(fila, columna) {
+        const tamañoFichasJ2 = (this.inicioTablero + this.anchoTablero) + (this.inicioTablero / 2);
+        console.log("tamañoFichasJ", tamañoFichasJ2)
+        const inicioX = (tamañoFichasJ2) - (this.tamañoTotalFichas / 2);
+        console.log("inicioX")
+        const posX = inicioX + ((columna + 1) * this.anchoFichas);
+        const posY = this.inicioYTablero + (fila * this.anchoFichas);
         return {
-            posX: Math.round(Math.random() * (limite2FichaXJ2 - limite1FichaXJ2 + 1) + limite1FichaXJ2),
-            posY: Math.round(Math.random() * (limite2FichaYJ2 - limite1FichaYJ2 + 1) + limite1FichaYJ2),
+            posX,
+            posY
         }
     }
 
     inicializarFichasJ1() {
-        for (let fichaIndex = 0; fichaIndex < this.totalFichasPorJugador; fichaIndex++) {
-            const posiciones = this.getPosicionRandomJ1();
+        let fila = 1;
+        let columna = 0;
+        let maxColumnas = 6;
+        for (let fichaIndex = 1; fichaIndex <= this.totalFichasPorJugador; fichaIndex++) {
+            const posiciones = this.getPosicionJ1(fila, columna);
             const ficha = new Ficha(posiciones, 1, this.canvaCtx, this.anchoFichas);
             this.fichas.push(ficha);
+            if (fichaIndex >= (fila * maxColumnas)) {
+                fila++;
+                columna = 0;
+            } else columna++;
         }
     }
 
     inicializarFichasJ2() {
-        for (let fichaIndex = 0; fichaIndex < this.totalFichasPorJugador; fichaIndex++) {
-            const posiciones = this.getPosicionRandomJ2();
+        let fila = 1;
+        let columna = 0;
+        for (let fichaIndex = 1; fichaIndex <= this.totalFichasPorJugador; fichaIndex++) {
+            const posiciones = this.getPosicionJ2(fila, columna);
             const ficha = new Ficha(posiciones, 2, this.canvaCtx, this.anchoFichas);
             this.fichas.push(ficha);
+            if (fichaIndex >= (fila * this.maxColumnasFichas)) {
+                fila++;
+                columna = 0;
+            } else columna++;
         }
     }
 
@@ -189,12 +211,12 @@ class Tablero {
 
     onMouseUp(e) {
         this.mouseDown = false;
+        this.mouseMove = false;
         const columnaAInsertar = this.obtenerColumna({ posX: e.offsetX, posY: e.offsetY });
         if (columnaAInsertar === undefined || columnaAInsertar < 0 || this.juego.columnaLlena(columnaAInsertar)) {
-            if (this.fichaSeleccionada) {
+            if (this.fichaSeleccionada !== null && this.fichaSeleccionada !== undefined) {
                 const fichaSeleccionada = this.fichas[this.fichaSeleccionada];
-                const posiciones = this.juego.getTurnoJugador() === 1 ? this.getPosicionRandomJ1() : this.getPosicionRandomJ2();
-                fichaSeleccionada.setPosicion({ x: posiciones.posX, y: posiciones.posY });
+                fichaSeleccionada.setPosicion(this.ultimaPosicionFicha);
                 this.fichas[fichaSeleccionada] = fichaSeleccionada;
             }
             this.dibujarFondo();
@@ -206,6 +228,8 @@ class Tablero {
                     this.tablero[posAInsertar.fila][posAInsertar.columna].ficha = posAInsertar.fichaAInsertar;
                     const turnoJugador = this.juego.getTurnoJugador() === 1 ? 2 : 1;
                     this.juego.setJugador(turnoJugador);
+                    this.clearTimeoutJugador();
+                    this.timerTurno();
                     if (juegoTerminado) {
                         this.fichas = [];
                         this.inicializarTablero();
@@ -220,18 +244,21 @@ class Tablero {
     onMouseDown(event) {
         this.mouseDown = true;
         this.fichaSeleccionada = null;
+        this.mouseMove = false;
         for (let i = 0; i < this.fichas.length; i++) {
             const ficha = this.fichas[i];
 
             if (ficha.estaSeleccionada({ mouseX: event.offsetX, mouseY: event.offsetY })) {
                 if (ficha.getJugador() === this.juego.getTurnoJugador()) {
                     this.fichaSeleccionada = i;
+                    this.ultimaPosicionFicha = ficha.getPosicion();
                     break;
                 }
             }
         }
 
-        if (this.fichaSeleccionada) {
+        if (this.fichaSeleccionada !== null && this.fichaSeleccionada !== undefined) {
+            this.clearTimeoutJugador();
             this.dibujarFondo();
         }
 
@@ -240,6 +267,8 @@ class Tablero {
 
     onMouseMove(event) {
         if (this.fichaSeleccionada !== null && this.mouseDown) {
+            this.mouseMove = true;
+            this.clearTimeoutJugador();
             const ficha = this.fichas[this.fichaSeleccionada];
             ficha.setPosicion({ x: event.offsetX, y: event.offsetY })
             this.fichas[this.fichaSeleccionada] = ficha;
@@ -259,7 +288,7 @@ class Tablero {
     getPosAInsertar(columna) {
         for (let i = this.maxFilas - 1; i >= 0; i--) {
             if (this.tablero[i][columna] && !this.tablero[i][columna].ficha) {
-                if (this.fichaSeleccionada) {
+                if (this.fichaSeleccionada !== null && this.fichaSeleccionada !== undefined) {
                     const fichaAInsertar = this.fichas[this.fichaSeleccionada];
                     const posicionX = this.tablero[i][columna].posX;
                     const posicionY = this.tablero[i][columna].posY;
@@ -284,4 +313,30 @@ class Tablero {
         return -1;
     }
 
+
+    timerTurno() {
+        this.timeoutJugador = setInterval(() => {
+            this.finalizarTurno();
+        }, 3000);
+    }
+
+    clearTimeoutJugador() {
+        clearInterval(this.timeoutJugador);
+    }
+
+    timerJuego() {
+        setTimeout(() => {
+
+        }, this.timeout);
+    }
+
+    finalizarTurno() {
+        this.turnoJugador = this.juego.getTurnoJugador() === 1 ? 2 : 1;
+        this.juego.setJugador(this.turnoJugador);
+        this.canvaCtx.font = "30px Arial";
+        this.canvaCtx.fillText("Se te terminó el turno!", 0, this.inicioYTablero);
+        //window.alert('Se te termino el tiempo gitanillo!')
+        this.clearTimeoutJugador();
+        this.timerTurno();
+    }
 }
