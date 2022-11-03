@@ -9,7 +9,7 @@ class Juego {
         this.timeoutGeneral = 300;
     }
 
-    setJugador(turnoJugador) {
+    setTurnoJugador(turnoJugador) {
         this.turnoJugador = turnoJugador;
     }
 
@@ -25,22 +25,9 @@ class Juego {
         const chequearVertical = this.chequearVertical({ fila, columna });
         const chequearHorizontal = this.chequearHorizontal({ fila, columna });
         const chequearDiagonal = this.chequearDiagonal({ fila, columna });
-        const ganoVer = chequearVertical;
-        const ganoHor = chequearHorizontal;
-        const ganoDiag = chequearDiagonal;
 
+        return (chequearVertical || chequearHorizontal || chequearDiagonal);
 
-
-        if (chequearVertical || chequearHorizontal || chequearDiagonal) {
-            let msg = '';
-            if (ganoVer) msg += 'Vertical'
-            if (ganoHor) msg += 'Horizontal'
-            if (ganoDiag) msg += 'Diagonal'
-
-            window.alert(`Jugador ${this.turnoJugador} ganó por ${msg}!`);
-            this.turnoJugador = 1;
-            return true;
-        }
     }
 
 
@@ -211,5 +198,14 @@ class Juego {
 
     getTiempoPorJuego() {
         return this.timeoutGeneral;
+    }
+
+    tableroCompleto() {
+        for (let fila = 0; fila < this.maxFilas; fila++)
+            for (let columna = 0; columna < this.maxColumnas; columna++) {
+                if (!this.tablero[fila][columna].ficha)
+                    return false;
+            }
+        return true;
     }
 }
