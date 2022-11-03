@@ -299,7 +299,6 @@ class Tablero {
             this.tiempoRestante = this.tiempoPorJuego;
             this.timerJuego = setInterval(() => {
                 this.tiempoRestante--;
-                console.log("tiempoRestante", this.tiempoRestante)
                 if (this.tiempoRestante <= 0) this.terminarJuego();
                 else this.dibujarFondo();
             }, 1000);
