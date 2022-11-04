@@ -81,7 +81,9 @@ class Tablero {
         this.anchoTablero = this.anchoCelda * this.maxColumnas;
         this.altoTablero = this.altoCelda * this.maxFilas;
         this.inicioTablero = (this.anchoCanvas / 2) - (this.anchoTablero / 2);
-        this.inicioYTablero = this.altoCanvas - this.altoTablero - 25
+        // El inicio del tablero en el eje Y cambia si es de 4 o 5 en linea para que quede mejor distrubuido en el canvas
+        this.inicioYTablero = this.tipoJuego === 4 || this.tipoJuego === 5 ? (this.altoCanvas / 2) - (this.altoTablero / 2) + 25
+            : this.altoCanvas - this.altoTablero - 25;
         this.totalFichasPorJugador = (this.maxFilas * this.maxColumnas) / 2;
 
     }
@@ -275,8 +277,6 @@ class Tablero {
 
     }
 
-
-
     /**
      * Maneja el evento "onmouseup"
      * @param {Event} e 
@@ -296,7 +296,6 @@ class Tablero {
             } else {
                 if (columnaAInsertar !== undefined) {
                     const posAInsertar = this.getPosAInsertar(columnaAInsertar);
-                    console.log("posAinsertar", posAInsertar);
                     if (posAInsertar) {
                         const juegoTerminado = this.juego.juegoTerminado({ fila: posAInsertar.fila, columna: posAInsertar.columna });
                         this.tablero[posAInsertar.fila][posAInsertar.columna].ficha = posAInsertar.fichaAInsertar;

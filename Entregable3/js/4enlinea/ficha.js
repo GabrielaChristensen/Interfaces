@@ -13,6 +13,9 @@ class Ficha {
 
     }
 
+    /**
+     * Dibuja la ficha en el tablero
+     */
     dibujarFicha() {
         this.imagenFicha = new Image();
 
@@ -46,6 +49,11 @@ class Ficha {
         }
     }
 
+    /**
+     * Devuelve si la ficha esta seleccionada de acuerdo a las posiciones del mouse
+     * @param {{mouseX, mouseY}} posiciones 
+     * @returns 
+     */
     estaSeleccionada({ mouseX, mouseY }) {
         let _x = this.posX - mouseX;
         let _y = this.posY - mouseY;

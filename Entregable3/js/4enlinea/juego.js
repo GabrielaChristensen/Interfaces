@@ -21,6 +21,15 @@ class Juego {
         return this.turnoJugador;
     }
 
+    getTiempoPorJuego() {
+        return this.timeoutGeneral;
+    }
+
+    /**
+     * Determina si el juego está terminado según la fila y columna seleccionada
+     * @param {{fila, columna}} posiciones 
+     * @returns 
+     */
     juegoTerminado({ fila, columna }) {
         const chequearVertical = this.chequearVertical({ fila, columna });
         const chequearHorizontal = this.chequearHorizontal({ fila, columna });
@@ -31,6 +40,11 @@ class Juego {
     }
 
 
+    /**
+     * Chequea si se el jugador ganó por hacer vertical en el tablero
+     * @param {fila, columna} posiciones 
+     * @returns 
+     */
     chequearVertical({ fila, columna }) {
         if (fila === this.maxFilas - 1 || (this.maxFilas - this.fichasNecesarias) < fila)
             return false;
@@ -52,12 +66,22 @@ class Juego {
         return false;
     }
 
+    /**
+     * Chequea si se el jugador ganó por hacer horizontal en el tablero
+     * @param {fila, columna} posiciones 
+     * @returns 
+     */
     chequearHorizontal({ fila, columna }) {
         const contadorHorizontalIzq = this.contadorIzquierdaHorizontal({ fila, columna });
         const contadorHorizontalDer = this.contadorDerechaHorizontal({ fila, columna });
         return contadorHorizontalIzq + contadorHorizontalDer >= this.fichasNecesarias;
     }
 
+    /**
+     * Devuelve la cantidad de fichas horizontales y a la derecha iguales consecutivas a la del jugador 
+     * @param {fila, columna} posiciones 
+     * @returns 
+     */
     contadorDerechaHorizontal({ fila, columna }) {
         let iteradorColumna = columna + 1;
         let contador = 1;
@@ -77,6 +101,11 @@ class Juego {
         return contador;
     }
 
+    /**
+   * Devuelve la cantidad de fichas horizontales y a la izquierda iguales consecutivas a la del jugador 
+   * @param {fila, columna} posiciones 
+   * @returns 
+   */
     contadorIzquierdaHorizontal({ fila, columna }) {
         let iteradorColumna = columna - 1;
         let contador = 1;
@@ -95,6 +124,11 @@ class Juego {
         return contador;
     }
 
+    /**
+    * Chequea si el jugador ganó por alguna de las diagonales 
+    * @param {fila, columna} posiciones 
+    * @returns 
+    */
     chequearDiagonal({ fila, columna }) {
         const contadorDiagonalIzquierdaInferior = this.contadorDiagonalIzquierdaInferior({ fila, columna });
         const contadorDiagonalDerechaSuperior = this.contadorDiagonalDerechaSuperior({ fila, columna });
@@ -106,7 +140,11 @@ class Juego {
             (contadorDiagonalIzquierdaInferior + contadorDiagonalDerechaSuperior >= this.fichasNecesarias);
     }
 
-
+    /**
+     * Devuelve la cantidad de fichas diagonales y a la derecha superior iguales consecutivas a la del jugador 
+     * @param {fila, columna} posiciones 
+     * @returns 
+     */
     contadorDiagonalDerechaSuperior({ fila, columna }) {
         let iteradorFila = fila - 1;
         let iteradorColumna = columna + 1;
@@ -128,6 +166,11 @@ class Juego {
         return contador;
     }
 
+    /**
+    * Devuelve la cantidad de fichas diagonales y a la izquierda superior iguales consecutivas a la del jugador 
+    * @param {fila, columna} posiciones 
+    * @returns 
+    */
     contadorDiagonalIzquierdaSuperior({ fila, columna }) {
         let iteradorFila = fila - 1;
         let iteradorColumna = columna - 1;
@@ -148,6 +191,11 @@ class Juego {
         return contador;
     }
 
+    /**
+    * Devuelve la cantidad de fichas diagonales y a la izquierda inferior iguales consecutivas a la del jugador 
+    * @param {fila, columna} posiciones 
+    * @returns 
+    */
     contadorDiagonalIzquierdaInferior({ fila, columna }) {
         let iteradorFila = fila + 1;
         let iteradorColumna = columna - 1;
@@ -168,6 +216,11 @@ class Juego {
         return contador;
     }
 
+    /**
+    * Devuelve la cantidad de fichas diagonales y a la derecha inferior iguales consecutivas a la del jugador 
+    * @param {fila, columna} posiciones 
+    * @returns 
+    */
     contadorDiagonalDerechaInferior({ fila, columna }) {
         let iteradorFila = fila + 1;
         let iteradorColumna = columna + 1;
@@ -188,7 +241,11 @@ class Juego {
         return contador;
     }
 
-
+    /**
+    * Determina si la columna esta llena en el tablero
+     * @param {number} columnaAInsertar 
+    * @returns 
+     */
     columnaLlena(columnaAInsertar) {
         for (let fila = 0; fila < this.maxFilas; fila++) {
             if (!this.tablero[fila][columnaAInsertar].ficha) return false;
@@ -196,10 +253,10 @@ class Juego {
         return true;
     }
 
-    getTiempoPorJuego() {
-        return this.timeoutGeneral;
-    }
-
+    /**
+     * Determina si el tablero esta lleno de fichas
+     * @returns {boolean}
+     */
     tableroCompleto() {
         for (let fila = 0; fila < this.maxFilas; fila++)
             for (let columna = 0; columna < this.maxColumnas; columna++) {

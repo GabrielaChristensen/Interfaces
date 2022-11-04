@@ -55,6 +55,7 @@ label {
     bottom: 0;
     margin: auto;
     animation: girar 1.5s linear infinite;
+    transition: none;
 }
 
 .porcentaje {
@@ -66,10 +67,13 @@ label {
     left: 0;
     bottom: 0;
     margin: auto;
+    transition: none;
 }
 
 .porcentaje p {
     color: #0D4A4D;
+    transition: none;
+
 }
 
 @keyframes girar {
@@ -1397,6 +1401,7 @@ div.footer-col-4 img {
         transition: all 500ms ease-in;
         box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
         visibility: visible;
+
     }
 
     .game-selectionpage {
@@ -1566,9 +1571,11 @@ div.footer-col-4 img {
         flex-direction: row;
         justify-content: flex-end;
         margin-bottom: 10px;
+        visibility: hidden;
     }
 
-    .btn-reiniciar {
+    .btn-reiniciar,
+    .btn-comenzar {
         margin-top: 1rem;
         width: 8rem;
         height: 2.5rem;
@@ -1579,6 +1586,7 @@ div.footer-col-4 img {
         font-size: 17px;
         font-weight: 700;
         letter-spacing: 0.03em;
+        text-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
     }
 
     .btn-reiniciar img {
@@ -1588,5 +1596,29 @@ div.footer-col-4 img {
         width: 23px;
     }
 
+    .board {
+        visibility: visible;
+    }
+
+    .contenedor-inicio {
+        position: relative;
+        width: 1000px;
+        height: 500px;
+    }
+
+    .contenedor-inicio img {
+        width: 100%;
+        height: auto;
+    }
+
+    .contenedor-inicio button {
+        position: absolute;
+        top: 45%;
+        left: 43%;
+        width: 10rem;
+        height: 3rem;
+        vertical-align: middle;
+
+    }
 
 }
