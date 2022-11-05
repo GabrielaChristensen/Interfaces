@@ -143,6 +143,13 @@ div.logo img {
     height: 70px;
 }
 
+
+div.logo img:hover{
+    filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.30));
+    transform: scale(1.1);
+}
+
+
 .menu-navbar {
     background-color: #67989A;
     border-radius: 5px;
@@ -266,22 +273,24 @@ footer .footer-col-4 img:hover {
 }
 
 div.footer-col-4 img {
-    width: 25px;
-    height: 25px;
-    padding-right: 5px;
+    width: 40px;
+    height: 40px;
+    padding-right: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
     background: #F8C471;
+    border-radius: 3px;
 }
 
 ::-webkit-scrollbar {
-    height: 5px;
+    height: 7px;
     width: 10px;
+    
 }
 
 ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey;
+    box-shadow: inset 0 0 10px grey;
     border-radius: 10px;
 }
 
@@ -296,7 +305,7 @@ div.footer-col-4 img {
 
 .btn-comprar:hover {
     background-color: #FAD7A0;
-    animation-name: scaleup;
+    transform: scale(1.1);
     animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in;
@@ -306,6 +315,76 @@ div.footer-col-4 img {
     background-color: #D68910;
 }
 
+
+/* :active, :hover, :focus {
+    outline: 0 !important;
+    outline-offset: 0;
+}
+
+::before, ::after {
+    position: absolute;
+    content: "";
+}
+
+
+.btn-comprar {
+    position: relative;
+    display: inline-block;
+
+    background-color: #FFFFFF;
+    
+    border: none;
+    cursor: pointer;
+
+    color: #000000;
+    font-size: 10px;
+    padding: 3px;
+    border-radius: 5px;
+    margin: 3px;
+    border: 3px solid #F5B041 !important;
+  
+}
+
+.btn-comprar span {  
+    color: #000000 !important;
+    position: relative;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    top: 0; left: 0;
+    width: 100%;
+    padding: 15px 20px;
+    transition: 0.3s;
+
+    transition: 0.2s 0.1s;
+
+    
+}
+
+  
+.btn-comprar span:hover {
+    transition: 0.2s 0.1s;
+}
+
+
+
+.btn-comprar::before {
+    top:0; bottom: 0; right: 0;
+    height: 100%; width: 100%;
+    background-color:#F5B041;
+    transition: 0.3s ease-out;
+
+    font-size: 10px;
+    color: #000000 !important;
+}
+
+
+
+.btn-comprar:hover::before {
+    width: 0%;
+} */
+
 .btn-jugar-verde {
     background: #236467;
     border-radius: 5px;
@@ -313,14 +392,15 @@ div.footer-col-4 img {
     font-size: 10px;
     padding: 3px 5px 3px 5px;
     margin: 3px;
-    animation-name: rotate;
+    /* animation-name: rotate; */
     animation-duration: 3s;
     animation-iteration-count: infinite;
 }
 
 .btn-jugar-verde:hover {
     background-color: #67989A;
-    animation-name: scaleup;
+    /* animation-name: scaleup; */
+    transform: scale(1.1);
     animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in;
@@ -438,6 +518,12 @@ div.footer-col-4 img {
     display: flex;
     flex-flow: column;
     margin: 4px 16px 15px 8px;
+}
+
+.card-juego:hover{
+    transform: translateY(-8px);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+
 }
 
 .card-juego img {
@@ -1008,6 +1094,10 @@ div.footer-col-4 img {
         width: 70%;
     }
 
+    .comentarios:hover{
+        background-color: #67989A;
+    }
+
     .comentarios div {
         display: flex;
         flex-flow: row;
@@ -1198,6 +1288,7 @@ div.footer-col-4 img {
         transform: skewY(10deg) scale(0.9, 0.9);
         transition-timing-function: ease-out;
         transition: transform 1s;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
     }
 
     .CS-PCard:hover {
@@ -1372,13 +1463,18 @@ div.footer-col-4 img {
         margin: 10px;
     }
 
+    .feature:hover{
+        background-color: #236467;
+    }
+
     .feature>p {
         color: #D68910;
     }
 
     .feature>img {
-        width: 100px;
+        width: 85px;
     }
+
 
     .FT-line {
         height: 3px;
@@ -1391,7 +1487,7 @@ div.footer-col-4 img {
         display: flex;
         justify-content: center;
         position: absolute;
-        background-color: rgba(250, 240, 245, 0.555);
+        /* background-color: rgba(250, 240, 245, 0.555); */
         padding: 30px 0px;
         left: 0;
         top: 0;
@@ -1487,21 +1583,21 @@ div.footer-col-4 img {
         background-size: 100% .1em;
     }
 
-    .carrousel-juegos::-webkit-scrollbar {
+    /* .carrousel-juegos::-webkit-scrollbar {
         height: 0.3rem;
     }
 
     .carrousel-juegos::-webkit-scrollbar-track {
         -webkit-box-shadow: inset 0 0 5px #8B8A8A;
 
-    }
+    } */
 
-    .carrousel-juegos::-webkit-scrollbar-thumb {
+    /* .carrousel-juegos::-webkit-scrollbar-thumb {
 
         background-color: #EFE83A;
         border-radius: 2em;
 
-    }
+    } */
 
     .carrousel>h1 {
         font-weight: 600;
@@ -1524,20 +1620,25 @@ div.footer-col-4 img {
         display: grid;
         grid-auto-flow: column;
         grid-auto-columns: 3fr;
-        overflow-x: auto;
-        overflow-y: hidden;
+        /* overflow-x: auto;
+        overflow-y: hidden; */
+
+        overflow-x: scroll;
         overscroll-behavior-inline: contain;
         padding: 1rem 0rem 1rem 1rem;
         margin: 1rem 5rem 0.5rem 5rem;
+         cursor: pointer;
+       /* cursor: url(https://img.icons8.com/fluency/48/1A1A1A/hand-cursor.png), auto; */
     }
 
 
     .card-4-en-linea img {
+         cursor: pointer;
+       /* cursor: url(https://img.icons8.com/fluency/48/1A1A1A/hand-cursor.png), auto; */
         width: 18rem;
         height: 13rem;
         margin-right: 1rem;
-        cursor: pointer;
-        cursor: url(https://img.icons8.com/fluency/48/1A1A1A/hand-cursor.png), auto;
+
     }
 
     .card-4-en-linea img:hover,
@@ -1546,8 +1647,10 @@ div.footer-col-4 img {
     }
 
     .card-4-en-linea iframe {
-        cursor: url(https://img.icons8.com/fluency/48/1A1A1A/hand-cursor.png), auto;
+        /* cursor: url(https://img.icons8.com/fluency/48/1A1A1A/hand-cursor.png), auto; */
         margin-right: 1rem;
+        width: auto;
+        height: 13rem;
 
     }
 
@@ -1574,8 +1677,22 @@ div.footer-col-4 img {
         visibility: hidden;
     }
 
+
+    .btn-reiniciar>a {
+        position: relative;
+        overflow: hidden;
+        color: #F2F2F2;
+        font-size: 17px;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        text-align: center;
+
+    }
+
+
     .btn-reiniciar,
     .btn-comenzar {
+        overflow: hidden;
         margin-top: 1rem;
         width: 8rem;
         height: 2.5rem;
@@ -1589,6 +1706,30 @@ div.footer-col-4 img {
         text-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
     }
 
+    .btn-reiniciar:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -50px;
+        bottom: 0;
+        left: 0;
+
+        border-right: 50px solid transparent;
+        border-bottom: 80px solid #417D80;
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+
+    .btn-reiniciar:hover:before {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    .btn-reiniciar:hover {
+        transform: translateY(5px);
+    }
+
+
     .btn-reiniciar img {
         padding-right: 10px;
         vertical-align: middle;
@@ -1600,8 +1741,9 @@ div.footer-col-4 img {
         visibility: visible;
     }
 
+    /*Cambie el relative por el absolute porque rompia el carrousel*/
     .contenedor-inicio {
-        position: relative;
+        position: absolute;
         width: 1000px;
         height: 500px;
     }

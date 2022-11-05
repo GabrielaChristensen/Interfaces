@@ -25,15 +25,18 @@ class Ficha {
         this.imagenFicha.src = this.fichaSelecionada;
         if (!this.imagenCargada)
             this.imagenFicha.onload = () => {
+
                 this.imagenCargada = true;
                 this.canvaCtx.drawImage(this.imagenFicha, this.posX - (this.tamañoFicha / 2), this.posY - (this.tamañoFicha / 2), this.tamañoFicha, this.tamañoFicha);
                 this.canvaCtx.closePath();
             }
         else {
+
             this.canvaCtx.drawImage(this.imagenFicha, this.posX - (this.tamañoFicha / 2), this.posY - (this.tamañoFicha / 2), this.tamañoFicha, this.tamañoFicha);
             this.canvaCtx.closePath();
         }
     }
+
 
 
 
