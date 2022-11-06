@@ -77,36 +77,80 @@
             </canvas>
         </div>
         <div class="modal-4enlinea-back" id="modal-cuatroenlinea">
+            <div class="ModalfichasIguales" id="ModalfichasIguales">
+                <h2>Los jugadores deben de elegir fichas diferentes!!</h2>
+            </div>
             <div class="game-selectionpage">
                 <div class="player-one">
-                    <h2>Jugador 1</h2>
+                    <h1>Jugador 1</h1>
+                    <div class="contenedor-nombre">
+                        <h2>Ingrese Nombre:</h2>
+                        <input class="playerName" id="POneName" type="text" value="Jugador 1">
+                    </div>
+                    <h2>Seleccione su Ficha</h2>                    
                     <div class="coin-selector">
                         <form action="" name="fichaJuno">
-                            <label class="contenedor-ficha" for="op1">
+                            <label class="contenedor-ficha" for="1">
                                 <input class="selector-ficha" type="radio" name="pyone-coin" value="1" checked>
                                 <img class="ficha" src="images/4enlinea/Ficha-brujula.png" alt="fichaBrujula">
                             </label>
-                            <label class="contenedor-ficha" for="op2">
+                            <label class="contenedor-ficha" for="2">
                                 <input class="selector-ficha" type="radio" name="pyone-coin" value="2">
                                 <img class="ficha" src="images/4enlinea/Ficha-calavera.png" alt="Ficha-calavera">
                             </label>
-                            <label class="contenedor-ficha" for="op3">
+                            <label class="contenedor-ficha" for="3">
                                 <input class="selector-ficha" type="radio" name="pyone-coin" value="3">
                                 <img class="ficha" src="images/4enlinea/Ficha-catalejos.png" alt="Ficha-calavera">
                             </label>
-                            <label class="contenedor-ficha" for="op4">
+                            <label class="contenedor-ficha" for="4">
                                 <input class="selector-ficha" type="radio" name="pyone-coin" value="4">
                                 <img class="ficha" src="images/4enlinea/Ficha-espadas.png" alt="Ficha-calavera">
                             </label>
                         </form>
-
                     </div>
                 </div>
                 <div class="game-setings">
-                    <button class="btn-jugar-verde" id="try-button">Try it</button>
+                    <h1>Configuraciones del Juego</h1>
+                    <h2>Tipo de Juego</h2>
+                    <form class="tipoDejuego" name="tipoDeJuegoform">
+                        <div class="contendor-tipoDeJuego">
+                            <label class="contenedor-tablero" for="4">
+                                <input class="selector-tablero" type="radio" name="pyone-coin" value="4" checked>
+                                <img class="tablero-img" src="images/4enlinea/6x7.png" alt="4enlinea">
+                            </label>
+                            <p>4 en linea</p>
+                        </div>
+                        <div>
+                            <label class="contenedor-tablero" for="5">
+                                <input class="selector-tablero" type="radio" name="pyone-coin" value="5">
+                                <img class="tablero-img" src="images/4enlinea/6x7.png" alt="4enlinea">
+                            </label>
+                            <p>5 en linea</p>
+                        </div>
+                        <div>      
+                            <label class="contenedor-tablero" for="6">
+                                <input class="selector-tablero" type="radio" name="pyone-coin" value="6">
+                                <img class="tablero-img" src="images/4enlinea/6x7.png" alt="4enlinea">
+                            </label>
+                            <p> 6 en linea</p>
+                        </div>
+                        <div>
+                            <label class="contenedor-tablero" for="7">
+                                <input class="selector-tablero" type="radio" name="pyone-coin" value="7">
+                                <img class="tablero-img" src="images/4enlinea/6x7.png" alt="4enlinea">
+                            </label>
+                            <p> 7 en linea</p>
+                        </div>
+                    </form>
+                    <button class="btn-jugar-verde" id="Start-button">A Jugar!!</button>
                 </div>
                 <div class="player-two">
-                    <h2>Jugador 2</h2>
+                    <h1>Jugador 2</h1>
+                    <div class="contenedor-nombre">
+                        <h2>Ingrese Nombre:</h2>
+                        <input class="playerName" id="PTwoName" type="text" value="Jugador 1">
+                    </div> 
+                    <h2>Seleccione su Ficha</h2>
                     <div class="coin-selector">
                         <form action="" name="fichaJdos">
                             <label class="contenedor-ficha" for="op1">
@@ -130,6 +174,9 @@
                 </div>
             </div>
         </div>
+    </section>
+    <section>
+
     </section>
     <div class="parrafo-enlinea">
         <p>En este clásico juego, adentrate en las profundidades de un mar asediado por bandos de grupos piratas y de

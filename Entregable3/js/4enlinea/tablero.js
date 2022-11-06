@@ -1,6 +1,6 @@
 class Tablero {
 
-    constructor({ canvaCtx, altoCanvas, anchoCanvas, elementoCanva }, tipoJuego, anchoCelda, altoCelda, fichaJUno, fichaJDos) {
+    constructor({ canvaCtx, altoCanvas, anchoCanvas, elementoCanva }, tipoJuego, anchoCelda, altoCelda, fichaJUno, fichaJDos,nombrePOne,nombrePTwo) {
         this.canvaCtx = canvaCtx;
         this.tablero = [];
         this.fichas = [];
@@ -22,6 +22,8 @@ class Tablero {
         this.tamañoTotalFichas = this.maxColumnasFichas * this.anchoFichas;
         this.fichaJUno = fichaJUno;
         this.fichaJDos = fichaJDos;
+        this.nombrePOne = nombrePOne;
+        this.nombrePTwo = nombrePTwo;
         this.juego = new Juego(this.tablero, this.maxFilas, this.maxColumnas, this.fichasNecesarias, 1);
         this.tiempoPorJuego = this.juego.getTiempoPorJuego();
         this.tiempoRestante = this.tiempoPorJuego;
@@ -39,7 +41,9 @@ class Tablero {
         }
         this.juegoTerminado = false;
     }
-
+    test(){
+        console.log(this.nombrePTwo)
+    }
     setFichaJ1(tipoFicha) {
         this.fichaJUno = tipoFicha;
     }
@@ -327,7 +331,8 @@ class Tablero {
             posX += 50;
             mensaje = "Empate!";
         }
-        else mensaje = `Ganó el Jugador ${this.juego.getTurnoJugador()}!`;
+        else if(this.juego.getTurnoJugador() == 1) {mensaje = `Ganó ${this.nombrePOne}!`;}
+        else{mensaje = `Ganó ${this.nombrePTwo}!`;}
         this.canvaCtx.fillStyle = "rgba(1, 1, 1, 0.70)";
         this.canvaCtx.fillRect(0, (this.altoCanvas / 2) - 50, this.anchoCanvas, 100);
         this.canvaCtx.font = "30px Roboto";
@@ -485,12 +490,12 @@ class Tablero {
         if (this.juego.getTurnoJugador() == 1) {
             this.canvaCtx.font = "25px Roboto";
             this.canvaCtx.fillStyle = "#236467";
-            this.canvaCtx.fillText("Turno Jugador 1", 50, 45);
+            this.canvaCtx.fillText(this.nombrePOne, 50, 45);
         }
         else {
             this.canvaCtx.font = "25px Roboto";
             this.canvaCtx.fillStyle = "#236467";
-            this.canvaCtx.fillText("Turno Jugador 2", this.anchoCanvas - 225, 45);
+            this.canvaCtx.fillText(this.nombrePTwo, this.anchoCanvas - 225, 45);
         }
     }
 }
