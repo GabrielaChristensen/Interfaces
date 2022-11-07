@@ -6,8 +6,6 @@
     border: none;
     outline: none;
     font-family: 'Roboto', sans-serif;
-    /* vertical-align: baseline; */
-
 }
 
 *,
@@ -17,8 +15,6 @@
 }
 
 
-
-
 input {
     height: 20px;
     border-radius: 5px;
@@ -26,6 +22,10 @@ input {
 
 label {
     font-size: 14px;
+}
+
+.contenedor-juego * {
+    transition: none;
 }
 
 .contenedor-carga {
@@ -144,7 +144,7 @@ div.logo img {
 }
 
 
-div.logo img:hover{
+div.logo img:hover {
     filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.30));
     transform: scale(1.1);
 }
@@ -286,7 +286,7 @@ div.footer-col-4 img {
 ::-webkit-scrollbar {
     height: 7px;
     width: 10px;
-    
+
 }
 
 ::-webkit-scrollbar-track {
@@ -520,7 +520,7 @@ div.footer-col-4 img {
     margin: 4px 16px 15px 8px;
 }
 
-.card-juego:hover{
+.card-juego:hover {
     transform: translateY(-8px);
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
 
@@ -687,7 +687,6 @@ div.footer-col-4 img {
 
     label {
         font-size: 18px;
-        /*margin: auto;*/
     }
 
     .carga {
@@ -1094,8 +1093,8 @@ div.footer-col-4 img {
         width: 70%;
     }
 
-    .comentarios:hover{
-        background-color: #67989A;
+    .comentarios:hover {
+        background-color: #FAD7A0;
     }
 
     .comentarios div {
@@ -1156,15 +1155,6 @@ div.footer-col-4 img {
         flex-direction: column;
         align-items: flex-end;
     }
-
-    /* .btn-enviar {
-        background-color: #236467;
-        color: #FFFFFF;
-        border-radius: 5px;
-        padding: 10px 20px 10px 20px;
-        font-size: 17px;
-        margin-top: 10px;
-    } */
 
     .btn-enviar {
         margin-top: 1rem;
@@ -1463,7 +1453,7 @@ div.footer-col-4 img {
         margin: 10px;
     }
 
-    .feature:hover{
+    .feature:hover {
         background-color: #236467;
     }
 
@@ -1482,28 +1472,28 @@ div.footer-col-4 img {
         background-color: #D68910;
         margin: 10px;
     }
-    .ModalfichasIguales{
-        display: flex;
-        position: absolute;
+
+    .ModalfichasIguales {
+        display: none;
         align-items: center;
         justify-content: center;
-        height: 100%;
         width: 100%;
         z-index: 2;
-        visibility: hidden;
-        background-color: rgb(255, 255, 255,0.2);
     }
-    .ModalfichasIguales>h2{
+
+    .ModalfichasIguales>p {
         display: flex;
-        color: #D68910;
-        background-color: #000000;
+        color: #0D4A4D;
         width: 90%;
         height: 20%;
+        text-shadow: none;
         align-items: center;
         justify-content: center;
+        padding: 8px;
     }
+
     .modal-4enlinea-back {
-        display: flex;
+        display: none;
         justify-content: center;
         position: absolute;
         /* background-color: rgba(250, 240, 245, 0.555); */
@@ -1515,7 +1505,6 @@ div.footer-col-4 img {
         overflow: auto;
         transition: all 500ms ease-in;
         box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-        visibility: hidden;
 
     }
 
@@ -1530,20 +1519,28 @@ div.footer-col-4 img {
         align-items: center;
 
     }
-    .contenedor-nombre{
+
+    .contenedor-nombre {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 20px 0px 10px;
+        padding: 20px 0px 10px 3px;
     }
-    .contenedor-nombre>h2{
+
+    .contenedor-nombre>label {
         padding: 10px;
+        color: #ffffff;
+        text-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+        font-size: 15px;
     }
-    .contenedor-nombre>.playerName{
+
+    .contenedor-nombre>.playerName {
         height: 20px;
         border-radius: 5px;
-        
+        padding: 2%;
+
     }
+
     .player-one,
     .player-two,
     .game-setings {
@@ -1553,15 +1550,21 @@ div.footer-col-4 img {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding-top: 10px;
     }
-    .player-one{
 
-    }
 
     .game-setings {
         width: 45%;
+    }
 
-        }
+    .game-setings form {
+        margin-top: 2%;
+    }
+
+    .contendor-tipoDeJuego p {
+        margin-top: 10%;
+    }
 
     .coin-selector {
         display: flex;
@@ -1574,6 +1577,8 @@ div.footer-col-4 img {
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        transition: 0.5s ease-in-out;
+
     }
 
     .ficha {
@@ -1581,6 +1586,8 @@ div.footer-col-4 img {
         width: 50px;
         border-radius: 100%;
         margin: 3px;
+        transition: 0.5s ease-in-out;
+
     }
 
     .selector-ficha {
@@ -1588,6 +1595,8 @@ div.footer-col-4 img {
         width: 40px;
         height: 40px;
         opacity: 0%;
+        cursor: pointer;
+        transition: 0.5s ease-in-out;
     }
 
     .selector-ficha+.ficha {
@@ -1599,30 +1608,36 @@ div.footer-col-4 img {
         transform: rotateY(180deg);
 
     }
-    .tipoDejuego{
+
+    .tipoDejuego {
         display: flex;
         align-items: center;
         justify-content: space-around;
         width: 100%;
     }
+
     .contenedor-tablero {
         display: inline-flex;
         align-items: center;
         justify-content: center;
     }
-    .tablero-img{
+
+    .tablero-img {
         width: 120px;
+        cursor: pointer;
     }
+
     .selector-tablero {
         position: absolute;
         width: 100px;
         height: 100px;
         opacity: 0%;
+        cursor: pointer;
     }
 
     .selector-tablero:checked+.tablero-img {
         scale: 1.1;
-        box-shadow: 10px 10px 18px 0px rgba(0,0,0,0.75);
+        box-shadow: 10px 10px 18px 0px rgba(0, 0, 0, 0.75);
 
     }
 
@@ -1685,21 +1700,14 @@ div.footer-col-4 img {
         display: grid;
         grid-auto-flow: column;
         grid-auto-columns: 3fr;
-        /* overflow-x: auto;
-        overflow-y: hidden; */
-
-        overflow-x: scroll;
-        overscroll-behavior-inline: contain;
         padding: 1rem 0rem 1rem 1rem;
         margin: 1rem 5rem 0.5rem 5rem;
-         cursor: pointer;
-       /* cursor: url(https://img.icons8.com/fluency/48/1A1A1A/hand-cursor.png), auto; */
+        cursor: pointer;
     }
 
 
     .card-4-en-linea img {
-         cursor: pointer;
-       /* cursor: url(https://img.icons8.com/fluency/48/1A1A1A/hand-cursor.png), auto; */
+        cursor: pointer;
         width: 18rem;
         height: 13rem;
         margin-right: 1rem;
@@ -1712,7 +1720,6 @@ div.footer-col-4 img {
     }
 
     .card-4-en-linea iframe {
-        /* cursor: url(https://img.icons8.com/fluency/48/1A1A1A/hand-cursor.png), auto; */
         margin-right: 1rem;
         width: auto;
         height: 13rem;
@@ -1751,12 +1758,12 @@ div.footer-col-4 img {
         font-weight: 700;
         letter-spacing: 0.03em;
         text-align: center;
-
     }
 
 
     .btn-reiniciar,
-    .btn-comenzar {
+    .btn-comenzar,
+    .btn-jugar {
         overflow: hidden;
         margin-top: 1rem;
         width: 8rem;
@@ -1778,7 +1785,6 @@ div.footer-col-4 img {
         right: -50px;
         bottom: 0;
         left: 0;
-
         border-right: 50px solid transparent;
         border-bottom: 80px solid #417D80;
         -webkit-transform: translateX(-100%);
@@ -1788,6 +1794,7 @@ div.footer-col-4 img {
     .btn-reiniciar:hover:before {
         -webkit-transform: translateX(0);
         transform: translateX(0);
+
     }
 
     .btn-reiniciar:hover {
@@ -1800,6 +1807,42 @@ div.footer-col-4 img {
         vertical-align: middle;
         height: 23px;
         width: 23px;
+    }
+
+    .btn-comenzar {
+        background-color: #236467;
+    }
+
+    .btn-comenzar>a {
+        position: relative;
+        text-align: center;
+    }
+
+    .btn-comenzar:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -50px;
+        bottom: 0;
+        left: 0;
+        border-right: 50px solid transparent;
+        border-bottom: 80px solid #0D4A4D;
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+
+    .btn-comenzar:hover:before {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    .btn-comenzar:hover {
+        transform: translateY(4px);
+    }
+
+    .btn-jugar {
+        background-color: #236467;
+        margin: 8px;
     }
 
     .board {
@@ -1827,5 +1870,14 @@ div.footer-col-4 img {
         vertical-align: middle;
 
     }
+
+    .modal-4enlinea-back::-webkit-scrollbar {
+        display: none;
+    }
+
+    .contendor-tipoDeJuego p {
+        text-align: center;
+    }
+
 
 }

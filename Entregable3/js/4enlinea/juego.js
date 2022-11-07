@@ -25,6 +25,7 @@ class Juego {
         return this.timeoutGeneral;
     }
 
+
     /**
      * Determina si el juego está terminado según la fila y columna seleccionada
      * @param {{fila, columna}} posiciones 
@@ -150,6 +151,10 @@ class Juego {
         let iteradorColumna = columna + 1;
         let mismoJugador = true;
         let contador = 1;
+
+        if (iteradorColumna === this.maxColumnas || iteradorFila <= 0) return 0;
+
+
         while (mismoJugador && iteradorFila >= 0 && iteradorColumna < this.maxColumnas) {
             const ficha = this.tablero[iteradorFila][iteradorColumna].ficha;
             if (ficha && ficha.getJugador() === this.turnoJugador) {
@@ -176,6 +181,10 @@ class Juego {
         let iteradorColumna = columna - 1;
         let mismoJugador = true;
         let contador = 1;
+
+        if (iteradorColumna <= 0 || iteradorFila <= 0) return 0;
+
+
         while (mismoJugador && iteradorFila >= 0 && iteradorColumna >= 0) {
             const ficha = this.tablero[iteradorFila][iteradorColumna].ficha;
             if (ficha && ficha.getJugador() === this.turnoJugador) {
@@ -201,6 +210,9 @@ class Juego {
         let iteradorColumna = columna - 1;
         let mismoJugador = true;
         let contador = 1;
+
+        if (iteradorColumna <= 0 || iteradorFila === this.maxFilas) return 0;
+
         while (mismoJugador && iteradorFila < this.maxFilas && iteradorColumna >= 0) {
             const ficha = this.tablero[iteradorFila][iteradorColumna].ficha;
             if (ficha && ficha.getJugador() === this.turnoJugador) {
@@ -213,6 +225,7 @@ class Juego {
             iteradorFila++;
             iteradorColumna--;
         }
+
         return contador;
     }
 
@@ -226,6 +239,8 @@ class Juego {
         let iteradorColumna = columna + 1;
         let mismoJugador = true;
         let contador = 1;
+        if (iteradorColumna === this.maxColumnas || iteradorFila === this.maxFilas) return 0;
+
         while (mismoJugador && iteradorFila < this.maxFilas && iteradorColumna < this.maxColumnas) {
             const ficha = this.tablero[iteradorFila][iteradorColumna].ficha;
             if (ficha && ficha.getJugador() === this.turnoJugador) {

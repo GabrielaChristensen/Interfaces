@@ -1,6 +1,6 @@
 class Tablero {
 
-    constructor({ canvaCtx, altoCanvas, anchoCanvas, elementoCanva }, tipoJuego, anchoCelda, altoCelda, fichaJUno, fichaJDos,nombrePOne,nombrePTwo) {
+    constructor({ canvaCtx, altoCanvas, anchoCanvas, elementoCanva }, tipoJuego, anchoCelda, altoCelda, fichaJUno, fichaJDos, nombreJ1, nombreJ2) {
         this.canvaCtx = canvaCtx;
         this.tablero = [];
         this.fichas = [];
@@ -22,10 +22,8 @@ class Tablero {
         this.tamañoTotalFichas = this.maxColumnasFichas * this.anchoFichas;
         this.fichaJUno = fichaJUno;
         this.fichaJDos = fichaJDos;
-        this.nombrePOne = nombrePOne;
-        this.nombrePTwo = nombrePTwo;
-        this.juego = new Juego(this.tablero, this.maxFilas, this.maxColumnas, this.fichasNecesarias, 1);
-        this.tiempoPorJuego = this.juego.getTiempoPorJuego();
+        this.nombreJ1 = nombreJ1;
+        this.nombreJ2 = nombreJ2;
         this.tiempoRestante = this.tiempoPorJuego;
         this.timerJuego = null;
         this.moverFichas();
@@ -41,15 +39,22 @@ class Tablero {
         }
         this.juegoTerminado = false;
     }
-    test(){
-        console.log(this.nombrePTwo)
-    }
+
     setFichaJ1(tipoFicha) {
         this.fichaJUno = tipoFicha;
     }
 
     setFichaJ2(tipoFicha) {
         this.fichaJDos = tipoFicha;
+    }
+
+    setNombreJ1(nombre) {
+        this.nombreJ1 = nombre;
+    }
+
+
+    setNombreJ2(nombre) {
+        this.nombreJ2 = nombre;
     }
 
     setTipoJuego(tipoJuego) {
@@ -89,6 +94,9 @@ class Tablero {
         this.inicioYTablero = this.tipoJuego === 4 || this.tipoJuego === 5 ? (this.altoCanvas / 2) - (this.altoTablero / 2) + 25
             : this.altoCanvas - this.altoTablero - 25;
         this.totalFichasPorJugador = (this.maxFilas * this.maxColumnas) / 2;
+        this.fichasNecesarias = this.tipoJuego;
+        this.juego = new Juego(this.tablero, this.maxFilas, this.maxColumnas, this.fichasNecesarias, 1);
+        this.tiempoPorJuego = this.juego.getTiempoPorJuego();
 
     }
 
@@ -119,18 +127,20 @@ class Tablero {
      * Inicializa el tablero completo
      */
     inicializarTablero() {
-        this.tablero = [];
-        this.calcularTamañoTablero();
-        this.juegoTerminado = false;
-        this.fichas = [];
-        this.juego.setTablero(this.tablero);
-        clearInterval(this.timerJuego);
-        this.timerJuego = null;
-        this.inicializarTimerJuego();
-        this.juego.setTurnoJugador(1);
-        this.inicializarPosiciones();
-        this.inicializarFichas();
-        this.dibujarFondo();
+        setTimeout(() => {
+            this.tablero = [];
+            this.calcularTamañoTablero();
+            this.juegoTerminado = false;
+            this.fichas = [];
+            this.juego.setTablero(this.tablero);
+            clearInterval(this.timerJuego);
+            this.timerJuego = null;
+            this.inicializarTimerJuego();
+            this.juego.setTurnoJugador(1);
+            this.inicializarPosiciones();
+            this.inicializarFichas();
+            this.dibujarFondo();
+        }, 200)
     }
 
     /**
@@ -326,13 +336,13 @@ class Tablero {
      */
     mostrarResultado(empate = false) {
         let mensaje = '';
-        let posX = this.inicioTablero + 20;
+        let posX = this.inicioTablero + 80;
         if (empate) {
             posX += 50;
             mensaje = "Empate!";
         }
-        else if(this.juego.getTurnoJugador() == 1) {mensaje = `Ganó ${this.nombrePOne}!`;}
-        else{mensaje = `Ganó ${this.nombrePTwo}!`;}
+        else if (this.juego.getTurnoJugador() == 1) { mensaje = `Ganó ${this.nombreJ1}!`; }
+        else { mensaje = `Ganó ${this.nombreJ2}!`; }
         this.canvaCtx.fillStyle = "rgba(1, 1, 1, 0.70)";
         this.canvaCtx.fillRect(0, (this.altoCanvas / 2) - 50, this.anchoCanvas, 100);
         this.canvaCtx.font = "30px Roboto";
@@ -490,12 +500,12 @@ class Tablero {
         if (this.juego.getTurnoJugador() == 1) {
             this.canvaCtx.font = "25px Roboto";
             this.canvaCtx.fillStyle = "#236467";
-            this.canvaCtx.fillText(this.nombrePOne, 50, 45);
+            this.canvaCtx.fillText(`Turno ${this.nombreJ1}`, 50, 45);
         }
         else {
             this.canvaCtx.font = "25px Roboto";
             this.canvaCtx.fillStyle = "#236467";
-            this.canvaCtx.fillText(this.nombrePTwo, this.anchoCanvas - 225, 45);
+            this.canvaCtx.fillText(`Turno ${this.nombreJ2}`, this.anchoCanvas - 225, 45);
         }
     }
 }

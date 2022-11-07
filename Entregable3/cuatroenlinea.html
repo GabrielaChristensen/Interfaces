@@ -31,16 +31,6 @@
         <div class="logo"><a href="./index.html"><img src="./images/Logo.svg" alt="logo"></a></div>
         <div class="userProfile"><img src="./images/UserProfile.svg" alt="UserProfile"></div>
     </header>
-    <!-- <div class="breadcrumb">
-        <ul>
-            <li><a href="./index.html">Home</a></li>
-            <li>></li>
-            <li><a href="./index.html#clasicos">Clásicos</a></li>
-            <li>></li>
-            <li><a href="#">4 en linea - Pirate Hunter</a></li>
-        </ul>
-    </div> -->
-
     <div class="breadcrum">
         <h3><a href="./index.html"> Home </a></h3>
         <img src="./images/4enlinea/arrow.png" alt="arrow">
@@ -48,8 +38,6 @@
         <img src="./images/4enlinea/arrow.png" alt="arrow">
         <h3><a href="#">4 en línea - Pirate Hunter</a></h3>
     </div>
-
-
     <section class="encabezado-4linea">
         <div class="titulo-encabezado">
             <h1>4 en línea - Pirate Hunter</h1>
@@ -66,28 +54,25 @@
     <section class="contenedor-juego">
         <div class="contenedor-reiniciar">
             <button id="btn-reiniciar" class="btn-reiniciar"><a><img src="./images/icons8-reiniciar-26.png"
-                    alt="reiniciar">Reiniciar</a></button>
+                        alt="reiniciar">Reiniciar</a></button>
         </div>
         <div class="contenedor-inicio" id="contenedor-inicio">
             <img src="./images/4enlinea/4enlinea.png" alt="4enlinea">
-            <button id="btn-comenzar" class="btn-comenzar">Comenzar!</button>
+            <button id="btn-comenzar" class="btn-comenzar"><a>Comenzar!</a></button>
         </div>
         <div id="contenedor-board" class="board">
             <canvas id="board" width="1000px" height="500px">
             </canvas>
         </div>
         <div class="modal-4enlinea-back" id="modal-cuatroenlinea">
-            <div class="ModalfichasIguales" id="ModalfichasIguales">
-                <h2>Los jugadores deben de elegir fichas diferentes!!</h2>
-            </div>
             <div class="game-selectionpage">
                 <div class="player-one">
                     <h1>Jugador 1</h1>
                     <div class="contenedor-nombre">
-                        <h2>Ingrese Nombre:</h2>
-                        <input class="playerName" id="POneName" type="text" value="Jugador 1">
+                        <label>Nombre</label>
+                        <input class="playerName" id="POneName" type="text" placeholder="Jugador 1" maxlength="15">
                     </div>
-                    <h2>Seleccione su Ficha</h2>                    
+                    <h2>Seleccione su Ficha</h2>
                     <div class="coin-selector">
                         <form action="" name="fichaJuno">
                             <label class="contenedor-ficha" for="1">
@@ -118,38 +103,41 @@
                                 <input class="selector-tablero" type="radio" name="pyone-coin" value="4" checked>
                                 <img class="tablero-img" src="images/4enlinea/6x7.png" alt="4enlinea">
                             </label>
-                            <p>4 en linea</p>
+                            <p>4 en línea</p>
                         </div>
-                        <div>
+                        <div class="contendor-tipoDeJuego">
                             <label class="contenedor-tablero" for="5">
                                 <input class="selector-tablero" type="radio" name="pyone-coin" value="5">
                                 <img class="tablero-img" src="images/4enlinea/6x7.png" alt="4enlinea">
                             </label>
-                            <p>5 en linea</p>
+                            <p>5 en línea</p>
                         </div>
-                        <div>      
+                        <div class="contendor-tipoDeJuego">
                             <label class="contenedor-tablero" for="6">
                                 <input class="selector-tablero" type="radio" name="pyone-coin" value="6">
                                 <img class="tablero-img" src="images/4enlinea/6x7.png" alt="4enlinea">
                             </label>
-                            <p> 6 en linea</p>
+                            <p> 6 en línea</p>
                         </div>
-                        <div>
+                        <div class="contendor-tipoDeJuego">
                             <label class="contenedor-tablero" for="7">
                                 <input class="selector-tablero" type="radio" name="pyone-coin" value="7">
                                 <img class="tablero-img" src="images/4enlinea/6x7.png" alt="4enlinea">
                             </label>
-                            <p> 7 en linea</p>
+                            <p> 7 en línea</p>
                         </div>
                     </form>
-                    <button class="btn-jugar-verde" id="Start-button">A Jugar!!</button>
+                    <button class="btn-jugar-verde btn-jugar" id="Start-button">A Jugar!!</button>
+                    <div class="ModalfichasIguales" id="ModalfichasIguales">
+                        <p>* Los jugadores deben elegir fichas diferentes!!</p>
+                    </div>
                 </div>
                 <div class="player-two">
                     <h1>Jugador 2</h1>
                     <div class="contenedor-nombre">
-                        <h2>Ingrese Nombre:</h2>
-                        <input class="playerName" id="PTwoName" type="text" value="Jugador 1">
-                    </div> 
+                        <label>Nombre</label>
+                        <input class="playerName" id="PTwoName" type="text" placeholder="Jugador 2" maxlength="15">
+                    </div>
                     <h2>Seleccione su Ficha</h2>
                     <div class="coin-selector">
                         <form action="" name="fichaJdos">
@@ -196,8 +184,8 @@
                 <img class="card-img-top-cuadrado" src="./images/4enlinea/Juego (1).png" alt="Card image cap">
             </div>
             <div id="open-img" class="card-4-en-linea">
-                <iframe  src="https://www.youtube.com/embed/VgMjWuzDcf0?start=547"
-                    title="YouTube video player" frameborder="0"
+                <iframe src="https://www.youtube.com/embed/VgMjWuzDcf0?start=547" title="YouTube video player"
+                    frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
             </div>

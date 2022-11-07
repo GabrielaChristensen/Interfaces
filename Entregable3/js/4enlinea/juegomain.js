@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const contenedorCanvas = document.querySelector("#contenedor-board");
 
     const modal = document.querySelector("#modal-cuatroenlinea");
-    const ModalfichasIguales = document.querySelector("#ModalfichasIguales");
-        const contenedorInicio = document.querySelector("#contenedor-inicio");
+    const modalfichasIguales = document.querySelector("#ModalfichasIguales");
+    const contenedorInicio = document.querySelector("#contenedor-inicio");
     const buttoncomenzar = document.querySelector("#btn-comenzar");
     const buttonStart = document.querySelector("#Start-button");
     const buttonrestart = document.querySelector('#btn-reiniciar');
@@ -18,40 +18,46 @@ document.addEventListener("DOMContentLoaded", () => {
     const altoCelda = 40;
     const anchoCanvas = boardCanvas.clientWidth;
     let tipoJuego = 4;
-    let NombreJugador1 = "Jugador 1";
-    let NombreJugador2 = "Jugador 2";
+    let nombreJugador1 = "Jugador 1";
+    let nombreJugador2 = "Jugador 2";
     let tablero = null;
 
-
-    //al hacer click en el btn comenzar se abre el modal para elegir las opciones de juego
+    /**
+     * Al hacer click en el btn comenzar se abre el modal para elegir las opciones de juego
+     */
     buttoncomenzar.addEventListener('click', () => {
-        modal.style.visibility = "visible";
+        modal.style.display = "flex";
         contenedorInicio.style.display = "none";
     })
 
+    /**
+     * Se inicia el juego con los nombres de jugadores, tipo de juego seleccionado y fichas seleccionadas distintas
+     */
     buttonStart.addEventListener('click', () => {
-        if(checkFichaDistintas()== false){
-        NombreJugador1 = String(document.getElementById("POneName").value) ;
-        NombreJugador2 = String(document.getElementById("PTwoName").value) ;
-        tipoDeJuegoSeleccionado();
-        contenedorCanvas.style.display = "flex";
-        buttonrestart.style.visibility = "visible";
-        modal.style.visibility = "hidden";
-        setTimeout(inicializarJuego,3500);
-        
-        }else{
-            ModalfichasIguales.style.visibility="visible";
-            
-            setTimeout(hiddenModal, 1000); 
+        if (!checkFichaDistintas()) {
+            nombreJugador1 = document.getElementById("POneName").value ? document.getElementById("POneName").value : "Jugador 1";
+            nombreJugador2 = document.getElementById("PTwoName").value ? document.getElementById("PTwoName").value : "Jugador 2";
+            tipoDeJuegoSeleccionado();
+            modal.style.display = "none";
+            modalfichasIguales.style.display = "none";
+            contenedorCanvas.style.display = "flex";
+            contenedorInicio.style.display = 'none';
+            buttonrestart.style.visibility = "visible";
+            inicializarJuego();
+        } else {
+            modalfichasIguales.style.display = "flex";
+            setTimeout(hiddenModal, 2000);
 
         }
     })
 
 
-    //reinicia el juego permitiendo elegir nuevas opciones
+    /**
+     * Reinicia el juego permitiendo elegir nuevas opciones
+     */
     buttonrestart.addEventListener('click', () => {
-        modal.style.visibility = "visible";
-        //contenedorCanvas.style.display = "flex";
+        modal.style.display = "flex";
+        contenedorCanvas.style.display = "none";
     })
 
 
@@ -59,18 +65,19 @@ document.addEventListener("DOMContentLoaded", () => {
      * Inicializa el juego segun los parametros usados por el jugador
      */
     function inicializarJuego() {
-        
+
         if (!tablero) {
             tablero = new Tablero({
                 canvaCtx: boardCtx,
                 anchoCanvas: anchoCanvas,
                 altoCanvas,
                 elementoCanva: boardCanvas,
-            }, tipoJuego, anchoCelda, altoCelda, fichaSelecionJuno(), fichaSelecionJdos(),NombreJugador1,NombreJugador2);
-            tablero.test();
+            }, tipoJuego, anchoCelda, altoCelda, fichaSelecionJuno(), fichaSelecionJdos(), nombreJugador1, nombreJugador2);
         } else {
             tablero.setFichaJ1(fichaSelecionJuno());
             tablero.setFichaJ2(fichaSelecionJdos());
+            tablero.setNombreJ1(nombreJugador1);
+            tablero.setNombreJ2(nombreJugador2);
             tablero.setTipoJuego(tipoJuego);
         }
         tablero.inicializarTablero();
@@ -88,17 +95,17 @@ document.addEventListener("DOMContentLoaded", () => {
             if (fichaJUno[i].checked) {
                 switch (fichaJUno[i].value) {
                     case "1":
-                        fichaseleccionada = "images/4enlinea/Ficha-brujula.png"
-                        return fichaseleccionada
+                        fichaseleccionada = "images/4enlinea/Ficha-brujula.png";
+                        return fichaseleccionada;
                     case "2":
                         fichaseleccionada = "images/4enlinea/Ficha-calavera.png";
-                        return fichaseleccionada
+                        return fichaseleccionada;
                     case "3":
-                        fichaseleccionada = "images/4enlinea/Ficha-catalejos.png"
-                        return fichaseleccionada
+                        fichaseleccionada = "images/4enlinea/Ficha-catalejos.png";
+                        return fichaseleccionada;
                     case "4":
-                        fichaseleccionada = "images/4enlinea/Ficha-espadas.png"
-                        return fichaseleccionada
+                        fichaseleccionada = "images/4enlinea/Ficha-espadas.png";
+                        return fichaseleccionada;
                 }
             };
         }
@@ -115,66 +122,60 @@ document.addEventListener("DOMContentLoaded", () => {
             if (fichaJUno[i].checked) {
                 switch (fichaJUno[i].value) {
                     case "1":
-                        fichaseleccionada = "images/4enlinea/Ficha-brujula.png"
-                        return fichaseleccionada
+                        fichaseleccionada = "images/4enlinea/Ficha-brujula.png";
+                        return fichaseleccionada;
                     case "2":
                         fichaseleccionada = "images/4enlinea/Ficha-calavera.png";
-                        return fichaseleccionada
+                        return fichaseleccionada;
                     case "3":
-                        fichaseleccionada = "images/4enlinea/Ficha-catalejos.png"
-                        return fichaseleccionada
+                        fichaseleccionada = "images/4enlinea/Ficha-catalejos.png";
+                        return fichaseleccionada;
                     case "4":
-                        fichaseleccionada = "images/4enlinea/Ficha-espadas.png"
-                        return fichaseleccionada
+                        fichaseleccionada = "images/4enlinea/Ficha-espadas.png";
+                        return fichaseleccionada;
                 }
             };
         }
     }
+
     /**
      * comprueba si se han elegido las mismas fichas
      * @returns {boolean}
      */
-    function checkFichaDistintas(){
-        if(fichaSelecionJuno() == fichaSelecionJdos()){       
-            return true
-        }
-        else{
-        return false
+    function checkFichaDistintas() {
+        return fichaSelecionJuno() == fichaSelecionJdos();
     }
 
-    }
     /**
      * Define el tipo de juego (4,5,6,7 en linea)
      * @return {int}
      */
     function tipoDeJuegoSeleccionado() {
         let tipoDeJuegoSeleccionado = document.tipoDeJuegoform
-        let fichaseleccionada = "";
         for (let i = 0; i < tipoDeJuegoSeleccionado.length; i++) {
-            console.log(tipoDeJuegoSeleccionado[i]);
-            if(tipoDeJuegoSeleccionado[i].checked){
-                switch(tipoDeJuegoSeleccionado[i].value){
+            if (tipoDeJuegoSeleccionado[i].checked) {
+                switch (tipoDeJuegoSeleccionado[i].value) {
                     case "4":
-                    tipoJuego = 4;
-                    break
+                        tipoJuego = 4;
+                        break
                     case "5":
-                    tipoJuego = 5;
-                    break
+                        tipoJuego = 5;
+                        break
                     case "6":
-                    tipoJuego = 6;
-                    break
+                        tipoJuego = 6;
+                        break
                     case "7":
-                    tipoJuego = 7;
-                    break
+                        tipoJuego = 7;
+                        break
                 }
             }
         }
     }
-    /**
-     * Esconde el modal de fichas iguales
-     */
-    function hiddenModal(){
-        ModalfichasIguales.style.visibility ="hidden"
-    }
 
+    /**
+    * Esconde el mensaje de fichas iguales
+    */
+    function hiddenModal() {
+        modalfichasIguales.style.display = "none";
+    }
 })
