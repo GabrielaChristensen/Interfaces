@@ -21,20 +21,31 @@
         </div>
     </div>
     <header>
-        <nav>
-            <div class="menu"><button class="menu-hamburguesa"><img src="./images/icons8-menú-64.png"
-                        alt="menu"></button></div>
-            <div class="menu-navbar">
-                <ul>
-                    <li><img src="./images/UserProfile.svg" alt="miperfil"></li>
-                    <li><a href="./index.html">Home</a></li>
-                    <li><a href="#redes">Redes</a></li>
-                    <li><a href="./index.html#novedades">Novedades</a></li>
-                    <li><a href="./index.html#categorias">Categorías</a></li>
-                    <li><a href="">Mi Perfil</a></li>
-                </ul>
+        <nav role="navigation">
+            <div id="menuToggle" >
+                <input id="input-check" type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+            
+                <div id="menu">
+                    <div class="header-menu" >
+                        <img src="./images/UserProfile.svg" alt="miperfil">
+                    </div>
+
+
+                    <ul class="">
+                        <li class="item"><a href="./index.html">Home</a></li>
+                        <li class="item"><a href="./index.html#redes">Redes</a></li>
+                        <li class="item"><a href="./index.html#novedades">Novedades</a></li>
+                        <li class="item"><a href="./index.html#categorias">Categorías</a></li>
+                        <li class="item"><a href="">Mi Perfil</a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
+       
+
         <div class="logo"><a href="./index.html"><img src="./images/Logo.svg" alt="logo"></a></div>
         <div class="userProfile"><img src="./images/UserProfile.svg" alt="UserProfile"></div>
     </header>
