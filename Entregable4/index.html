@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JuegaJueguitos!</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="contenedor-carga" class="contenedor-carga">
+        <div id="carga" class="carga">
+        </div>
+        <div class="porcentaje">
+            <p id="porcentaje-carga">0%</p>
+        </div>
+    </div>
+    <header>
+        <nav>
+            <div class="menu"><button class="menu-hamburguesa"><img src="./images/icons8-menú-64.png"
+                        alt="menu"></button></div>
+            <div class="menu-navbar">
+                <ul>
+                    <li><img src="./images/UserProfile.svg" alt="miperfil"></li>
+                    <li><a href="#redes">Redes</a></li>
+                    <li><a href="#novedades">Novedades</a></li>
+                    <li><a href="#categorias">Categorías</a></li>
+                    <li><a href="">Mi Perfil</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="logo"><a href="#"><img src="./images/Logo.svg" alt="logo"></a></div>
+        <div class="userProfile"><img src="./images/UserProfile.svg" alt="UserProfile"></div>
+    </header>
+    <div class="modal-compra" id="modal-compra">
+        <div class="contenido-modal">
+            <div>
+                <p class="titulo-juego-mobile" id="titulo-juego-mobile">Test</p>
+            </div>
+            <form action="" id="form-compra">
+                <label for="numTarjeta">Número de tarjeta</label>
+                <input type="password" name="nroTarjeta" value="1234567899999">
+                <label for="nombreTitular">Nombre del titular</label>
+                <input type="text" name="nombre" value="John Doe">
+                <div>
+                    <label for="fechaExpiracion">Fecha de expiración</label>
+                    <label for="codigoSeguridad">Código de seguridad</label>
+                </div>
+                <div>
+                    <input type="text" name="fechaExp" value="10/28">
+                    <input type="password" name="codSeg" value="123">
+                </div>
+
+                <button class="btn-comprar" type="submit">Comprar</button>
+                <button class="btn-cancelar" type="reset">Cancelar</button>
+
+            </form>
+            <div><img src="" alt="" id="imagen-compra-juego">
+                <div>
+                    <p id="titulo-juego-desktop"></p>
+                    <p id="precio-juego"></p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <section>
+        <div class="juego-sugerido">
+            <div class="texto-juego-sugerido">
+                <h1>GOD OF WAR: RAGNAROK</h1>
+                <p>Disfrutá de este nuevo recomendado!</p>
+                <p>Ayuda a Kratos y Atreus a viajar
+                    a cada uno de los Nueve Reinos
+                    y cumplir misiones.</p>
+                <div class="precioSugerido">
+                    <p id="texto-precio-juego-1">$1.599</p>
+                    <div class="contenedor-boton-juego">
+                        <button class="btn-comprar" id="btn-comprar1">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contenedor-carrousel" id="categorias">
+        <h1 class="titulo-categoria">AVENTURA</h1>
+        <div class="carrousel">
+            <div class="card-juego">
+                <img id="imagen-juego-2" src="./images/aventura/minecraft.jpg" alt="imgCarrousel">
+                <div class="info-juego">
+                    <div class="precio-juego">
+                        <h1>MINECRAFT</h1>
+                        <p id="texto-precio-juego-2">$1.600</p>
+                    </div>
+                    <div class="contenedor-boton-juego">
+                        <button class="btn-comprar" id="btn-comprar2">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-juego">
+                <img id="imagen-juego-3" src="./images/aventura/MarvelSpiderman.jpg" alt="imgCarrousel">
+                <div class="info-juego">
+                    <div class="precio-juego">
+                        <h1>SPIDERMAN</h1>
+                        <p id="texto-precio-juego-3">$1.789</p>
+                    </div>
+                    <div class="contenedor-boton-juego">
+                        <button class="btn-comprar" id="btn-comprar3">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-juego">
+                <img src="./images/aventura/red-dead-redemption-2-review.png" alt="imgCarrousel">
+                <div class="info-juego">
+                    <div class="precio-juego">
+                        <h1>RED DEAD REDEMPTION II</h1>
+                        <p>Ready to play!!</p>
+                    </div>
+                    <div class="contenedor-boton-juego">
+                        <button class="btn-jugar-verde"><img src="./images/Polygon 1.svg" alt="play">Jugar
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-juego">
+                <img id="imagen-juego-4" src="./images/aventura/the-walking-dead-the-final-season.jpg"
+                    alt="imgCarrousel">
+                <div class="info-juego">
+                    <div class="precio-juego">
+                        <h1>THE WALKING DEAD</h1>
+                        <p id="texto-precio-juego-4">$2.500</p>
+                    </div>
+                    <div class="contenedor-boton-juego">
+                        <button class="btn-comprar" id="btn-comprar4">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contenedor-carrousel">
+        <h1 class="titulo-categoria">CARRERAS</h1>
+        <div class="carrousel">
+            <div class="card-juego">
+                <img id="imagen-juego-5" src="./images/carreras/f12021.jpg" alt="imgCarrousel">
+                <div class="info-juego">
+                    <div class="precio-juego">
+                        <h1>F1 2021</h1>
+                        <p id="texto-precio-juego-5">$2.578</p>
+                    </div>
+                    <div class=" contenedor-boton-juego">
+                        <button class="btn-comprar" id="btn-comprar5">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-juego">
+                <img src="./images/carreras/burnoutparadise_remastered.png" alt="imgCarrousel">
+                <div class="info-juego">
+                    <div class="precio-juego">
+                        <h1>BURN OUT PARADISE REMASTERED</h1>
+                        <p>Ready to play!!</p>
+                    </div>
+                    <div class="contenedor-boton-juego">
+                        <button class="btn-jugar-verde"><img src="./images/Polygon 1.svg" alt="play">Jugar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-juego">
+                <img id="imagen-juego-6" src="./images/carreras/Forza-Horizon-5-Wallpapers-1.jpg" alt="imgCarrousel">
+                <div class="info-juego">
+                    <div class="precio-juego">
+                        <h1>FORZA</h1>
+                        <p id="texto-precio-juego-6">$10.655</p>
+                    </div>
+                    <div class=" contenedor-boton-juego">
+                        <button class="btn-comprar" id="btn-comprar6">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-juego">
+                <img id="imagen-juego-7" src="./images/carreras/needforspeedpayback.jpg" alt="imgCarrousel">
+                <div class="info-juego">
+                    <div class="precio-juego">
+                        <h1>NEED FOR SPEED</h1>
+                        <p id="texto-precio-juego-7">$8.642</p>
+                    </div>
+                    <div class=" contenedor-boton-juego">
+                        <button class="btn-comprar" id="btn-comprar7">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="novedades">
+        <div class="juego-coming-soon">
+            <div>
+                <img src="./images/Letras 2.png" alt="tomb-rider">
+            </div>
+            <div class="texto-juego-coming-soon">
+                <h1>COMING SOON...</h1>
+                <p>25 de Diciembre 2022</p>
+                <div>
+                    <button class="btn-info" id="btn-masinfo">+ Info</button>
+                    <button class="btn-reservar" id="btn-reservar">Reservar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contenedor-carrousel">
+        <h1 class="titulo-categoria">DEPORTES</h1>
+        <div class="carrousel">
+            <div class="card-juego">
+                <img id="imagen-juego-8" src="./images/deportes/pes2013.jpg" alt="imgCarrousel">
+                <div class="info-juego">
+                    <div class="precio-juego">
+                        <h1>PES 2013</h1>
+                        <p id="texto-precio-juego-8">$160</p>
+                    </div>
+                    <div class=" contenedor-boton-juego">
+                        <button class="btn-comprar" id="btn-comprar8">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-juego">
+                <img id="imagen-juego-9" src="./images/deportes/skatestory.jpg" alt="imgCarrousel">
+                <div class="info-juego">
+                    <div class="precio-juego">
+                        <h1>SKATE STORY</h1>
+                        <p id="texto-precio-juego-9">$1.900</p>
+                    </div>
+                    <div class=" contenedor-boton-juego">
+                        <button class="btn-comprar" id="btn-comprar9">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-juego">
+                <img src="./images/deportes/nba2k17.png" alt="imgCarrousel">
+                <div class="info-juego">
+                    <div class="precio-juego">
+                        <h1>NBA 2K17</h1>
+                        <p>Ready to play!!</p>
+                    </div>
+                    <div class="contenedor-boton-juego">
+                        <button class="btn-jugar-verde"><img src="./images/Polygon 1.svg" alt="play">Jugar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-juego">
+                <img id="imagen-juego-10" src="./images/deportes/turbogolfracing.jpg" alt="imgCarrousel">
+                <div class="info-juego">
+                    <div class="precio-juego">
+                        <h1>TURBO GOLF RACING</h1>
+                        <p id="texto-precio-juego-10">$500</p>
+                    </div>
+                    <div class=" contenedor-boton-juego">
+                        <button class="btn-comprar" id="btn-comprar10">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contenedor-carrousel" id="clasicos">
+        <h1 class="titulo-categoria">CLÁSICOS</h1>
+        <div class="carrousel">
+            <div class="card-juego">
+                <img id="imagen-juego-11" src="./images/clasicos/Pacman.jpg" alt="imgCarrousel">
+                <div class="info-juego">
+                    <div class="precio-juego">
+                        <h1>PAC-MAN</h1>
+                        <p id="texto-precio-juego-11">$560</p>
+                    </div>
+                    <div class=" contenedor-boton-juego">
+                        <button class="btn-comprar" id="btn-comprar11">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-juego">
+                <img src="./images/4enlinea/portada-pirate.png" alt="imgCarrousel">
+                <div class="info-juego">
+                    <div class="precio-juego">
+                        <h1>4 EN LÍNEA-PIRATE HUNTER</h1>
+                        <p>Ready to play!!</p>
+                    </div>
+                    <div class="contenedor-boton-juego">
+                        <button class="btn-jugar-verde" id="btn-comprar-batman"><img src="./images/Polygon 1.svg"
+                                alt="play">Jugar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-juego">
+                <img id="imagen-juego-12" src="./images/clasicos/Donkey-Kong.jpg" alt="imgCarrousel">
+                <div class="info-juego">
+                    <div class="precio-juego">
+                        <h1>DONKEY KONG</h1>
+                        <p id="texto-precio-juego-12">$1.500</p>
+                    </div>
+                    <div class=" contenedor-boton-juego">
+                        <button class="btn-comprar" id="btn-comprar12">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-juego">
+                <img id="imagen-juego-13" src="./images/clasicos/Tetris.png" alt="imgCarrousel">
+                <div class="info-juego">
+                    <div class="precio-juego">
+                        <h1>TETRIS</h1>
+                        <p id="texto-precio-juego-13">$1.000</p>
+                    </div>
+                    <div class=" contenedor-boton-juego">
+                        <button class="btn-comprar" id="btn-comprar13">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="redes">
+        <div class="footer-col-1">
+            <p>Empresa</p>
+            <p>Condiciones de uso</p>
+            <p>Política de privacidad</p>
+            <p>Cookies</p>
+            <p>Consentimiento de cookies</p>
+        </div>
+        <div class="footer-col-2">
+            <p>Idiomas</p>
+            <p>Español</p>
+            <p>Francés</p>
+            <p>Inglés</p>
+        </div>
+        <div class="footer-col-3">
+            <p>Asistencia</p>
+            <p>Ayuda</p>
+            <p>FAQ</p>
+        </div>
+        <div class="footer-col-4">
+            <p>Seguinos</p>
+            <a href="https://www.facebook.com"><img src="./images/icons8-facebook-nuevo-50.png" alt="facebook"></a>
+            <a href="https://www.instagram.com"><img src="./images/icons8-instagram-50.png" alt="instagram"></a>
+            <a href="https://www.twitter.com"><img src="./images/icons8-twitter-50.png" alt="twitter"></a>
+            <a href="https://www.youtube.com"><img src="./images/icons8-youtube-50.png" alt="youtube"></a>
+        </div>
+    </footer>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

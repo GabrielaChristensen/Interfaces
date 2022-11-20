@@ -1,0 +1,2049 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+    vertical-align: baseline;
+}
+
+*,
+*:after,
+*:before {
+    transition: 0.5s ease-in-out;
+}
+
+
+
+input {
+    height: 20px;
+    border-radius: 5px;
+}
+
+label {
+    font-size: 14px;
+}
+
+.contenedor-juego * {
+    transition: none;
+}
+
+.contenedor-carga {
+    background-color: rgba(250, 240, 245, 0.9);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    transition: all 1s ease;
+    z-index: 10000;
+    visibility: visible;
+}
+
+.contenedor-carga-hidden {
+    visibility: hidden;
+}
+
+.carga {
+    border: 8px solid #ccc;
+    border-top-color: #417D80;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    animation: girar 1.5s linear infinite;
+    transition: none;
+}
+
+.porcentaje {
+    position: absolute;
+    height: 10px;
+    width: 15px;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    transition: none;
+}
+
+.porcentaje p {
+    color: #0D4A4D;
+    transition: none;
+
+}
+
+@keyframes girar {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes scaleup {
+    0% {
+        transform: scale(1.4)
+    }
+
+    50% {
+        transform: skewX(-5deg);
+    }
+
+    100% {
+        transform: skewX(5deg);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(5deg);
+    }
+
+    50% {
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        transform: rotate(5deg);
+    }
+}
+
+body {
+    background: linear-gradient(180deg, #003133 0%, #67989A 100%);
+}
+
+
+header {
+    background-color: #003133;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* height: 60px; */
+    padding: 0.3rem;
+    padding-top: 10px;
+    z-index: 3;
+}
+
+button {
+    cursor: pointer;
+}
+
+div.menu img,
+.userProfile img {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+}
+
+div.logo img {
+    width: 90px;
+    height: 70px;
+}
+
+
+div.logo img:hover {
+    filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.30));
+    transform: scale(1.1);
+}
+
+/* 
+.menu-navbar {
+    background-color: #67989A;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 12px;
+    text-align: center;
+    padding: 8px;
+    line-height: 1.5;
+    transition: 0.5s;
+    transform: translateX(-100vw);
+    position: absolute;
+    top: 40px;
+    visibility: hidden;
+    z-index: 2;
+}
+
+.menu-navbar a:hover {
+    background-color: rgba(13, 74, 77, 0.8);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.menu-hamburguesa {
+    background-color: transparent;
+}
+
+.menu-navbar ul:first-child img {
+    width: 40px;
+    height: 40px;
+}
+
+.menu-navbar-visible {
+    width: 100px;
+    visibility: visible;
+    z-index: 2;
+    transform: translateX(0);
+}
+
+.menu-navbar ul li:first-child {
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+.menu-navbar ul li {
+    height: 20px;
+
+    padding-top: 20px;
+    padding-bottom: 10px;
+    width: 100%;
+} */
+
+
+
+h1 {
+    font-size: 12px;
+    font-weight: 500;
+    color: #ffffff;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding-bottom: 2px;
+}
+
+p,
+a {
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 11px;
+}
+
+footer {
+    background-color: #003133;
+    color: #ffffff;
+    display: grid;
+    grid-template-areas: "empresa idiomas"
+        "asistencia seguinos";
+    position: relative;
+    bottom: 0%;
+    padding: 3px;
+}
+
+footer div {
+    padding-top: 3px;
+}
+
+.footer-col-1 {
+    grid-area: empresa;
+}
+
+.footer-col-2 {
+    grid-area: idiomas;
+}
+
+.footer-col-3 {
+    grid-area: asistencia;
+}
+
+.footer-col-4 {
+    grid-area: seguinos;
+}
+
+footer p:first-child {
+    font-weight: 700;
+}
+
+footer p {
+    padding: 3px;
+}
+
+footer p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+footer p:first-child {
+    text-decoration: none;
+}
+
+footer .footer-col-4 img:hover {
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.8));
+}
+
+div.footer-col-4 img {
+    width: 40px;
+    height: 40px;
+    padding-right: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #F8C471;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar {
+    height: 7px;
+    width: 10px;
+
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px grey;
+    border-radius: 10px;
+}
+
+.btn-comprar {
+    background-color: #F5B041;
+    color: #000000;
+    font-size: 10px;
+    padding: 3px;
+    border-radius: 5px;
+    margin: 3px;
+}
+
+.btn-comprar:hover {
+    background-color: #FAD7A0;
+    transform: scale(1.1);
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+}
+
+.btn-comprar:active {
+    background-color: #D68910;
+}
+
+
+/* :active, :hover, :focus {
+    outline: 0 !important;
+    outline-offset: 0;
+}
+
+::before, ::after {
+    position: absolute;
+    content: "";
+}
+
+
+.btn-comprar {
+    position: relative;
+    display: inline-block;
+
+    background-color: #FFFFFF;
+    
+    border: none;
+    cursor: pointer;
+
+    color: #000000;
+    font-size: 10px;
+    padding: 3px;
+    border-radius: 5px;
+    margin: 3px;
+    border: 3px solid #F5B041 !important;
+  
+}
+
+.btn-comprar span {  
+    color: #000000 !important;
+    position: relative;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    top: 0; left: 0;
+    width: 100%;
+    padding: 15px 20px;
+    transition: 0.3s;
+
+    transition: 0.2s 0.1s;
+
+    
+}
+
+  
+.btn-comprar span:hover {
+    transition: 0.2s 0.1s;
+}
+
+
+
+.btn-comprar::before {
+    top:0; bottom: 0; right: 0;
+    height: 100%; width: 100%;
+    background-color:#F5B041;
+    transition: 0.3s ease-out;
+
+    font-size: 10px;
+    color: #000000 !important;
+}
+
+
+
+.btn-comprar:hover::before {
+    width: 0%;
+} */
+
+.btn-jugar-verde {
+    background: #236467;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-size: 10px;
+    padding: 3px 5px 3px 5px;
+    margin: 3px;
+    /* animation-name: rotate; */
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+.btn-jugar-verde:hover {
+    background-color: #67989A;
+    /* animation-name: scaleup; */
+    transform: scale(1.1);
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+}
+
+.btn-jugar-verde:active {
+    background-color: #0D4A4D;
+}
+
+.contenedor-boton-juego .btn-jugar-verde img {
+    width: 10px;
+    height: 10px;
+    vertical-align: middle;
+}
+
+.btn-info {
+    background-color: #236467;
+    color: #FFFFFF;
+    border-radius: 5px;
+    font-size: 10px;
+    padding: 3px 5px 3px 5px;
+    margin: 3px;
+    animation-name: rotate;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+.btn-info:hover {
+    background-color: #67989A;
+
+}
+
+.btn-info:active {
+    background-color: #003133;
+}
+
+.btn-reservar {
+    background-color: #F5B041;
+    color: #000000;
+    font-size: 10px;
+    padding: 3px;
+    margin: 3px;
+    border-radius: 5px;
+
+
+}
+
+.btn-reservar:hover {
+    background-color: #FAD7A0;
+    animation-name: scaleup;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+
+}
+
+.btn-reservar:active {
+    background-color: #D68910;
+}
+
+.juego-sugerido {
+    background-image: url("../images/godofwar.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 150px;
+    padding: 20px;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.texto-juego-sugerido {
+    width: 30%;
+    background-color: #003133;
+    opacity: 0.95;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.texto-juego-sugerido p:nth-child(3) {
+    display: none;
+}
+
+.precioSugerido {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.precioSugerido p {
+    padding-top: 5px;
+}
+
+.contenedor-carrousel {
+    background: #67989A;
+    border-radius: 4px;
+    margin: 8px 4px 8px 8px;
+    overflow-x: scroll;
+    width: auto;
+}
+
+.titulo-categoria {
+    padding-top: 4px;
+    padding-left: 4px;
+}
+
+.carrousel {
+    width: 230%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.card-juego {
+    width: calc(100% / 4);
+    display: flex;
+    flex-flow: column;
+    margin: 4px 16px 15px 8px;
+}
+
+.card-juego:hover {
+    transform: translateY(-8px);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+
+}
+
+.card-juego img {
+    height: 100px;
+    width: 100%;
+}
+
+.info-juego {
+    background-color: #003133;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    padding: 3px;
+}
+
+.precio-juego {
+    width: 60%;
+}
+
+.precio-juego p {
+    padding-left: 4px;
+}
+
+.precio-juego h1 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 120px;
+}
+
+
+.juego-coming-soon {
+    background-image: url("../images/2560x1440-px-Lara-Croft-Rise-of-the-Tomb-Raider-Tomb-Raider-video-games-685610-wallhere.com\ 1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.juego-coming-soon img {
+    width: 300px;
+}
+
+.texto-juego-coming-soon {
+    background-color: #003133;
+    opacity: 0.95;
+    width: 50%;
+    padding: 5px;
+}
+
+.texto-juego-coming-soon p {
+    color: #D3D3D3;
+}
+
+.texto-juego-coming-soon div {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-end;
+}
+
+.modal-compra {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    background-color: rgba(250, 240, 245, 0.555);
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    -webkit-transition: all 500ms ease-in;
+    -moz-transition: all 500ms ease-in;
+    transition: all 500ms ease-in;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.modal-compra-visible {
+    display: block;
+}
+
+.contenido-modal {
+    background: linear-gradient(180deg, #003133 0%, #67989A 100%);
+    margin: auto;
+    padding: 2em;
+    border: 1px solid #888;
+    flex-direction: row;
+    width: 80%;
+}
+
+.contenido-modal p {
+    padding-bottom: 10px;
+    font-size: 16px;
+}
+
+
+.btn-cancelar {
+    font-size: 17px;
+    padding: 12px 5px 12px 5px;
+    margin: 3px;
+    border-radius: 5px;
+}
+
+.btn-cancelar:hover {
+    background-color: #D3D3D3;
+}
+
+.modal-compra form label {
+    color: #ffffff;
+}
+
+.modal-compra label,
+.modal-compra input {
+    width: 100%;
+}
+
+
+.contenido-modal div {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+.contenido-modal div input {
+    width: 100%;
+}
+
+.contenido-modal div:last-child {
+    display: none;
+}
+
+.contenido-modal div input:nth-child(2),
+.contenido-modal div label:nth-child(2) {
+    margin-left: 5%;
+}
+
+.cerrar-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.modal-compra button {
+    margin-top: 10px;
+    font-size: 14px;
+    padding: 8px;
+    margin-left: 0;
+}
+
+
+@media only screen and (min-width:1024px) {
+
+    input {
+        height: 40px;
+        border-radius: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    label {
+        font-size: 18px;
+    }
+
+    .carga {
+        border: 15px solid #ccc;
+        border-top-color: #417D80;
+        height: 100px;
+        width: 100px;
+    }
+
+    .porcentaje {
+        height: 20px;
+        width: 30px;
+    }
+
+    /* .menu-navbar {
+        top: 70px
+    }
+
+    .menu-navbar-visible {
+        width: 200px
+    }
+
+    .menu-navbar ul li {
+        height: 40px;
+        padding-top: 40px;
+        padding-bottom: 20px;
+    }
+
+    .menu-navbar ul:first-child img {
+        width: 60px;
+        height: 60px;
+    } */
+
+
+    h1 {
+        font-size: 25px;
+    }
+
+    h2 {
+        font-size: 20px;
+        color: #D3D3D3;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+
+    p,
+    a {
+        font-size: 18px;
+    }
+
+    /* header {
+        height: 80px;
+    } */
+
+    div.menu img,
+    .userProfile img {
+        width: 70px;
+        height: 70px;
+    }
+
+    div.logo img {
+        width: 110px;
+        height: 70px;
+    }
+
+    /*Menú hamburguesa*/
+
+    #menuToggle{
+    display: block;
+    position: relative;
+    }
+
+    #menuToggle input
+    {
+    display: block;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+    margin-top: -5px;
+    left: 14px;
+    }
+
+    #menuToggle span
+    {
+    display: block;
+    width: 40px;
+    height: 3.8px;
+    margin-bottom: 8px;
+    margin-left: 20px;
+    position: relative;
+    background: #F5B041;
+    border-radius: 4px;
+    z-index: 10;
+    transform-origin: 1px 0px;
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+    }
+
+    #menuToggle span:first-child
+    {
+    transform-origin: 0% 0%;
+    }
+
+    #menuToggle span:nth-last-child(2)
+    {
+    transform-origin: 0% 100%;
+    }
+
+
+    #menuToggle input:checked ~ span
+    {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    }
+
+    #menuToggle input:checked ~ span:nth-last-child(3)
+    {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+    }
+
+    #menuToggle input:checked ~ span:nth-last-child(2)
+    {
+    transform: rotate(-45deg) translate(0, -0.5px);
+    }
+
+    #menu
+    {
+    position: absolute;
+    width: 21rem;
+    height: 27rem;
+    margin: -70px -7px 0px -5px;
+    background: #236467;
+    -webkit-font-smoothing: antialiased;
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+    transition: all 0.5s;
+    border-radius: 15px;
+    z-index: 1;
+    }
+
+    #menu ul{
+    margin:1rem 0 0 2rem;
+    }
+
+    #menu li
+    {
+    padding: 10px;
+    font-size: 18px;
+    width: 12rem;
+    height: 1.5rem;
+    }
+
+
+    #menu li:hover{
+    border-radius: 30px;
+    background-color: #417D80 ;
+    }
+
+    #menuToggle input:checked ~ div
+    {
+    transform: none;
+    }
+
+    .header-menu{
+    background-color: #0D4A4D;
+    justify-content: center;
+    height: 9rem;
+    }
+
+    .header-menu img{
+        width: 4rem;
+        left: 8rem;
+        top: 3rem;
+        position: relative;
+    }
+
+    .item {
+    opacity: 0;
+    transform: translateX(-20%);
+    }
+    
+    .active > ul > li  {
+      transform: translateX(20%);
+      opacity: 1;
+      left: 0px;
+    } 
+    
+
+    #menu > ul > li:firt-child  {
+      -webkit-transition-delay: 0.3s; 
+      transition-delay: 0.3s;
+    }
+    
+    #menu > ul > li:nth-child(2)
+    {
+      -webkit-transition-delay: 0.6s; 
+      transition-delay: 0.6s;
+    }
+    
+    #menu > ul > li:nth-child(3)   {
+      -webkit-transition-delay: 0.9s; 
+      transition-delay: 0.9s;
+    }
+    
+    
+    #menu > ul > li:nth-child(4)  {
+      -webkit-transition-delay: 1.2s; 
+      transition-delay: 1.2s;
+    }
+    
+    
+    #menu > ul > li:nth-child(5)  {
+      -webkit-transition-delay: 1.5s; 
+      transition-delay: 1.5s;
+    }
+
+
+    footer {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-around;
+        position: relative;
+        bottom: 0%;
+        width: 100%;
+        padding: 0;
+        height: 170px;
+    }
+
+    footer p {
+        font-size: 15px;
+    }
+
+    div.footer-col-4 img {
+        width: 35px;
+        height: 35px;
+        padding-right: 20px;
+        padding-top: 30px;
+        cursor: pointer;
+    }
+
+    footer p:first-child {
+        padding-top: 20px;
+    }
+
+    .btn-comprar {
+        font-size: 17px;
+        padding: 12px 5px 12px 5px;
+        margin: 3px;
+    }
+
+    .btn-jugar-verde {
+        font-size: 17px;
+    }
+
+    .contenedor-boton-juego .btn-jugar-verde img {
+        width: 30px;
+        height: 39px;
+        align-items: baseline;
+    }
+
+    .contenedor-boton-juego {
+        width: 30%;
+    }
+
+    .btn-info {
+        font-size: 17px;
+        padding: 10px 20px 10px 20px;
+        margin-right: 15px;
+        margin-bottom: 15px;
+    }
+
+    .btn-reservar {
+        font-size: 17px;
+        padding: 10px 20px 10px 20px;
+        margin-bottom: 15px;
+        margin-right: 15px;
+    }
+
+    .juego-sugerido {
+        height: 720px;
+    }
+
+    .texto-juego-sugerido {
+        opacity: 0.90;
+        padding: 10px;
+        margin-top: 20%;
+    }
+
+    .texto-juego-sugerido p:nth-child(3) {
+        display: block;
+    }
+
+    .precioSugerido p {
+        padding-top: 10px;
+        font-size: 20px;
+    }
+
+    .contenedor-carrousel {
+        margin: 30px 20px 30px 20px;
+        width: auto;
+        height: 450px;
+    }
+
+    .titulo-categoria {
+        padding: 15px 0px 15px 20px;
+    }
+
+    .carrousel {
+        width: 130%;
+    }
+
+    .card-juego {
+        width: calc(100% / 3);
+        height: 280px;
+        margin: 4px 16px 15px 25px;
+    }
+
+    .card-juego img {
+        height: 260px;
+    }
+
+    .info-juego {
+        padding: 10px;
+        margin-top: 4px;
+    }
+
+    .precio-juego {
+        width: 70%;
+    }
+
+    .contenedor-boton-juego button {
+        width: 100%;
+    }
+
+    .precio-juego p {
+        padding-left: 2px;
+    }
+
+    .precio-juego h1 {
+        width: 240px;
+    }
+
+    .juego-coming-soon img {
+        width: 1200px;
+    }
+
+    .texto-juego-coming-soon {
+        opacity: 0.85;
+        margin-bottom: 50px;
+    }
+
+    .texto-juego-coming-soon h1 {
+        font-size: 50px;
+        padding-left: 8px;
+    }
+
+    .texto-juego-coming-soon p {
+        padding-left: 10px;
+    }
+
+    .breadcrumb ul {
+        display: flex;
+        flex-flow: row;
+        justify-content: flex-start;
+    }
+
+    .breadcrumb ul li {
+        padding: 30px 15px 50px 15px;
+        color: #F39C12;
+    }
+
+    .breadcrumb ul li a {
+        text-decoration: none;
+        color: #F39C12;
+    }
+
+    .encabezado-4linea {
+        background-color: #417D80;
+    }
+
+    .btn-compartir {
+        background-color: #D9D9D9;
+        border-radius: 10px;
+        font-size: 17px;
+        padding: 8px;
+    }
+
+    .encabezado-4linea {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em 5em 1em 5em;
+    }
+
+    .encabezado-4linea .btn-compartir img {
+        vertical-align: middle;
+        padding-right: 5px
+    }
+
+    .btn-compartir:hover {
+        background-color: #ffffff;
+        animation-name: rotate;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in;
+    }
+
+    .contenedor-juego {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        padding: 50px 50px 0px 50px;
+        position: relative;
+        height: 600px;
+    }
+
+    .contenedor-juego:first-child {
+        position: absolute;
+    }
+
+    /* .contenedor-juego div button {
+        top: 45%;
+        position: absolute;
+        left: 43%;
+    } */
+
+    .btn-jugar-amarillo {
+        font-size: 20px;
+        border-radius: 10px;
+        color: #000000;
+        background-color: #F39C12;
+        padding: 18px 28px 18px 28px;
+        box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    }
+
+    .btn-jugar-amarillo:hover {
+        animation-name: scaleup;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in;
+    }
+
+    .btn-jugar-amarillo img {
+        width: 25px;
+        height: 25px;
+        vertical-align: text-bottom;
+        padding-right: 8px;
+    }
+
+    .parrafo-enlinea {
+        text-align: justify;
+        padding: 0em 5em 5em 5em;
+    }
+
+    .parrafo-enlinea a {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .detalle-juegopirate,
+    .instrucciones-juego,
+    .controles {
+        display: flex;
+        flex-flow: row;
+        align-items: flex-start;
+        padding-top: 20px;
+    }
+
+    .detalle-juegopirate {
+        padding-top: 5px;
+    }
+
+    .detalle-juegopirate img {
+        width: 50px;
+        height: 50px;
+        padding-right: 1em;
+        padding-left: 5.3em;
+    }
+
+    .detalle-juegopirate h2 {
+        padding-top: 14px;
+    }
+
+    .imagenes-detalle-juego {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-evenly;
+        padding-left: 1em;
+        transition: transform .2s;
+    }
+
+    .imagenes-detalle-juego img,
+    iframe {
+        height: 210px;
+        padding-right: 1em;
+    }
+
+    .imagenes-detalle-juego img:hover,
+    .imagenes-detalle-juego iframe:hover {
+        margin: 2px;
+        transform: scale(1.3);
+    }
+
+    .instrucciones-juego img {
+        width: 39px;
+        height: 37px;
+        padding-right: 1em;
+        padding-left: 5.5em;
+    }
+
+    .instrucciones-juego h2 {
+        padding-top: 5px;
+    }
+
+    .contenedor-juegoenlinea p {
+        text-align: justify;
+        padding: 1em 5em 1em 5em;
+    }
+
+    .controles img {
+        width: 39px;
+        height: 39px;
+        padding-right: 1em;
+        padding-left: 5.6em;
+    }
+
+    .controles h2 {
+        padding-top: 9px;
+        padding-bottom: 1em;
+    }
+
+    .controles-parrafos ul {
+        padding-left: 5em;
+        font-size: 18px;
+        color: #FFFFFF;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .seccion-comentarios h1 {
+        padding-left: 3.5em;
+        padding-top: 2em;
+    }
+
+    .contenedor-comentarios {
+        padding: 20px;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+    }
+
+    .comentarios {
+        background-color: #FFFFFF;
+        margin-top: 25px;
+        width: 70%;
+    }
+
+    .comentarios:hover {
+        background-color: #FAD7A0;
+    }
+
+    .comentarios div {
+        display: flex;
+        flex-flow: row;
+    }
+
+    .comentarios p {
+        color: #000000;
+        font-size: 16px;
+        text-shadow: none;
+    }
+
+    .comentarios img {
+        width: 35px;
+        height: 37px;
+    }
+
+    .comentarios div:first-child {
+        border-bottom: 1px solid #D3D3D3;
+        padding: 10px;
+    }
+
+    .comentarios div:first-child p {
+        padding: 10px;
+        font-weight: bold;
+    }
+
+    .comentarios div:last-child {
+        padding: 10px;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+
+    .comentarios div:last-child p {
+        padding-left: 45px;
+    }
+
+    .comentarios div:last-child p:last-child {
+        font-style: italic;
+        font-size: 12px;
+        color: #c7c3c3;
+    }
+
+    .contenedor-comentarios form textarea {
+        border-radius: 5px;
+        width: 96%;
+    }
+
+    textarea {
+        padding: 2%;
+    }
+
+    .contenedor-comentarios form {
+        margin-top: 25px;
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .btn-enviar {
+        margin-top: 1rem;
+        position: relative;
+        overflow: hidden;
+        width: 8rem;
+        height: 2.5rem;
+        border-radius: 2rem 2rem;
+        background-color: #236467;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+
+    .btn-enviar>a {
+        position: relative;
+        overflow: hidden;
+        color: #F2F2F2;
+        font-size: 17px;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        text-align: center;
+
+    }
+
+    .btn-enviar:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -50px;
+        bottom: 0;
+        left: 0;
+
+        border-right: 50px solid transparent;
+        border-bottom: 80px solid #0D4A4D;
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+
+    .btn-enviar:hover:before {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    .btn-enviar:hover {
+        transform: translateY(5px);
+    }
+
+    .ball {
+        position: absolute;
+        z-index: 1;
+        background-color: rgba(214, 137, 16, 0.3);
+        height: 35px;
+        width: 35px;
+        overflow: hidden;
+        border-radius: 50%;
+        transform: scale(0.5);
+        transition: transform 2s, background-color 1s;
+    }
+
+    .celd-ball {
+        background-color: rgba(103, 152, 154, 1);
+        position: relative;
+        height: 40px;
+        width: 40px;
+        z-index: 0;
+        margin: 5px;
+    }
+
+    .contenido-modal {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 0%;
+    }
+
+    .contenido-modal div:last-child {
+        display: block;
+        padding-left: 35px;
+    }
+
+    .contenido-modal div:last-child div {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        padding-left: 0;
+        border-bottom: 2px solid #fff;
+        padding-top: 10px
+    }
+
+    .modal-compra button {
+        font-size: 17px;
+        padding: 2%;
+        margin: 25px 25px 0 0;
+    }
+
+    .contenido-modal div {
+        padding-top: 0;
+    }
+
+    .CS-PCard-ponints {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(65, 125, 128, 1);
+    }
+
+    .CS-PCard-img {
+        width: 300px;
+        height: 300px;
+        background-color: rgba(103, 152, 154, 1);
+        border-radius: 10px 10px 0px 0px;
+    }
+
+    .CS-PCard-img>img {
+        width: 300px;
+    }
+
+    .CS-PCard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0px 10px;
+        transform: skewY(10deg) scale(0.9, 0.9);
+        transition-timing-function: ease-out;
+        transition: transform 1s;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+    }
+
+    .CS-PCard:hover {
+        transform: skewY(0deg) scale(1.0, 1.0);
+    }
+
+    .CS-PCard:hover .ball {
+        background-color: rgba(214, 137, 16, 1);
+        transform: scale(1);
+    }
+
+    .hide {
+        visibility: hidden;
+    }
+
+    .personajes {
+        overflow-x: scroll;
+        position: relative;
+        background-color: #0D4A4D;
+        display: flex;
+        flex-wrap: nowrap;
+        padding: 30px;
+        margin: 10px 0px 10px 30px;
+    }
+
+    .fx-overflow {
+        overflow-x: scroll;
+    }
+
+    .CS-img-wrapper {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+
+    .CS-img {
+        position: relative;
+        z-index: 0;
+        height: 500px;
+        width: 100%;
+        margin: 20px 0px;
+    }
+
+    .BG {
+        height: 500px;
+        width: 100%;
+        left: auto;
+        position: absolute;
+        z-index: 0;
+    }
+
+    .lara {
+        position: absolute;
+        z-index: 1;
+        height: 500px;
+        left: 100px;
+
+    }
+
+    .CS-humo {
+        position: absolute;
+        z-index: 2;
+        height: 300px;
+        bottom: 90px;
+        left: 10px;
+    }
+
+    .CS-img .texto-juego-coming-soon {
+        width: 500px;
+        background-color: rgba(13, 74, 77, 1);
+        position: absolute;
+        z-index: 2;
+        bottom: 90px;
+        right: 80px;
+    }
+
+    .CS-historia-wrap>p {
+        text-align: justify;
+        padding: 0px 60px 20px 90px;
+        margin-bottom: 30px;
+    }
+
+    .CS-historia {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        padding-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .CS-historia>img {
+        width: 40px;
+        height: 40px;
+        padding-right: 20px;
+        padding-left: 30px;
+    }
+
+    .feature-section {
+        display: flex;
+        justify-content: space-around;
+        margin: 40px 0px;
+    }
+
+    .feature-card {
+        background-color: #0D4A4D;
+        padding: 10px 20px;
+        border-radius: 10px;
+    }
+
+    .contenido-modal div:last-child img {
+        width: 350px;
+        height: 250px;
+        padding-bottom: 5px;
+    }
+
+    .titulo-juego-mobile {
+        display: none;
+    }
+
+    .Wrapeer-celdball {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .line-point {
+        display: flex;
+        align-items: center;
+        margin: 0px 10px;
+    }
+
+    .line-point>p {
+        width: 80px;
+        margin-right: 20px;
+    }
+
+    .CS-img {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 20px 0px;
+    }
+
+    .CS-title {
+        z-index: 2;
+        height: 200px;
+        left: 40%;
+        position: absolute;
+    }
+
+    .CS-img>.texto-juego-coming-soon {
+        background-color: rgba(13, 74, 77, 1);
+        position: absolute;
+        z-index: 2;
+        right: 200px;
+        width: 30%;
+    }
+
+    .feature-wrapper {
+        display: flex;
+    }
+
+    .feature {
+        width: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(65, 125, 128, 1);
+        border-radius: 10px;
+        padding: 10px 20px;
+        margin: 10px;
+    }
+
+    .feature:hover {
+        background-color: #236467;
+    }
+
+    .feature>p {
+        color: #D68910;
+    }
+
+    .feature>img {
+        width: 85px;
+    }
+
+
+    .FT-line {
+        height: 3px;
+        width: 120px;
+        background-color: #D68910;
+        margin: 10px;
+    }
+
+    .ModalfichasIguales {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        z-index: 2;
+    }
+
+    .ModalfichasIguales>p {
+        display: flex;
+        color: #0D4A4D;
+        width: 90%;
+        height: 20%;
+        text-shadow: none;
+        align-items: center;
+        justify-content: center;
+        padding: 8px;
+    }
+
+    .modal-4enlinea-back {
+        display: none;
+        justify-content: center;
+        position: absolute;
+        /* background-color: rgba(250, 240, 245, 0.555); */
+        padding: 30px 0px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        transition: all 500ms ease-in;
+        box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    }
+
+    .game-selectionpage {
+        background-image: url(../../Entregable3/images/4enlinea/fondo-playa.png);
+        box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+        height: 600px;
+        width: 1400px;
+        margin: 0px 50px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+    }
+
+    .contenedor-nombre {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0px 10px 3px;
+    }
+
+    .contenedor-nombre>label {
+        padding: 10px;
+        color: #ffffff;
+        text-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+        font-size: 15px;
+    }
+
+    .contenedor-nombre>.playerName {
+        height: 20px;
+        border-radius: 5px;
+        padding: 2%;
+
+    }
+
+    .player-one,
+    .player-two,
+    .game-setings {
+        background-color: rgba(13, 74, 77, 0.3);
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 10px;
+    }
+
+
+    .game-setings {
+        width: 45%;
+    }
+
+    .game-setings form {
+        margin-top: 2%;
+    }
+
+    .contendor-tipoDeJuego p {
+        margin-top: 10%;
+    }
+
+    .coin-selector {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 0px;
+    }
+
+    .contenedor-ficha {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.5s ease-in-out;
+
+    }
+
+    .ficha {
+        height: 50px;
+        width: 50px;
+        border-radius: 100%;
+        margin: 3px;
+        transition: 0.5s ease-in-out;
+
+    }
+
+    .selector-ficha {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        opacity: 0%;
+        cursor: pointer;
+        transition: 0.5s ease-in-out;
+    }
+
+    .selector-ficha+.ficha {
+        cursor: pointer;
+    }
+
+    .selector-ficha:checked+.ficha {
+        scale: 1.3;
+        transform: rotateY(180deg);
+
+    }
+
+    .tipoDejuego {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .contenedor-tablero {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .tablero-img {
+        width: 120px;
+        cursor: pointer;
+    }
+
+    .selector-tablero {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        opacity: 0%;
+        cursor: pointer;
+    }
+
+    .selector-tablero:checked+.tablero-img {
+        scale: 1.1;
+        box-shadow: 10px 10px 18px 0px rgba(0, 0, 0, 0.75);
+
+    }
+
+    /*Nuevo estilos 4 en linea*/
+
+    .breadcrum {
+        display: flex;
+        margin-bottom: 1rem;
+        margin-left: 1rem;
+        color: #F39C12 !important;
+    }
+
+
+    .breadcrum a {
+        background: linear-gradient(currentColor, currentColor) bottom / 0 .1em no-repeat;
+        transition: 1s background-size;
+        background-position: left bottom;
+        cursor: pointer;
+    }
+
+
+    .breadcrum a:hover {
+        background-size: 100% .1em;
+    }
+
+    /* .carrousel-juegos::-webkit-scrollbar {
+        height: 0.3rem;
+    }
+
+    .carrousel-juegos::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 5px #8B8A8A;
+
+    } */
+
+    /* .carrousel-juegos::-webkit-scrollbar-thumb {
+
+        background-color: #EFE83A;
+        border-radius: 2em;
+
+    } */
+
+    .carrousel>h1 {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 20px;
+        letter-spacing: 0.03em;
+        color: #F2F2F2;
+        overflow-y: hidden;
+    }
+
+    .snap-inline {
+        scroll-snap-type: inline mandatory;
+    }
+
+    .snap-inline>* {
+        scroll-snap-align: start;
+    }
+
+    .carrousel-juegos {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 3fr;
+        padding: 1rem 0rem 1rem 1rem;
+        margin: 1rem 5rem 0.5rem 5rem;
+        cursor: pointer;
+    }
+
+
+    .card-4-en-linea img {
+        cursor: pointer;
+        width: 18rem;
+        height: 13rem;
+        margin-right: 1rem;
+
+    }
+
+    .card-4-en-linea img:hover,
+    .card-4-en-linea iframe:hover {
+        transform: scale(1.1);
+    }
+
+    .card-4-en-linea iframe {
+        margin-right: 1rem;
+        width: auto;
+        height: 13rem;
+
+    }
+
+    .titulo-encabezado .like:hover {
+        transform: rotate(-30deg);
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+    }
+
+    .titulo-encabezado .dislike:hover {
+        transform: rotate(-30deg);
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+    }
+
+    .titulo-encabezado .like,
+    .dislike {
+        cursor: pointer;
+    }
+
+    .contenedor-reiniciar {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        margin-bottom: 10px;
+        visibility: hidden;
+    }
+
+
+    .btn-reiniciar>a {
+        position: relative;
+        overflow: hidden;
+        color: #F2F2F2;
+        font-size: 17px;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        text-align: center;
+    }
+
+
+    .btn-reiniciar,
+    .btn-comenzar,
+    .btn-jugar {
+        overflow: hidden;
+        margin-top: 1rem;
+        width: 8rem;
+        height: 2.5rem;
+        border-radius: 2rem 2rem;
+        background-color: #67989A;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        color: #F2F2F2;
+        font-size: 17px;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        text-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    }
+
+    .btn-reiniciar:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -50px;
+        bottom: 0;
+        left: 0;
+        border-right: 50px solid transparent;
+        border-bottom: 80px solid #417D80;
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+
+    .btn-reiniciar:hover:before {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+
+    }
+
+    .btn-reiniciar:hover {
+        transform: translateY(5px);
+    }
+
+
+    .btn-reiniciar img {
+        padding-right: 10px;
+        vertical-align: middle;
+        height: 23px;
+        width: 23px;
+    }
+
+    .btn-comenzar {
+        background-color: #236467;
+    }
+
+    .btn-comenzar>a {
+        position: relative;
+        text-align: center;
+    }
+
+    .btn-comenzar:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -50px;
+        bottom: 0;
+        left: 0;
+        border-right: 50px solid transparent;
+        border-bottom: 80px solid #0D4A4D;
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+
+    .btn-comenzar:hover:before {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    .btn-comenzar:hover {
+        transform: translateY(4px);
+    }
+
+    .btn-jugar {
+        background-color: #236467;
+        margin: 8px;
+    }
+
+    .board {
+        visibility: visible;
+    }
+
+    /*Cambie el relative por el absolute porque rompia el carrousel*/
+    .contenedor-inicio {
+        position: absolute;
+        width: 1000px;
+        height: 500px;
+    }
+
+    .contenedor-inicio img {
+        width: 100%;
+        height: auto;
+    }
+
+    .contenedor-inicio button {
+        position: absolute;
+        top: 45%;
+        left: 43%;
+        width: 10rem;
+        height: 3rem;
+        vertical-align: middle;
+
+    }
+
+    .modal-4enlinea-back::-webkit-scrollbar {
+        display: none;
+    }
+
+    .contendor-tipoDeJuego p {
+        text-align: center;
+    }
+
+
+
+
+
+}
