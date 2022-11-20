@@ -13,17 +13,17 @@
 </head>
 
 <body>
-    <header>
+    <header id="header">
         <nav role="navigation">
-            <div id="menuToggle" >
+            <div id="menuToggle" class="menu">
                 <input id="input-check" type="checkbox" />
-                <span></span>
-                <span></span>
-                <span></span>
-            
+                <span class="span-toggle"></span>
+                <span class="span-toggle"></span>
+                <span class="span-toggle"></span>
+
                 <div id="menu">
-                    <div class="header-menu" >
-                        <img src="./images/UserProfile.svg" alt="miperfil">
+                    <div class="header-menu">
+                        <img src="./images/UserProfile.svg" alt="miperfil" class="userProfile">
                     </div>
 
 
@@ -37,10 +37,10 @@
                 </div>
             </div>
         </nav>
-       
 
-        <div class="logo"><a href="./index.html"><img src="./images/Logo.svg" alt="logo"></a></div>
-        <div class="userProfile"><img src="./images/UserProfile.svg" alt="UserProfile"></div>
+
+        <div><a href="./index.html"><img src="./images/Logo.svg" alt="logo" class="logo" id="logo"></a></div>
+        <div><img src="./images/UserProfile.svg" alt="UserProfile" class="userProfile" id="userProfile"></div>
     </header>
 
     <section>
@@ -687,12 +687,12 @@
         <div class="feature-card">
             <h2>Géneros</h2>
             <div class="feature-wrapper">
-                <div class="feature">
+                <div class="feature" id="feature1">
                     <img src="./images/TombRaider/3687843_adventure_blade_dagger_knife_metal_icon.png" alt="Action">
                     <div class="FT-line"></div>
                     <p>Action</p>
                 </div>
-                <div class="feature">
+                <div class="feature" id="feature2">
                     <img src="./images/TombRaider/3687839_adventure_lumber_timber_wood_icon.png" alt="Adventure">
                     <div class="FT-line"></div>
                     <p>Adventure</p>
@@ -702,19 +702,19 @@
         <div class="feature-card">
             <h2>Características Técnicas</h2>
             <div class="feature-wrapper">
-                <div class="feature">
+                <div class="feature" id="feature-tec1">
                     <img src="./images/TombRaider/6646212_joysticks_multiplayer_players_two_videogames_icon.png"
                         alt="Action">
                     <div class="FT-line"></div>
                     <p>Multiplayer</p>
                 </div>
-                <div class="feature">
+                <div class="feature" id="feature-tec2">
                     <img src="./images/TombRaider/809511_game_gamepad_gaming_multimedia_technology_icon.png"
                         alt="Adventure">
                     <div class="FT-line"></div>
                     <p>One player</p>
                 </div>
-                <div class="feature">
+                <div class="feature" id="feature-tec3">
                     <img src="./images/TombRaider/9004701_wifi_internet_network_online_icon.png" alt="Adventure">
                     <div class="FT-line"></div>
                     <p>Online</p>
@@ -723,27 +723,67 @@
         </div>
     </section>
     <section class="CS-historia-wrap">
-        <div class="CS-historia">
-            <img src="./images/icons8-ayuda-50.png" alt="">
-            <h2>Historia del juego:</h2>
+        <div class="scroll-container">
+            <div class="contenedor-imagenes">
+                <div class="imgLara" id="imgLara1"></div>
+                <div class="imgLara imgOculta" id="imgLara2"></div>
+                <div class="imgLara imgOculta" id="imgLara4"></div>
+                <div class="imgLara imgOculta" id="imgLara3"></div>
+            </div>
+            <div class="contenedor-parrafos">
+                <h2>Shadow of the Tomb Raider: Definitive Edition</h2>
+                <div class="parrafoScroll" id="parrafo1">
+                    <p>Dos meses después de los eventos ocurridos en Rise of the Tomb Raider, Lara Croft y Jonah
+                        Maiava se
+                        dedican
+                        a buscar el rastro de La Trinidad y detener sus actividades. El rastro los lleva a la
+                        isla mexicana
+                        de
+                        Cozumel, donde el Dr. Pedro Domínguez, líder de la Trinidad, dirige una excavación en la
+                        zona.</p>
+                </div>
+                <div class="parrafoScroll parrafo-oculto" id="parrafo2">
+                    <p>Con
+                        su
+                        investigación, Lara presume que la Trinidad buscan una Ciudad Oculta y una especie de
+                        llave que
+                        guarda
+                        relación con la antigua civilización maya.
+                        Al explorar una de las excavaciones de la Trinidad durante la noche, Lara se adentra en
+                        un templo
+                        subterráneo.</p>
+                </div>
+                <div class="parrafoScroll parrafo-oculto" id="parrafo3">
+                    <p>Allí encuentra un mural que explican con todo detalle un mito maya sobre el dios
+                        Kukulkán y
+                        los
+                        desastres que desatará el apocalipsis maya. Al descifrar un acertijo, Lara toma la Daga
+                        de la diosa
+                        Ixchel
+                        (también llamada Chak Chel) para que no caiga en las manos de la Trinidad pero es
+                        interceptada por
+                        Domínguez
+                        y sus hombres. Domínguez le explica que al tomar la Daga sin tener la caja de Ixchel, ha
+                        puesto en
+                        marcha el
+                        apocalipsis y la hace responsable de las consecuencias.</p>
+                </div>
+                <div class="parrafoScroll parrafo-oculto" id="parrafo4">
+                    <p> Domínguez se lleva la Daga, diciéndole que él se encargará de revertir el proceso de
+                        destrucción
+                        para
+                        reconstruir el mundo y eliminar los defectos de la humanidad. Poco después de que
+                        Domínguez se va
+                        con
+                        sus
+                        hombres, un tsunami destruye la isla, pero Lara y Jonah sobreviven al desastre. Sin
+                        embargo, Lara se
+                        siente
+                        culpable por el resultado de sus acciones y comienzan a surgir tensiones entre ella y
+                        Jonah.</p>
+                </div>
+            </div>
         </div>
-        <p>
-            Dos meses después de los eventos ocurridos en Rise of the Tomb Raider, Lara Croft y Jonah Maiava se dedican
-            a buscar el rastro de La Trinidad y detener sus actividades. El rastro los lleva a la isla mexicana de
-            Cozumel, donde el Dr. Pedro Domínguez, líder de la Trinidad, dirige una excavación en la zona. Con su
-            investigación, Lara presume que la Trinidad buscan una Ciudad Oculta y una especie de llave que guarda
-            relación con la antigua civilización maya.
-            Al explorar una de las excavaciones de la Trinidad durante la noche, Lara se adentra en un templo
-            subterráneo. Allí encuentra un mural que explican con todo detalle un mito maya sobre el dios Kukulkán y los
-            desastres que desatará el apocalipsis maya. Al descifrar un acertijo, Lara toma la Daga de la diosa Ixchel
-            (también llamada Chak Chel) para que no caiga en las manos de la Trinidad pero es interceptada por Domínguez
-            y sus hombres. Domínguez le explica que al tomar la Daga sin tener la caja de Ixchel, ha puesto en marcha el
-            apocalipsis y la hace responsable de las consecuencias.
-            Domínguez se lleva la Daga, diciéndole que él se encargará de revertir el proceso de destrucción para
-            reconstruir el mundo y eliminar los defectos de la humanidad. Poco después de que Domínguez se va con sus
-            hombres, un tsunami destruye la isla, pero Lara y Jonah sobreviven al desastre. Sin embargo, Lara se siente
-            culpable por el resultado de sus acciones y comienzan a surgir tensiones entre ella y Jonah.
-        </p>
     </section>
     <footer id="redes">
         <div class="footer-col-1">
@@ -773,4 +813,6 @@
         </div>
     </footer>
     <script src="./js/main.js"></script>
+    <script src="./js/comingSoon/heroAnimation.js"></script>
+
 </body>
