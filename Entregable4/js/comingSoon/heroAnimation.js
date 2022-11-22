@@ -2,6 +2,55 @@
 
 
 document.addEventListener("DOMContentLoaded", () => {
+
+
+    //Personajes scroll
+
+    let laraImg= document.querySelector("#lara-img");
+    let laraPoints = document.querySelector("#lara-points");
+    let laraName = document.querySelector("#lara-name");
+
+    let johanaImg= document.querySelector("#johana-img");
+    let johanaPoints = document.querySelector("#johana-points");
+    let johanaName = document.querySelector("#johana-name");
+
+    let maxImg= document.querySelector("#max-img");
+    let maxPoints = document.querySelector("#max-points");
+    let maxName = document.querySelector("#max-name");
+
+    let pedroImg= document.querySelector("#pedro-img");
+    let pedroPoints = document.querySelector("#pedro-points");
+    let pedroName = document.querySelector("#pedro-name");
+    
+    window.addEventListener('scroll', function () {
+        var valueY = window.scrollY;
+
+        laraImg.style.left = valueY * 1.5 + 'px';
+        laraPoints.style.left = -valueY * 1.8 + 'px';
+        laraName.style.left = -valueY * 2 + 'px';
+
+
+        johanaImg.style.left = valueY * 1 + 'px';
+        johanaPoints.style.left = -valueY * 1 + 'px';
+        johanaName.style.left = -valueY * 1.2+ 'px';
+
+        maxImg.style.left = valueY * 1.45 + 'px';
+        maxPoints.style.left = -valueY * 0.95 + 'px';
+        maxName.style.left = -valueY * 1.3 + 'px';
+
+        pedroImg.style.left = valueY * 1.1 + 'px';
+        pedroPoints.style.left = -valueY * 1 + 'px';
+        pedroName.style.left = -valueY * 0.7 + 'px';
+
+
+                if (feature1) {
+            animateCards();
+            animateImages();
+        }
+        animateHeader();
+        
+    })
+    
     const feature1 = document.getElementById("feature1");
     const feature2 = document.getElementById("feature2");
     const feature3 = document.getElementById("feature-tec1");
@@ -24,13 +73,13 @@ document.addEventListener("DOMContentLoaded", () => {
     let isMoving = false;
 
 
-    window.onscroll = function () {
-        if (feature1) {
-            animateCards();
-            animateImages();
-        }
-        animateHeader();
-    };
+    // window.onscroll = function () {
+    //     if (feature1) {
+    //         animateCards();
+    //         animateImages();
+    //     }
+    //     animateHeader();
+    // };
 
 
     function animateCards() {
@@ -124,5 +173,6 @@ document.addEventListener("DOMContentLoaded", () => {
             menuElement.classList.remove('menu-sticky');
         }
     }
+
 
 });
