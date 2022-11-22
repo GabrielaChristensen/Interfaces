@@ -125,4 +125,38 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+/**
+ * Paralax
+ */
+let paralax = document.getElementById("CS-paralax");
+let hojader = document.getElementById("hojasder");
+let hojaizq = document.getElementById("hojasizq");
+let sky = document.getElementById("CS-back");
+let front = document.getElementById("CS-front");
+let lara = document.getElementById("CS-main");
+let title = document.getElementById("CS-title");
+//let scrollTimeOut = setTimeout(move ,2000)
+//window.addEventListener("scroll", move)
+window.addEventListener('scroll', move)
+function move(){
+
+        let scrolled = window.scrollY;
+        let paralaxheight =paralax.clientHeight
+        console.log(paralaxheight/3)
+        sky.style.top =scrolled*0.8+'px'
+        front.style.top =scrolled*1.1+'px'
+        lara.style.left = scrolled*0.5+'px'
+        lara.style.top=scrolled+'px'
+        title.style.top=scrolled+'px'
+        hojader.style.top=scrolled+'px'
+        hojader.style.left= scrolled*2+'px'
+        hojaizq.style.top=scrolled+'px'
+        hojaizq.style.right=scrolled*2+'px'
+        if((paralaxheight/3)<scrolled){
+            title.style.visibility="hidden"
+        }
+
+     //paralax.style.top = scrolled +'px';
+
+}
 });

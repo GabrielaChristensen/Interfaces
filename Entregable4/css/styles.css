@@ -1440,14 +1440,6 @@ div.footer-col-4 img {
 
     }
 
-    .CS-humo {
-        position: absolute;
-        z-index: 2;
-        height: 300px;
-        bottom: 90px;
-        left: 10px;
-    }
-
     .CS-img .texto-juego-coming-soon {
         width: 500px;
         background-color: rgba(13, 74, 77, 1);
@@ -1477,6 +1469,53 @@ div.footer-col-4 img {
         padding-right: 20px;
         padding-left: 30px;
     }
+/** Paralax **/
+.CS-paralax {
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    height: 200vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+    margin: 20px 0px;
+}
+.CS-paralax> img{
+    position: absolute;
+    width: inherit;
+}
+#CS-back{
+    scale: 1;
+}
+.hojadermove{
+    transition: 1.5s ease-in-out;
+    transform: translateX(100%);
+}
+.hojaizqmove{
+    transition: 1.5s ease-in-out;
+    transform: translateX(-100%);
+}.CS-humo {
+
+    animation: scroll-humo-x 30s linear infinite  ;
+    
+}
+.humo-dos{
+    animation: scroll-humo-xy 40s linear infinite;
+    height: 400px;
+}
+@keyframes scroll-humo-xy {
+    0%{transform: translateX(-150%)
+        translateY(100%);}
+    100%{transform: translateX(150%)
+        translateY(-100%);}
+    
+}
+@keyframes scroll-humo-x {
+    0%{transform: translateX(-150%);}
+    100%{transform: translateX(150%);}
+    
+}
 
     .feature-section {
         display: flex;
