@@ -9,11 +9,13 @@
     vertical-align: baseline;
 }
 
+/**
 *,
 *:after,
 *:before {
     transition: 0.5s ease-in-out;
 }
+**/
 
 
 body {
@@ -1515,6 +1517,65 @@ div.footer-col-4 img {
     0%{transform: translateX(-150%);}
     100%{transform: translateX(150%);}
     
+}
+/**Sprite**/
+#spritewrapper{
+    height: 180px;
+    width: 100%;
+    position: relative;
+    margin: 20px 0px;
+    box-shadow: 10px 10px 45px RGBA(0,0,0, 0.85);
+}
+#spritewrapper>*{
+    position: absolute;
+    
+    
+}
+#wood1{
+    height: 180px;
+    width: 100%;
+    background: url(../images/TombRaider/Spritesheet/background/background_layer_1.png) ;
+    animation: moveBG 8s linear infinite;
+
+}
+#wood2{
+    height: 180px;
+    width: 100%;
+    background: url(../images/TombRaider/Spritesheet/background/background_layer_2.png) ;
+    animation: moveBG 6s linear infinite;
+    box-shadow: 10px 10px 45px RGBA(0,0,0, 0.85) inset;
+}
+#wood3{
+    height: 180px;
+    width: 100%;
+    background: url(../images/TombRaider/Spritesheet/background/background_layer_3.png) ;
+    animation: moveBG 4s linear infinite;
+}
+@keyframes moveBG {
+    0%{background-position: 0px;}
+    100%{background-position: -320px ;}
+    
+}
+#lara-sprite{
+
+    width: 52px;
+    height: 52px;
+    bottom: 24px;
+    left: 100px;
+    background: url(../images/TombRaider/Spritesheet/SpriteLaraRun.png) ;
+    animation: laraRun 0.5s steps(4) infinite;
+
+}
+@keyframes laraRun {
+    0%{background-position: 0px;}
+    100%{background-position: -208px;}
+}
+#path{
+    height: 24px;
+    width: 100%;
+    bottom: 0px;
+    background: url(../images/TombRaider/Spritesheet/path.png);
+    animation: moveBG 2s linear infinite;
 }
 
     .feature-section {

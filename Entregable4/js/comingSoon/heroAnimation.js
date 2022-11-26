@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function animateHeader() {
-        if (window.scrollY > offsetHeader) {
+        if (window.scrollY > offsetHeader || window.scrollY > 200 )   {
             headerElement.classList.add('header-sticky');
             logoElement.classList.add('logo-sticky');
             userProfileElement.classList.add('userProfile-sticky');
