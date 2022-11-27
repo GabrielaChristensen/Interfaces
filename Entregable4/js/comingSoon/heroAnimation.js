@@ -165,8 +165,27 @@ function move(){
             coomingsoon.classList.remove('coomingsoonapper')
             coomingsoon.classList.add('coomingsoonvanish')
         }
-
-
-
 }
+/**Carousel */
+let next=document.getElementById("next")
+let prev=document.getElementById("prev")
+let carousel =document.getElementById("CS-carousel")
+next.addEventListener('click',scrolltoright)
+prev.addEventListener('click',scrolltoleft)
+function scrolltoright(){
+    carousel.scrollBy({
+        top:0,
+        left:400,
+        behavior:'smooth'
+    })
+}
+function scrolltoleft(){
+    carousel.scrollBy({
+        top:0,
+        left:-400,
+        behavior:'smooth'
+    })
+}
+
+
 });

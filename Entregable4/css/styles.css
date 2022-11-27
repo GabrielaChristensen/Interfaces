@@ -1396,6 +1396,63 @@ div.footer-col-4 img {
     .personajes >img{
         margin: 0px 10px;
     }
+    .carouselwrapper{
+        position: relative;
+        
+    }
+    .prev-next{
+        position: absolute;
+    }
+    .next{
+        left: 90vw;
+        bottom: 200px;
+        display:flex;
+        align-items: center;
+        justify-content: flex-start;
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        color: #fff;
+        background: 0 0;
+        border: 1px solid;
+        opacity: 0.8;
+        transition: opacity 0.15s ease;
+        overflow: hidden;
+        border-radius: 5px;
+    }
+    .prev{
+        display:flex;
+        align-items: center;
+        justify-content: flex-end;
+        bottom: 200px;
+        left:10vh;
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        color: #fff;
+        background: 0 0;
+        border: 1px solid;
+        opacity: 0.8;
+        transition: opacity 0.15s ease;
+        overflow: hidden;
+        border-radius: 5px;
+    }
+    .arrow{
+        position: absolute;
+        width: 40px;
+        height:40px;
+        background: linear-gradient(to top, #fff 0%,    #fff 10%, rgba(51, 51, 51, 0) 10%), 
+                    linear-gradient(to left, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%);
+        rotate:135deg;
+    }
+    .arrow2{
+        position: absolute;
+        width: 40px;
+        height:40px;
+        background: linear-gradient(to top, #fff 0%,    #fff 10%, rgba(51, 51, 51, 0) 10%), 
+                    linear-gradient(to left, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%);
+        rotate:316deg;
+    }
 
     .fx-overflow {
         overflow-x: scroll;
@@ -1418,6 +1475,48 @@ div.footer-col-4 img {
     position: absolute;
     width: inherit;
 }
+.down-icon {
+    bottom: 450px;
+    position: relative;
+    width: 26px;
+    height: 40px;
+    border: 1px solid #fff;
+    border-radius: 13px;
+    background: transparent;
+    margin: auto;
+    transition: all 0.3s;
+}
+.mousewheel{
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    background-color: #fff;
+    bottom: 0px;
+    left: 9px;
+    border-radius: 50%;
+    animation: down 1s linear infinite;
+
+}
+@keyframes down {
+    0% {
+    bottom: 35px;
+    opacity: 0.6;
+    }
+    40% {
+    bottom: 29px;
+    opacity: 0.4;
+    }
+    50% {
+    bottom: 25px;
+    opacity: 0.3;
+    }
+
+    100% {
+    bottom: 20px;
+    opacity: 0;
+    }
+}
+
 }.CS-humo {
     animation: scroll-humo-x 20s linear infinite  ;
     
