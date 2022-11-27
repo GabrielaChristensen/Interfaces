@@ -273,7 +273,7 @@ div.footer-col-4 img {
 }
 
 
-/* :active, :hover, :focus {
+/*:active, :hover, :focus {
     outline: 0 !important;
     outline-offset: 0;
 }
@@ -299,7 +299,6 @@ div.footer-col-4 img {
     border-radius: 5px;
     margin: 3px;
     border: 3px solid #F5B041 !important;
-  
 }
 
 .btn-comprar span {  
@@ -319,7 +318,6 @@ div.footer-col-4 img {
     
 }
 
-  
 .btn-comprar span:hover {
     transition: 0.2s 0.1s;
 }
@@ -985,19 +983,7 @@ div.footer-col-4 img {
         width: 1200px;
     }
 
-    .texto-juego-coming-soon {
-        opacity: 0.85;
-        margin-bottom: 50px;
-    }
 
-    .texto-juego-coming-soon h1 {
-        font-size: 50px;
-        padding-left: 8px;
-    }
-
-    .texto-juego-coming-soon p {
-        padding-left: 10px;
-    }
 
     .breadcrumb ul {
         display: flex;
@@ -1407,70 +1393,15 @@ div.footer-col-4 img {
         padding: 30px;
         margin: 10px 0px 10px 30px;
     }
+    .personajes >img{
+        margin: 0px 10px;
+    }
 
     .fx-overflow {
         overflow-x: scroll;
     }
 
-    .CS-img-wrapper {
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: center;
-    }
 
-    .CS-img {
-        position: relative;
-        z-index: 0;
-        height: 500px;
-        width: 100%;
-        margin: 20px 0px;
-    }
-
-    .BG {
-        height: 500px;
-        width: 100%;
-        left: auto;
-        position: absolute;
-        z-index: 0;
-    }
-
-    .lara {
-        position: absolute;
-        z-index: 1;
-        height: 500px;
-        left: 100px;
-
-    }
-
-    .CS-img .texto-juego-coming-soon {
-        width: 500px;
-        background-color: rgba(13, 74, 77, 1);
-        position: absolute;
-        z-index: 2;
-        bottom: 90px;
-        right: 80px;
-    }
-
-    .CS-historia-wrap>p {
-        text-align: justify;
-        padding: 0px 60px 20px 90px;
-        margin-bottom: 30px;
-    }
-
-    .CS-historia {
-        display: flex;
-        flex-flow: row;
-        align-items: center;
-        padding-top: 20px;
-        margin-bottom: 10px;
-    }
-
-    .CS-historia>img {
-        width: 40px;
-        height: 40px;
-        padding-right: 20px;
-        padding-left: 30px;
-    }
 /** Paralax **/
 .CS-paralax {
     position: relative;
@@ -1487,24 +1418,9 @@ div.footer-col-4 img {
     position: absolute;
     width: inherit;
 }
-#CS-back{
-    scale: 1;
-}
-.hojadermove{
-    transition: 1.5s ease-in-out;
-    transform: translateX(100%);
-}
-.hojaizqmove{
-    transition: 1.5s ease-in-out;
-    transform: translateX(-100%);
 }.CS-humo {
-
-    animation: scroll-humo-x 30s linear infinite  ;
+    animation: scroll-humo-x 20s linear infinite  ;
     
-}
-.humo-dos{
-    animation: scroll-humo-xy 40s linear infinite;
-    height: 400px;
 }
 @keyframes scroll-humo-xy {
     0%{transform: translateX(-150%)
@@ -1514,10 +1430,52 @@ div.footer-col-4 img {
     
 }
 @keyframes scroll-humo-x {
-    0%{transform: translateX(-150%);}
-    100%{transform: translateX(150%);}
+    0%{transform: translateX(-100%);}
+    100%{transform: translateX(100%);}
     
 }
+.CS-titlevanish{
+    transition-property: opacity, scale;
+    transition-duration: 0.4s,0.4s;
+    transition-timing-function: ease-in-out,ease-in-out;
+    opacity: 0%;
+    scale: 1.2;
+}
+.CS-titleapper{
+    transition-property: opacity, scale;
+    transition-duration: 0.4s,0.4s;
+    transition-timing-function: ease-in-out,ease-in-out;
+    opacity: 100%;
+    scale: 1;
+}
+.texto-juego-coming-soon {
+    opacity: 0%;
+    margin-bottom: 50px;
+    width: 30%;
+    height: fit-content;
+    position: absolute;
+    top: 180px;
+}
+
+.texto-juego-coming-soon h1 {
+    font-size: 50px;
+    padding-left: 8px;
+}
+
+.texto-juego-coming-soon p {
+    padding-left: 10px;
+}
+.coomingsoonapper{
+    transition: opacity 0.4s ease-in-out;
+    opacity: 85%;
+
+}
+.coomingsoonvanish{
+    transition: opacity 0.4s ease-in-out;
+    opacity: 0%;
+
+}
+
 /**Sprite**/
 #spritewrapper{
     height: 180px;
@@ -1632,13 +1590,6 @@ div.footer-col-4 img {
         position: absolute;
     }
 
-    .CS-img>.texto-juego-coming-soon {
-        background-color: rgba(13, 74, 77, 1);
-        position: absolute;
-        z-index: 2;
-        right: 200px;
-        width: 30%;
-    }
 
     .feature-wrapper {
         display: flex;
@@ -2265,4 +2216,3 @@ div.footer-col-4 img {
 
 
 
-}

@@ -135,28 +135,38 @@ let sky = document.getElementById("CS-back");
 let front = document.getElementById("CS-front");
 let lara = document.getElementById("CS-main");
 let title = document.getElementById("CS-title");
-//let scrollTimeOut = setTimeout(move ,2000)
-//window.addEventListener("scroll", move)
+let humo = document.getElementById("CS-humo")
+let coomingsoon = document.getElementById('texto-juego-coming-soon')
 window.addEventListener('scroll', move)
 function move(){
 
         let scrolled = window.scrollY;
         let paralaxheight =paralax.clientHeight
-        console.log(paralaxheight/3)
         sky.style.top =scrolled*0.8+'px'
         front.style.top =scrolled*1.1+'px'
         lara.style.left = scrolled*0.5+'px'
         lara.style.top=scrolled+'px'
         title.style.top=scrolled+'px'
+        humo.style.top = scrolled+'px'
+        coomingsoon.style.top = 180+scrolled+'px'
         hojader.style.top=scrolled+'px'
         hojader.style.left= scrolled*2+'px'
         hojaizq.style.top=scrolled+'px'
         hojaizq.style.right=scrolled*2+'px'
-        if((paralaxheight/3)<scrolled){
-            title.style.visibility="hidden"
+        if((paralaxheight/6)<scrolled){
+            title.classList.remove('CS-titleapper')
+            title.classList.add('CS-titlevanish')
+            coomingsoon.classList.add('coomingsoonapper')
+            coomingsoon.classList.remove('coomingsoonvanish')
+        }
+        if((paralaxheight/6)>scrolled){
+            title.classList.remove('CS-titlevanish')
+            title.classList.add('CS-titleapper')
+            coomingsoon.classList.remove('coomingsoonapper')
+            coomingsoon.classList.add('coomingsoonvanish')
         }
 
-     //paralax.style.top = scrolled +'px';
+
 
 }
 });
