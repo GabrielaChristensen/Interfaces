@@ -789,6 +789,7 @@ div.footer-col-4 img {
         font-size: 18px;
         width: 12rem;
         height: 1.5rem;
+        transition: 0.5s ease-in-out;
     }
 
 
@@ -1364,10 +1365,10 @@ div.footer-col-4 img {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 0px 10px;
-        transform: skewY(10deg) scale(0.9, 0.9);
-        transition-timing-function: ease-out;
-        transition: transform 1s;
+        /* margin: 0px 10px; */
+        /* transform: skewY(10deg) scale(0.9, 0.9); */
+        /* transition-timing-function: ease-out;
+        transition: transform 1s; */
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
     }
 
@@ -2294,6 +2295,7 @@ div.footer-col-4 img {
         position: sticky;
         height: 80px;
         transition: 0.3s;
+        z-index: 1000 ;
     }
 
     .logo-sticky {
@@ -2311,6 +2313,174 @@ div.footer-col-4 img {
     .menu-sticky span {
         width: 30px;
         height: 3px;
+    }
+
+    /*Seccion personajes*/
+
+    .personajes-habilidades {
+        margin-bottom: 5rem;
+    }
+    .personajes-habilidades >img{
+        margin: 0px 10px;
+    }
+
+    .title-personajes{
+        margin-top: 2rem;
+        transform: scale(0.7);
+        justify-self: center;
+        filter: grayscale(1);
+        /* filter: brightness(1); */
+        filter: drop-shadow(2px 4px 6px rgb(13,74,77,30));
+    }
+    .personaje-header{
+        display: flex;
+    }
+
+    .parallax {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height:auto;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        /* border-radius: 50px; */
+        margin-top: 5rem;
+    }
+
+    .parallax .scroll{
+        border-radius: 50px 50px 0 0 ;
+        opacity: 0.2;
+        box-shadow:
+        inset 0 -3em 3em rgba(0,0,0,0.9);
+        z-index: -1;
+        position: absolute;
+
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        pointer-events: none;
+    }
+
+    .personaje-header img{
+        width: 15rem;
+    }
+
+    #lara-img {
+        max-width: 10%;
+        height: auto;
+        top: -10%;
+        margin-left: -3980%;
+        position: relative;
+        z-index: 5;
+    }
+    
+    #lara-points {
+        max-width: 30%;
+        height: auto;
+        top: -15%;
+        margin-left: 2009%;
+        position: relative;
+        z-index: 3;
+    }
+
+    #lara-name {
+        max-width: 30%;
+        top: -100%;
+        margin-left: 2300%;
+        position: relative;
+        z-index: 4;
+        display: block;
+        padding-top: 8rem;
+        font-size: 60px;
+    }
+
+    #johana-img {
+        max-width: 10%;
+        height: auto;
+        top: -10%;
+        margin-left: -2330%;
+        position: relative;
+        z-index: 5;
+    }
+    
+    #johana-points {
+        max-width: 30%;
+        height: auto;
+        top: -15%;
+        margin-left: 1119%;
+        position: relative;
+        z-index: 3;
+    }
+
+    #johana-name {
+        max-width: 30%;
+        top: -100%;
+        margin-left: 1279%;
+        position: relative;
+        z-index: 4;
+        display: block;
+        padding-top: 8rem;
+        font-size: 60px;
+    }
+
+    #max-img {
+        max-width: 10%;
+        height: auto;
+        top: -10%;
+        margin-left: -2510%;
+        position: relative;
+        z-index: 5;
+    }
+    
+    #max-points {
+        max-width: 30%;
+        height: auto;
+        top: -15%;
+        margin-left: 929%;
+        position: relative;
+        z-index: 3;
+    }
+
+    #max-name {
+        max-width: 30%;
+        top: -100%;
+        margin-left: 1190%;
+        position: relative;
+        z-index: 4;
+        display: block;
+        padding-top: 8rem;
+        font-size: 60px;
+    }
+
+    #pedro-img {
+        max-width: 10%;
+        height: auto;
+        top: -10%;
+        margin-left: -2610%;
+        position: relative;
+        z-index: 5;
+    }
+    
+    #pedro-points {
+        max-width: 30%;
+        height: auto;
+        top: -15%;
+        margin-left: 1490%;
+        position: relative;
+        z-index: 3;
+    }
+
+    #pedro-name {
+        max-width: 30%;
+        top: -100%;
+        margin-left: 1020%;
+        position: relative;
+        z-index: 4;
+        display: block;
+        padding-top: 8rem;
+        font-size: 60px;
     }
 
 

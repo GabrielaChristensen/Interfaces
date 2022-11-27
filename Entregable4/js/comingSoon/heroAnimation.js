@@ -20,11 +20,53 @@ document.addEventListener("DOMContentLoaded", () => {
     const userProfileElement = document.getElementById("userProfile");
     const logoElement = document.getElementById("logo");
 
+        //Personajes scroll
+
+        let laraImg= document.querySelector("#lara-img");
+        let laraPoints = document.querySelector("#lara-points");
+        let laraName = document.querySelector("#lara-name");
+    
+        let johanaImg= document.querySelector("#johana-img");
+        let johanaPoints = document.querySelector("#johana-points");
+        let johanaName = document.querySelector("#johana-name");
+    
+        let maxImg= document.querySelector("#max-img");
+        let maxPoints = document.querySelector("#max-points");
+        let maxName = document.querySelector("#max-name");
+    
+        let pedroImg= document.querySelector("#pedro-img");
+        let pedroPoints = document.querySelector("#pedro-points");
+        let pedroName = document.querySelector("#pedro-name");
+
     const offsetHeader = headerElement.offsetTop;
     let isMoving = false;
 
 
     window.onscroll = function () {
+
+        var valueY = window.scrollY;
+
+        laraImg.style.left = valueY * 1.5 + 'px';
+        laraPoints.style.left = -valueY * 1.8 + 'px';
+        laraName.style.left = -valueY * 2.1 + 'px';
+
+
+        johanaImg.style.left = valueY * 1 + 'px';
+        johanaPoints.style.left = -valueY * 1 + 'px';
+        johanaName.style.left = -valueY * 1.2+ 'px';
+
+        maxImg.style.left = valueY * 1.45 + 'px';
+        maxPoints.style.left = -valueY * 0.95 + 'px';
+        maxName.style.left = -valueY * 1.3 + 'px';
+
+        pedroImg.style.left = valueY * 1.1 + 'px';
+        pedroPoints.style.left = -valueY * 1 + 'px';
+        pedroName.style.left = -valueY * 0.7 + 'px';
+
+
+
+
+
         if (feature1) {
             animateCards();
             animateImages();
