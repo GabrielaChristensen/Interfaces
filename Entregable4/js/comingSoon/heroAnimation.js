@@ -216,6 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let next = document.getElementById("next")
     let prev = document.getElementById("prev")
     let carousel = document.getElementById("CS-carousel")
+    let photo = document.querySelectorAll(".photo")
     if (next) {
         next.addEventListener('click', scrolltoright)
     }
@@ -228,6 +229,14 @@ document.addEventListener("DOMContentLoaded", () => {
             left: 400,
             behavior: 'smooth'
         })
+        photo.forEach(element => {
+            element.classList.add('photoefect') 
+            setTimeout(() => {
+                element.classList.remove('photoefect') 
+            }, 1000);
+            
+        });
+        
     }
     function scrolltoleft() {
         carousel.scrollBy({
@@ -235,6 +244,14 @@ document.addEventListener("DOMContentLoaded", () => {
             left: -400,
             behavior: 'smooth'
         })
+        photo.forEach(element => {
+            element.classList.add('photoefect') 
+            setTimeout(() => {
+                element.classList.remove('photoefect') 
+            }, 1000);
+    
+            
+        });
     }
 
 
