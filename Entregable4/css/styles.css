@@ -401,10 +401,12 @@ div.footer-col-4 img {
     margin: 3px;
     border-radius: 5px;
 }
-.btn-reservar:hover{
+
+.btn-reservar:hover {
     color: transparent;
 }
-.btn-reservar::after{
+
+.btn-reservar::after {
     position: absolute;
     content: "";
     width: 1%;
@@ -414,9 +416,9 @@ div.footer-col-4 img {
     z-index: 1;
     background-color: rgb(241, 201, 136);
     border-radius: 5px;
-    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-    7px 7px 20px 0px rgba(0,0,0,.1),
-    4px 4px 5px 0px rgba(0,0,0,.1);
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+        7px 7px 20px 0px rgba(0, 0, 0, .1),
+        4px 4px 5px 0px rgba(0, 0, 0, .1);
     transition: all 0.4s ease;
     display: flex;
     align-items: center;
@@ -429,7 +431,7 @@ div.footer-col-4 img {
     color: #000000;
     width: 100%;
     font-size: 17px;
-    content:"Reseva ya !";
+    content: "Reseva ya !";
 }
 
 .btn-reservar:active {
@@ -1417,11 +1419,11 @@ div.footer-col-4 img {
         margin: 10px 0px 10px 30px;
     }
 
-    .personajes >img{
+    .personajes>img {
         position: relative;
         margin: 0px 10px;
         border-radius: 3%;
-        box-shadow: 6px 7px 11px 1px rgba(0,0,0,0.75);
+        box-shadow: 6px 7px 11px 1px rgba(0, 0, 0, 0.75);
     }
 
     .carouselwrapper {
@@ -1442,7 +1444,7 @@ div.footer-col-4 img {
         position: absolute;
         width: 60px;
         height: 60px;
-        color: #fff;
+        color: #F8C471;
         background: 0 0;
         border: 1px solid;
         opacity: 0.8;
@@ -1450,7 +1452,8 @@ div.footer-col-4 img {
         overflow: hidden;
         border-radius: 5px;
     }
-    .next::after{
+
+    .next::after {
         position: absolute;
         content: "";
         width: 1%;
@@ -1458,21 +1461,23 @@ div.footer-col-4 img {
         top: 0;
         left: 0;
         z-index: -1;
-        background-color: rgba(243, 228, 203, 0.788);
+        background-color: rgb(103 152 154);
         border-radius: 5px;
-        box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-        7px 7px 20px 0px rgba(0,0,0,.1),
-        4px 4px 5px 0px rgba(0,0,0,.1);
+        box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+            7px 7px 20px 0px rgba(0, 0, 0, .1),
+            4px 4px 5px 0px rgba(0, 0, 0, .1);
         transition: all 0.4s ease;
         display: flex;
         align-items: center;
         justify-content: center;
     }
+
     .next:hover::after {
         left: 0;
         color: #000000;
         width: 100%;
     }
+
     .prev {
         display: flex;
         align-items: center;
@@ -1482,7 +1487,7 @@ div.footer-col-4 img {
         position: absolute;
         width: 60px;
         height: 60px;
-        color: #fff;
+        color: #F8C471;
         background: 0 0;
         border: 1px solid;
         opacity: 0.8;
@@ -1490,7 +1495,8 @@ div.footer-col-4 img {
         overflow: hidden;
         border-radius: 5px;
     }
-    .prev::after{
+
+    .prev::after {
         position: absolute;
         content: "";
         width: 1%;
@@ -1498,27 +1504,29 @@ div.footer-col-4 img {
         top: 0;
         right: 0;
         z-index: -1;
-        background-color: rgba(243, 228, 203, 0.788);
+        background-color: rgb(103 152 154);
         border-radius: 5px;
-        box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-        7px 7px 20px 0px rgba(0,0,0,.1),
-        4px 4px 5px 0px rgba(0,0,0,.1);
+        box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+            7px 7px 20px 0px rgba(0, 0, 0, .1),
+            4px 4px 5px 0px rgba(0, 0, 0, .1);
         transition: all 0.4s ease;
         display: flex;
         align-items: center;
         justify-content: center;
     }
+
     .prev:hover::after {
         right: 0;
         color: #000000;
         width: 100%;
     }
+
     .arrow {
         position: absolute;
         width: 40px;
         height: 40px;
-        background: linear-gradient(to top, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%),
-            linear-gradient(to left, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%);
+        background: linear-gradient(to top, #F8C471 0%, #F8C471 10%, rgba(51, 51, 51, 0) 10%),
+            linear-gradient(to left, #F8C471 0%, #F8C471 10%, rgba(51, 51, 51, 0) 10%);
         rotate: 135deg;
     }
 
@@ -1526,25 +1534,47 @@ div.footer-col-4 img {
         position: absolute;
         width: 40px;
         height: 40px;
-        background: linear-gradient(to top, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%),
-            linear-gradient(to left, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%);
+        background: linear-gradient(to top, #F8C471 0%, #F8C471 10%, rgba(51, 51, 51, 0) 10%), linear-gradient(to left, #F8C471 0%, #F8C472 10%, rgba(51, 51, 51, 0) 10%);
         rotate: 316deg;
     }
-    .photoefect{
+
+    .photoefect {
         transition: 0.2s ease-in;
         animation: sepia 0.5s linear;
     }
+
     @keyframes sepia {
-        0%{ filter: sepia(0%) blur(1px);
-            top: 0px;}
-        20%{top: 5px;}    
-        40%{top: -5px;}    
-        60%{top: 5px;}    
-        70%{filter: sepia(100%) blur(3px);}
-        80%{top: -5px;}
-        100%{filter: sepia(0%) blur(0px);
-            top: 0px;}
+        0% {
+            filter: sepia(0%) blur(1px);
+            top: 0px;
+        }
+
+        20% {
+            top: 5px;
+        }
+
+        40% {
+            top: -5px;
+        }
+
+        60% {
+            top: 5px;
+        }
+
+        70% {
+            filter: sepia(100%) blur(3px);
+        }
+
+        80% {
+            top: -5px;
+        }
+
+        100% {
+            filter: sepia(0%) blur(0px);
+            top: 0px;
+        }
     }
+
     .fx-overflow {
         overflow-x: scroll;
     }
@@ -1658,22 +1688,26 @@ div.footer-col-4 img {
     opacity: 100%;
     scale: 1;
 }
-.juego-coming-soon-home{
+
+.juego-coming-soon-home {
     background-image: url(../images/2560x1440-px-Lara-Croft-Rise-of-the-Tomb-Raider-Tomb-Raider-video-games-685610-wallhere.com\ 1.png);
     background-size: cover;
     background-repeat: no-repeat;
     padding: 20px;
     box-shadow: inset 0px 4px 4px rgb(0 0 0 / 25%);
 }
-.juego-coming-soon-home img{
+
+.juego-coming-soon-home img {
     width: 1200px
 }
-.texto-juego-coming-soon-home{
+
+.texto-juego-coming-soon-home {
     opacity: 0.85;
     margin-bottom: 50px;
     width: 50%;
     padding: 5px;
 }
+
 .texto-juego-coming-soon-home h1 {
     font-size: 50px;
     padding-left: 8px;
@@ -1682,11 +1716,13 @@ div.footer-col-4 img {
 .texto-juego-coming-soon-home p {
     padding-left: 10px;
 }
-.texto-juego-coming-soon-home div{
+
+.texto-juego-coming-soon-home div {
     display: flex;
     flex-flow: row;
     justify-content: flex-end;
 }
+
 .texto-juego-coming-soon {
     opacity: 0%;
     margin-bottom: 50px;
@@ -1704,6 +1740,7 @@ div.footer-col-4 img {
 .texto-juego-coming-soon p {
     padding-left: 10px;
 }
+
 .CS-img .texto-juego-coming-soon {
     width: 500px;
     background-color: rgba(13, 74, 77, 1);
@@ -1712,6 +1749,7 @@ div.footer-col-4 img {
     bottom: 90px;
     right: 80px;
 }
+
 .CS-img>.texto-juego-coming-soon {
     background-color: rgba(13, 74, 77, 1);
     position: absolute;
@@ -2531,8 +2569,7 @@ div.imgLara:nth-child(4) {
 .parallax .scroll {
     border-radius: 50px 50px 0 0;
     opacity: 0.2;
-    box-shadow:
-        inset 0 -3em 3em rgba(0, 0, 0, 0.9);
+    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.9);
     z-index: -1;
     position: absolute;
 

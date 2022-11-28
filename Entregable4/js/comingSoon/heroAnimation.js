@@ -2,6 +2,8 @@
 
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    //cards, imgs de lara y parrafos
     const feature1 = document.getElementById("feature1");
     const feature2 = document.getElementById("feature2");
     const feature3 = document.getElementById("feature-tec1");
@@ -42,9 +44,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let isMoving = false;
 
 
+
     window.onscroll = function () {
 
-        var valueY = window.scrollY;
+        let valueY = window.scrollY;
         if (feature1) {
 
             laraImg.style.left = valueY * 1.5 + 'px';
@@ -67,8 +70,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
-
-
         if (feature1) {
             animateCards();
             animateImages();
@@ -76,7 +77,9 @@ document.addEventListener("DOMContentLoaded", () => {
         animateHeader();
     };
 
-
+    /**
+     * animacion de cards que aparecen rotando desde afuera mientras se scrollea
+     */
     function animateCards() {
         if (window.scrollY > 750 && window.scrollY < 2500 && !isMoving) {
             isMoving = true;
@@ -87,10 +90,13 @@ document.addEventListener("DOMContentLoaded", () => {
             feature5.classList.toggle('ftecnicas');
             setTimeout(() => {
                 isMoving = false;
-            }, 2000);
+            }, 1500);
         }
     }
 
+    /**
+     * animacion de imagenes y parrafos que se alternan segun el scroll
+     */
     function animateImages() {
         const imgLara1Visible = visibleElement(1, window.scrollY);
         const imgLara2Visible = visibleElement(2, window.scrollY);
@@ -140,6 +146,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    /**
+     * chequea si el elemento esta visible segun el scroll
+     */
     function visibleElement(elemento = 1, scrollY) {
         switch (elemento) {
             case 1:
@@ -155,6 +164,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    /**
+     * achica el header cuando se scrollea y al llegar arriba vuelve a su alto de inicio
+     */
     function animateHeader() {
         if (window.pageYOffset > offsetHeader) {
             headerElement.classList.add('header-sticky');
@@ -170,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /**
-     * Paralax
+     * Parallax on scrolling
      */
     let paralax = document.getElementById("CS-paralax");
     let hojader = document.getElementById("hojasder");
@@ -212,7 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     }
-    /**Carousel */
+    /** evento click en flechas del Carrousel */
     let next = document.getElementById("next")
     let prev = document.getElementById("prev")
     let carousel = document.getElementById("CS-carousel")
@@ -223,6 +235,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (prev) {
         prev.addEventListener('click', scrolltoleft)
     }
+
     function scrolltoright() {
         carousel.scrollBy({
             top: 0,
@@ -230,14 +243,15 @@ document.addEventListener("DOMContentLoaded", () => {
             behavior: 'smooth'
         })
         photo.forEach(element => {
-            element.classList.add('photoefect') 
+            element.classList.add('photoefect')
             setTimeout(() => {
-                element.classList.remove('photoefect') 
+                element.classList.remove('photoefect')
             }, 1000);
-            
+
         });
-        
+
     }
+
     function scrolltoleft() {
         carousel.scrollBy({
             top: 0,
@@ -245,12 +259,12 @@ document.addEventListener("DOMContentLoaded", () => {
             behavior: 'smooth'
         })
         photo.forEach(element => {
-            element.classList.add('photoefect') 
+            element.classList.add('photoefect')
             setTimeout(() => {
-                element.classList.remove('photoefect') 
+                element.classList.remove('photoefect')
             }, 1000);
-    
-            
+
+
         });
     }
 
