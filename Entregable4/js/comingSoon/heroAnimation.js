@@ -20,23 +20,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const userProfileElement = document.getElementById("userProfile");
     const logoElement = document.getElementById("logo");
 
-        //Personajes scroll
+    //Personajes scroll
 
-        let laraImg= document.querySelector("#lara-img");
-        let laraPoints = document.querySelector("#lara-points");
-        let laraName = document.querySelector("#lara-name");
-    
-        let johanaImg= document.querySelector("#johana-img");
-        let johanaPoints = document.querySelector("#johana-points");
-        let johanaName = document.querySelector("#johana-name");
-    
-        let maxImg= document.querySelector("#max-img");
-        let maxPoints = document.querySelector("#max-points");
-        let maxName = document.querySelector("#max-name");
-    
-        let pedroImg= document.querySelector("#pedro-img");
-        let pedroPoints = document.querySelector("#pedro-points");
-        let pedroName = document.querySelector("#pedro-name");
+    let laraImg = document.querySelector("#lara-img");
+    let laraPoints = document.querySelector("#lara-points");
+    let laraName = document.querySelector("#lara-name");
+
+    let johanaImg = document.querySelector("#johana-img");
+    let johanaPoints = document.querySelector("#johana-points");
+    let johanaName = document.querySelector("#johana-name");
+
+    let maxImg = document.querySelector("#max-img");
+    let maxPoints = document.querySelector("#max-points");
+    let maxName = document.querySelector("#max-name");
+
+    let pedroImg = document.querySelector("#pedro-img");
+    let pedroPoints = document.querySelector("#pedro-points");
+    let pedroName = document.querySelector("#pedro-name");
 
     const offsetHeader = headerElement.offsetTop;
     let isMoving = false;
@@ -45,25 +45,27 @@ document.addEventListener("DOMContentLoaded", () => {
     window.onscroll = function () {
 
         var valueY = window.scrollY;
+        if (feature1) {
 
-        laraImg.style.left = valueY * 1.5 + 'px';
-        laraPoints.style.left = -valueY * 1.8 + 'px';
-        laraName.style.left = -valueY * 2.1 + 'px';
-
-
-        johanaImg.style.left = valueY * 1 + 'px';
-        johanaPoints.style.left = -valueY * 1 + 'px';
-        johanaName.style.left = -valueY * 1.2+ 'px';
-
-        maxImg.style.left = valueY * 1.45 + 'px';
-        maxPoints.style.left = -valueY * 0.95 + 'px';
-        maxName.style.left = -valueY * 1.3 + 'px';
-
-        pedroImg.style.left = valueY * 1.1 + 'px';
-        pedroPoints.style.left = -valueY * 1 + 'px';
-        pedroName.style.left = -valueY * 0.7 + 'px';
+            laraImg.style.left = valueY * 1.5 + 'px';
+            laraPoints.style.left = -valueY * 1.8 + 'px';
+            laraName.style.left = -valueY * 2.1 + 'px';
 
 
+            johanaImg.style.left = valueY * 1 + 'px';
+            johanaPoints.style.left = -valueY * 1 + 'px';
+            johanaName.style.left = -valueY * 1.2 + 'px';
+
+            maxImg.style.left = valueY * 1.45 + 'px';
+            maxPoints.style.left = -valueY * 0.95 + 'px';
+            maxName.style.left = -valueY * 1.3 + 'px';
+
+            pedroImg.style.left = valueY * 1.1 + 'px';
+            pedroPoints.style.left = -valueY * 1 + 'px';
+            pedroName.style.left = -valueY * 0.7 + 'px';
+
+
+        }
 
 
 
@@ -76,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     function animateCards() {
-        if (window.scrollY > 500 && window.scrollY < 1500 && !isMoving) {
+        if (window.scrollY > 750 && window.scrollY < 2500 && !isMoving) {
             isMoving = true;
             feature1.classList.toggle('fgeneros');
             feature2.classList.toggle('fgeneros');
@@ -141,20 +143,20 @@ document.addEventListener("DOMContentLoaded", () => {
     function visibleElement(elemento = 1, scrollY) {
         switch (elemento) {
             case 1:
-                return scrollY <= 1600 && scrollY > 0;
+                return scrollY <= 2400 && scrollY > 0;
             case 2:
-                return scrollY > 1600 && scrollY <= 1950;
+                return scrollY > 2400 && scrollY <= 2550;
             case 3:
-                return scrollY > 1950 && scrollY <= 2300;
+                return scrollY > 2850 && scrollY <= 3100;
             case 4:
-                return scrollY > 2300 && scrollY <= 2350;
+                return scrollY > 3100 && scrollY <= 3350;
             default:
                 break;
         }
     }
 
     function animateHeader() {
-        if (window.scrollY > offsetHeader || window.scrollY > 200 )   {
+        if (window.pageYOffset > offsetHeader) {
             headerElement.classList.add('header-sticky');
             logoElement.classList.add('logo-sticky');
             userProfileElement.classList.add('userProfile-sticky');
@@ -167,67 +169,73 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-/**
- * Paralax
- */
-let paralax = document.getElementById("CS-paralax");
-let hojader = document.getElementById("hojasder");
-let hojaizq = document.getElementById("hojasizq");
-let sky = document.getElementById("CS-back");
-let front = document.getElementById("CS-front");
-let lara = document.getElementById("CS-main");
-let title = document.getElementById("CS-title");
-let humo = document.getElementById("CS-humo")
-let coomingsoon = document.getElementById('texto-juego-coming-soon')
-window.addEventListener('scroll', move)
-function move(){
+    /**
+     * Paralax
+     */
+    let paralax = document.getElementById("CS-paralax");
+    let hojader = document.getElementById("hojasder");
+    let hojaizq = document.getElementById("hojasizq");
+    let sky = document.getElementById("CS-back");
+    let front = document.getElementById("CS-front");
+    let lara = document.getElementById("CS-main");
+    let title = document.getElementById("CS-title");
+    let humo = document.getElementById("CS-humo")
+    let coomingsoon = document.getElementById('texto-juego-coming-soon')
+    window.addEventListener('scroll', move)
+    function move() {
+        if (paralax) {
 
-        let scrolled = window.scrollY;
-        let paralaxheight =paralax.clientHeight
-        sky.style.top =scrolled*0.8+'px'
-        front.style.top =scrolled*1.1+'px'
-        lara.style.left = scrolled*0.5+'px'
-        lara.style.top=scrolled+'px'
-        title.style.top=scrolled+'px'
-        humo.style.top = scrolled+'px'
-        coomingsoon.style.top = 180+scrolled+'px'
-        hojader.style.top=scrolled+'px'
-        hojader.style.left= scrolled*2+'px'
-        hojaizq.style.top=scrolled+'px'
-        hojaizq.style.right=scrolled*2+'px'
-        if((paralaxheight/6)<scrolled){
-            title.classList.remove('CS-titleapper')
-            title.classList.add('CS-titlevanish')
-            coomingsoon.classList.add('coomingsoonapper')
-            coomingsoon.classList.remove('coomingsoonvanish')
+            let scrolled = window.scrollY;
+            let paralaxheight = paralax.clientHeight
+            sky.style.top = scrolled * 0.8 + 'px'
+            front.style.top = scrolled * 1.1 + 'px'
+            lara.style.left = scrolled * 0.5 + 'px'
+            lara.style.top = scrolled + 'px'
+            title.style.top = scrolled + 'px'
+            humo.style.top = scrolled + 'px'
+            coomingsoon.style.top = 180 + scrolled + 'px'
+            hojader.style.top = scrolled + 'px'
+            hojader.style.left = scrolled * 2 + 'px'
+            hojaizq.style.top = scrolled + 'px'
+            hojaizq.style.right = scrolled * 2 + 'px'
+            if ((paralaxheight / 6) < scrolled) {
+                title.classList.remove('CS-titleapper')
+                title.classList.add('CS-titlevanish')
+                coomingsoon.classList.add('coomingsoonapper')
+                coomingsoon.classList.remove('coomingsoonvanish')
+            }
+            if ((paralaxheight / 6) > scrolled) {
+                title.classList.remove('CS-titlevanish')
+                title.classList.add('CS-titleapper')
+                coomingsoon.classList.remove('coomingsoonapper')
+                coomingsoon.classList.add('coomingsoonvanish')
+            }
         }
-        if((paralaxheight/6)>scrolled){
-            title.classList.remove('CS-titlevanish')
-            title.classList.add('CS-titleapper')
-            coomingsoon.classList.remove('coomingsoonapper')
-            coomingsoon.classList.add('coomingsoonvanish')
-        }
-}
-/**Carousel */
-let next=document.getElementById("next")
-let prev=document.getElementById("prev")
-let carousel =document.getElementById("CS-carousel")
-next.addEventListener('click',scrolltoright)
-prev.addEventListener('click',scrolltoleft)
-function scrolltoright(){
-    carousel.scrollBy({
-        top:0,
-        left:400,
-        behavior:'smooth'
-    })
-}
-function scrolltoleft(){
-    carousel.scrollBy({
-        top:0,
-        left:-400,
-        behavior:'smooth'
-    })
-}
+    }
+    /**Carousel */
+    let next = document.getElementById("next")
+    let prev = document.getElementById("prev")
+    let carousel = document.getElementById("CS-carousel")
+    if (next) {
+        next.addEventListener('click', scrolltoright)
+    }
+    if (prev) {
+        prev.addEventListener('click', scrolltoleft)
+    }
+    function scrolltoright() {
+        carousel.scrollBy({
+            top: 0,
+            left: 400,
+            behavior: 'smooth'
+        })
+    }
+    function scrolltoleft() {
+        carousel.scrollBy({
+            top: 0,
+            left: -400,
+            behavior: 'smooth'
+        })
+    }
 
 
 });
